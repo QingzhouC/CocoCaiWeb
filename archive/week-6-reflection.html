@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<meta name="copyright" content="© 2026 Qingzhou Cai. All rights reserved." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>coco. / Week 6 reflection</title>
+  <meta name="theme-color" content="#fafafa" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Kalam:wght@300;400&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="rs-page">
+  <header class="nav is-scrolled" id="nav">
+    <div class="nav__left">
+      
+      <a href="../archive.html#ug/y2/cc2" class="nav__back" id="back" aria-label="back">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      </a>
+      <a href="../index.html" class="nav__logo">c<span>.</span></a>
+    </div>
+    <nav class="nav__links" id="navLinks">
+      <a href="../index.html#about" data-i18n="nav.about">about</a>
+      <a href="../index.html#projects" data-i18n="nav.projects">projects</a>
+      <a href="../index.html#experience" data-i18n="nav.experience">experience</a>
+      <a href="../index.html#blog" data-i18n="nav.blog">blog</a>
+      <a href="../index.html#contact" data-i18n="nav.contact">contact</a>
+      <a href="../archive.html" class="nav__archive is-active" data-i18n="nav.archive">archive</a>
+    </nav>
+    <div class="nav__right">
+      <button class="lang" id="langToggle" aria-label="switch language">
+        <span data-lang="en">EN</span><span class="lang__slash">/</span><span data-lang="zh">中</span>
+      </button>
+      <button class="nav__burger" id="burger" aria-label="open menu"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="rs post">
+    <div class="rs__head">
+      <p class="rs__crumb"><a href="../archive.html" data-i18n="ar.title">archive</a><span>/</span><a href="../archive.html#ug/y2/cc2"><span class="t-en">year 2 · creative computing ii: applied programming</span><span class="t-zh">二年级 · 创意计算 II：应用编程</span></a></p>
+      <h1 class="post__title">Week 6 reflection</h1>
+      <p class="post__meta"><span class="t-en">11 jan 2026</span><span class="t-zh">2026 年 1 月 11 日</span> · <span class="t-en">3 min read</span><span class="t-zh">约 3 分钟读完</span></p>
+      <p class="post__note t-zh">这篇文章写于在学校的课程期间，原文是英文。</p>
+    </div>
+    <article class="prose">
+<h2>Image Manipulation via Array Slicing</h2>
+<h2><strong>Original Image</strong></h2>
+<p>The original image used for this experiment is Hydrangea.</p>
+<figure><img alt="" height="1024" loading="lazy" src="../assets/archive/2026/01/flower-1024x1024.jpg" width="1024"/></figure>
+<h2>Initial Exploration (In-Class Techniques)</h2>
+<p>I first implemented the three core techniques learned in class to understand the basics of NumPy indexing and slicing.</p>
+<ul>
+<li><strong>Red Stripe (Partial Assignment)</strong>: By using <code>red[:150, :, 0] = 255</code>, I learned how to target a specific spatial region (the top 150 pixels) and a specific colour channel (Red) to force a maximum intensity value.</li>
+</ul>
+<figure><img alt="" height="1024" loading="lazy" src="../assets/archive/2026/01/redstripe-1024x1024.jpg" width="1024"/></figure>
+<ul>
+<li><strong>Mirroring (Axis Reversal)</strong>: Using <code>img[:, ::-1, ]</code> with <code>np.hstack</code>, I explored how reversing the order of elements along the horizontal axis creates a symmetrical reflection.</li>
+</ul>
+<figure><img alt="" height="512" loading="lazy" src="../assets/archive/2026/01/mirror-1024x512.jpg" width="1024"/></figure>
+<ul>
+<li><strong>Channel Remix (Axis Permutation)</strong>: Using <code>img[..., [1, 2, 0]]</code>, I learned how to reorder the entire color depth, effectively swapping Red, Green, and Blue roles to create a surreal color palette.</li>
+</ul>
+<figure><img alt="" height="1024" loading="lazy" src="../assets/archive/2026/01/remix-1024x1024.jpg" width="1024"/></figure>
+<h2><strong>New Manipulated Versions</strong></h2>
+<p>In this session, I moved beyond basic mirroring and colour swapping to explore how NumPy slicing can create complex visual textures like glitches and structural deconstructions.</p>
+<h3><strong>Effect 1: Random Strata Glitch </strong></h3>
+<p>This effect simulates a digital signal “snap” where sections of the image are shifted horizontally.</p>
+<figure><img alt="" height="1024" loading="lazy" src="../assets/archive/2026/01/glitch_strata-1024x1024.jpg" width="1024"/></figure>
+<ul>
+<li><strong>Code Logic</strong>:Python<code>strata = img.copy() for _ in range(15): y_start = np.random.randint(0, h-50) y_end = y_start + np.random.randint(10, 60) shift = np.random.randint(-100, 100) strata[y_start:y_end] = np.roll(strata[y_start:y_end], shift, axis=1)</code></li>
+<li><strong>Manipulation</strong>: I used randomised slicing on the vertical axis (<code>y_start:y_end</code>) and applied <code>np.roll</code> to shift those specific pixel rows.</li>
+<li><strong>Why</strong>: It creates a sense of “digital decay,” breaking the organic continuity of the flower.</li>
+</ul>
+<h3><strong>Effect 2: Chromatic Vibration </strong></h3>
+<figure><img alt="" height="1024" loading="lazy" src="../assets/archive/2026/01/chromatic_shift-1024x1024.jpg" width="1024"/></figure>
+<p>This manipulation creates a “ghosting” effect by misaligning the RGB color channels.</p>
+<ul>
+<li><strong>Code Logic</strong>:Python<code>vibrate = np.zeros_like(img) vibrate[:-30, :, 0] = img[30:, :, 0] # Red channel shift up vibrate[:, :, 1] = img[:, :, 1] # Green stays vibrate[30:, :, 2] = img[:-30, :, 2] # Blue channel shift down</code></li>
+<li><strong>Manipulation</strong>: I sliced the height of individual color channels differently. By shifting the Red channel up and the Blue channel down, the image appears to vibrate.</li>
+<li><strong>Why</strong>: It explores the concept of “Chromatic Aberration,” making a static 2D image feel energetic and multi-dimensional.</li>
+</ul>
+<h3><strong>Effect 3: Pixel Weave &amp; Scanline</strong></h3>
+<p>This effect combines vertical slicing with array inversion to create a woven texture.</p>
+<figure><img alt="" height="1024" loading="lazy" src="../assets/archive/2026/01/digital_weave-1024x1024.jpg" width="1024"/></figure>
+<ul>
+<li><strong>Code Logic</strong>:Python<code>weave = img.copy() weave[::2, :] = weave[::2, ::-1] # Reverse every even row weave[:, ::15, :] = 0 # Add black vertical scanlines</code></li>
+<li><strong>Manipulation</strong>: I used step-slicing (<code>::2</code>) to target every second row and reversed its horizontal order (<code>::-1</code>). Then, I used step-slicing on the width (<code>::15</code>) to “zero out” (blacken) specific columns.</li>
+<li><strong>Why</strong>: It gives the image a “lo-fi” CRT monitor aesthetic, transforming the photograph into a digital pattern.</li>
+</ul>
+<h2>What I Learned</h2>
+<p>Through these manipulations, I gained a deeper understanding of how images are structured as 3D tensors (Height, Width, Channel):</p>
+<ol>
+<li><strong>Slicing as a Creative Tool</strong>: I realised that slicing isn’t just for cropping, it’s a “digital scalpel.” By selecting specific ranges like <code>[::2]</code> or <code>[y_start:y_end]</code>, I can isolate and transform specific structural parts of the data.</li>
+<li><strong>Colour Channel Independence</strong>: Learning that <code>img[:, :, 0]</code> represents all the red data allowed me to manipulate “colour” as a physical layer, independent of the image’s shape.</li>
+<li><strong>Data as Pattern</strong>: By using <code>np.roll</code> and <code>np.flip</code>, I learned that “glitch art” is essentially just mathematical re-ordering of arrays. It changed my perspective on how digital errors can be intentional artistic choices.</li>
+</ol>
+    </article>
+    <nav class="post-nav"><a class="post-nav__item" href="week-5-reflection.html"><span class="post-nav__label"><span class="t-en">← older</span><span class="t-zh">← 上一篇</span></span><span class="post-nav__title">Week 5 reflection</span></a><a class="post-nav__item post-nav__item--next" href="week-8-reflection.html"><span class="post-nav__label"><span class="t-en">newer →</span><span class="t-zh">下一篇 →</span></span><span class="post-nav__title">Week 8 reflection</span></a></nav>
+  </main>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/page.js"></script>
+</body>
+</html>

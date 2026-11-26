@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<meta name="copyright" content="© 2026 Qingzhou Cai. All rights reserved." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>coco. / Lighting an LED</title>
+  <meta name="theme-color" content="#fafafa" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Kalam:wght@300;400&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="rs-page">
+  <header class="nav is-scrolled" id="nav">
+    <div class="nav__left">
+      
+      <a href="../archive.html#ug/y1/pme" class="nav__back" id="back" aria-label="back">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      </a>
+      <a href="../index.html" class="nav__logo">c<span>.</span></a>
+    </div>
+    <nav class="nav__links" id="navLinks">
+      <a href="../index.html#about" data-i18n="nav.about">about</a>
+      <a href="../index.html#projects" data-i18n="nav.projects">projects</a>
+      <a href="../index.html#experience" data-i18n="nav.experience">experience</a>
+      <a href="../index.html#blog" data-i18n="nav.blog">blog</a>
+      <a href="../index.html#contact" data-i18n="nav.contact">contact</a>
+      <a href="../archive.html" class="nav__archive is-active" data-i18n="nav.archive">archive</a>
+    </nav>
+    <div class="nav__right">
+      <button class="lang" id="langToggle" aria-label="switch language">
+        <span data-lang="en">EN</span><span class="lang__slash">/</span><span data-lang="zh">中</span>
+      </button>
+      <button class="nav__burger" id="burger" aria-label="open menu"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="rs post">
+    <div class="rs__head">
+      <p class="rs__crumb"><a href="../archive.html" data-i18n="ar.title">archive</a><span>/</span><a href="../archive.html#ug/y1/pme"><span class="t-en">year 1 · pervasive media exploration</span><span class="t-zh">一年级 · 泛在媒体探索</span></a></p>
+      <h1 class="post__title">Lighting an LED</h1>
+      <p class="post__meta"><span class="t-en">26 apr 2025</span><span class="t-zh">2025 年 4 月 26 日</span> · <span class="t-en">2 min read</span><span class="t-zh">约 2 分钟读完</span></p>
+      <p class="post__note t-zh">这篇文章写于在学校的课程期间，原文是英文。</p>
+    </div>
+    <article class="prose">
+<figure><img alt="" height="900" loading="lazy" src="../assets/archive/2025/04/a9a39258-722b-479d-8858-37740d83d6c2-edited.jpg" width="1600"/></figure>
+<p>This week, I followed the tutorial titled “Lighting Up an LED” on the Raspberry Pi project website and did some practice. I used a Raspberry Pi, a breadboard, a resistor, and an LED to complete a basic physical computing task – turning on an LED light through Python code.</p>
+<p><strong><strong>The code I wrote in the Python shell was:</strong></strong></p>
+<figure><img alt="" height="232" loading="lazy" src="../assets/archive/2025/04/c4435da9-a50c-492c-a390-fabd0c489f9d-1024x232.jpg" width="1024"/></figure>
+<p>This code imports the GPIO library, sets the pin numbering mode to BCM, configures GPIO pin 18 as an output pin, and then sends a True signal to pin 18, which switches the LED on.</p>
+<figure><img alt="" height="900" loading="lazy" src="../assets/archive/2025/04/b6193130-a6f9-4a1d-ac8d-a547b316ef61-edited.jpg" width="1600"/></figure>
+<h3><strong>What I Learned</strong></h3>
+<ul>
+<li><strong>RPi.GPIO library</strong>: I learned how to use the RPi.GPIO library to control hardware components through the Raspberry Pi’s GPIO pins.</li>
+<li><strong>Pin setup</strong>: I now understand the importance of setting the GPIO mode (BCM or BOARD) before configuring pins, and how to correctly set a pin as an output.</li>
+<li><strong>Basic circuit building</strong>: I gained confidence connecting simple circuits involving LEDs and resistors.</li>
+<li><strong>Hardware-software interaction</strong>: This small project showed me how code can directly control physical hardware, which feels different from purely screen-based programming.</li>
+</ul>
+<p><strong>Reflection</strong></p>
+<p>Although this is a very simple small project, I was still extremely excited to see that my code could make a physical object respond. This made me realize that there is actually a very close connection between programming and electronic hardware, especially in the fields of physical computing and the Internet of Things. In the future, I want to further try to make the LED blink, or use different pins to control multiple LED lights.</p>
+<p><strong>Tutorial</strong>:</p>
+<p>Raspberry Pi Foundation. (n.d.). <em>Lighting an LED</em>. Available at: https://projects.raspberrypi.org/en/projects/physical-computing/2 (Accessed: 6 February 2025)</p>
+    </article>
+    <nav class="post-nav"><a class="post-nav__item" href="origami-robotics.html"><span class="post-nav__label"><span class="t-en">← older</span><span class="t-zh">← 上一篇</span></span><span class="post-nav__title">Origami robotics</span></a><a class="post-nav__item post-nav__item--next" href="raspberry-pi-and-ultrasonic-sensor.html"><span class="post-nav__label"><span class="t-en">newer →</span><span class="t-zh">下一篇 →</span></span><span class="post-nav__title">Raspberry pi and Ultrasonic sensor</span></a></nav>
+  </main>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/page.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<meta name="copyright" content="© 2026 Qingzhou Cai. All rights reserved." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>coco. / Week 1 reflection</title>
+  <meta name="theme-color" content="#fafafa" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Kalam:wght@300;400&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="rs-page">
+  <header class="nav is-scrolled" id="nav">
+    <div class="nav__left">
+      
+      <a href="../archive.html#ug/y2/cc2" class="nav__back" id="back" aria-label="back">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      </a>
+      <a href="../index.html" class="nav__logo">c<span>.</span></a>
+    </div>
+    <nav class="nav__links" id="navLinks">
+      <a href="../index.html#about" data-i18n="nav.about">about</a>
+      <a href="../index.html#projects" data-i18n="nav.projects">projects</a>
+      <a href="../index.html#experience" data-i18n="nav.experience">experience</a>
+      <a href="../index.html#blog" data-i18n="nav.blog">blog</a>
+      <a href="../index.html#contact" data-i18n="nav.contact">contact</a>
+      <a href="../archive.html" class="nav__archive is-active" data-i18n="nav.archive">archive</a>
+    </nav>
+    <div class="nav__right">
+      <button class="lang" id="langToggle" aria-label="switch language">
+        <span data-lang="en">EN</span><span class="lang__slash">/</span><span data-lang="zh">中</span>
+      </button>
+      <button class="nav__burger" id="burger" aria-label="open menu"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="rs post">
+    <div class="rs__head">
+      <p class="rs__crumb"><a href="../archive.html" data-i18n="ar.title">archive</a><span>/</span><a href="../archive.html#ug/y2/cc2"><span class="t-en">year 2 · creative computing ii: applied programming</span><span class="t-zh">二年级 · 创意计算 II：应用编程</span></a></p>
+      <h1 class="post__title">Week 1 reflection</h1>
+      <p class="post__meta"><span class="t-en">9 jan 2026</span><span class="t-zh">2026 年 1 月 9 日</span> · <span class="t-en">3 min read</span><span class="t-zh">约 3 分钟读完</span></p>
+      <p class="post__note t-zh">这篇文章写于在学校的课程期间，原文是英文。</p>
+    </div>
+    <article class="prose">
+<p>Introduction to C++ Foundations</p>
+<p>In this first week of programming, I transitioned from conceptual understanding to practical implementation using C++. My primary learning objective was to master the basic syntax of input/output streams, variable types, and control structures. Through exercises 1 and 2, I learned how C++ manages data using static typing (e.g., <code>int</code>, <code>double</code>, <code>string</code>), which taught me the importance of memory and precision in low-level languages.</p>
+<p>The most significant challenge I encountered was in Exercise 4 (conditional logic). In Exercise 4, I initially struggled with the sequence of <code>if-else</code> statements. I realized that the order of conditions is critical; if I checked for “Adult price” before “Child price,” the logic could fall through incorrectly. Overcoming this required me to “desk-check” my logic, tracing the program’s path with different age inputs (like 3 or 18) to ensure every branch was reachable and accurate.</p>
+<p>Overall, this week taught me that programming is a balance between strict syntax and creative problem-solving. By the end of Exercise 6, I felt more confident in using loops to handle unpredictable user input, a skill that will be vital as I move toward more complex embedded systems projects.</p>
+<p><strong>Link to code outcome screenshots:</strong></p>
+<p><a href="https://drive.google.com/drive/folders/1e-wOtcM3a2s1WXLseRacD0rqPVBZ4x12?usp=sharing" rel="noopener" target="_blank">https://drive.google.com/drive/folders/1e-wOtcM3a2s1WXLseRacD0rqPVBZ4x12?usp=sharing</a></p>
+<p>Critcal reflection questions</p>
+<h2><strong>1. On Output and Variables</strong></h2>
+<p>The use of <code>std::cout</code> suggests that programming languages treat communication as a directed “stream” of data, abstracting complex hardware processes into a simple flow of characters. As noted in Dijkstra’s <em>On the Cruelty of Really Teaching Computing Science</em>, this represents a radical novelty; we aren’t just talking to a machine, we are managing formal systems. Thinking about “input” and “output” shifts our perspective of a program from a static set of instructions to a metabolic process. The program becomes a transformer of information, where abstraction (as discussed in the <em>Beginner’s Guide</em>) allows us to ignore the “how” of the screen pixels and focus on the “what” of the logic.</p>
+<figure><img alt="" height="296" loading="lazy" src="../assets/archive/2026/01/Screenshot-2026-01-09-at-21.38.39-1024x296.png" width="1024"/></figure>
+<h2><strong>2. On Decision Making</strong></h2>
+<p>When we design conditions, we are modelling discretisation, the act of slicing a continuous world into “if-else” binary states. As McKenzie Wark explores in <em>A Hacker Manifesto</em>, this abstraction creates new properties and boundaries. The order of conditions is crucial because it creates a hierarchy of importance; the first condition met “wins,” reflecting how we prioritize values in the real world. For example, a grading algorithm that checks for “Fail” before “Pass” emphasizes deficiency over achievement. Structuring decisions this way can reinforce systemic biases if our “computational logic” (per Guzdial) fails to account for the nuance and fluidity of human experience, forcing rigid categories onto messy realities.</p>
+<figure><img alt="" height="520" loading="lazy" src="../assets/archive/2026/01/Screenshot-2026-01-09-at-21.40.22.png" width="944"/></figure>
+<h2><strong>3. On Repetition</strong></h2>
+<p>Different loops reflect distinct philosophies of persistence. A <code>for</code> loop embodies a teleological approach, it has a fixed boundary and a known end, much like a scheduled workday or a recipe. In contrast, a <code>while</code> loop represents responsiveness or survival, it continues until an environmental condition changes, mirroring a heartbeat or a thermostat. When viewed through the lens of <em>Thermodynamic Computing</em>, these loops aren’t just logic, they are physical events that consume energy. A <code>while</code> loop that runs indefinitely is a literal expenditure of heat and entropy. This makes the “fixed” nature of a <code>for</code> loop feel like a conservative use of resources, whereas a <code>while</code> loop feels more like a living, persistent interaction with a changing world.</p>
+<figure class="gallery">
+<figure><img alt="" height="458" loading="lazy" src="../assets/archive/2026/01/Screenshot-2026-01-09-at-21.47.02-1.png" width="1022"/></figure>
+</figure>
+<figure><img alt="" height="698" loading="lazy" src="../assets/archive/2026/01/Screenshot-2026-01-09-at-21.49.42-1.png" width="1006"/></figure>
+    </article>
+    <nav class="post-nav"><span></span><a class="post-nav__item post-nav__item--next" href="week-2-reflection.html"><span class="post-nav__label"><span class="t-en">newer →</span><span class="t-zh">下一篇 →</span></span><span class="post-nav__title">Week 2 reflection</span></a></nav>
+  </main>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/page.js"></script>
+</body>
+</html>

@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<meta name="copyright" content="© 2026 Qingzhou Cai. All rights reserved." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>coco. / Technical Process</title>
+  <meta name="theme-color" content="#fafafa" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Kalam:wght@300;400&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="rs-page">
+  <header class="nav is-scrolled" id="nav">
+    <div class="nav__left">
+      
+      <a href="../archive.html#ug/y2/ci" class="nav__back" id="back" aria-label="back">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      </a>
+      <a href="../index.html" class="nav__logo">c<span>.</span></a>
+    </div>
+    <nav class="nav__links" id="navLinks">
+      <a href="../index.html#about" data-i18n="nav.about">about</a>
+      <a href="../index.html#projects" data-i18n="nav.projects">projects</a>
+      <a href="../index.html#experience" data-i18n="nav.experience">experience</a>
+      <a href="../index.html#blog" data-i18n="nav.blog">blog</a>
+      <a href="../index.html#contact" data-i18n="nav.contact">contact</a>
+      <a href="../archive.html" class="nav__archive is-active" data-i18n="nav.archive">archive</a>
+    </nav>
+    <div class="nav__right">
+      <button class="lang" id="langToggle" aria-label="switch language">
+        <span data-lang="en">EN</span><span class="lang__slash">/</span><span data-lang="zh">中</span>
+      </button>
+      <button class="nav__burger" id="burger" aria-label="open menu"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="rs post">
+    <div class="rs__head">
+      <p class="rs__crumb"><a href="../archive.html" data-i18n="ar.title">archive</a><span>/</span><a href="../archive.html#ug/y2/ci"><span class="t-en">year 2 · creative industries</span><span class="t-zh">二年级 · 创意产业</span></a></p>
+      <h1 class="post__title">Technical Process</h1>
+      <p class="post__meta"><span class="t-en">22 may 2026</span><span class="t-zh">2026 年 5 月 22 日</span> · <span class="t-en">12 min read</span><span class="t-zh">约 12 分钟读完</span></p>
+      <p class="post__note t-zh">这篇文章写于在学校的课程期间，原文是英文。</p>
+    </div>
+    <article class="prose">
+<p>The final stage of the TeleAgriculture project involved translating key parts of the UI/UX design system from Figma into a working React-based web prototype. After presenting our Figma prototype to Julian and discussing the concept direction, we agreed to focus on developing the Earth visualisation component as a functional interactive prototype, as it represents the core entry point of the entire system and the most important spatial interaction layer. This step was essential in moving from static design exploration to an actual interactive implementation that reflects how users would engage with the platform in practice.</p>
+<h3><strong>1. Project Structure (React Implementation)</strong></h3>
+<pre><code>globe-app/
+│
+├── src/
+│   │
+│   ├── App.jsx
+│   │   └── Root component
+│   │       ├── Manages routing / navigation
+│   │       ├── Controls global state (selected country / region)
+│   │       └── Switches between GlobeView &amp; CountryPage
+│   │
+│   ├── GlobeView.js
+│   │   └── Main Earth Visualisation Component
+│   │       ├── Interactive globe / world view
+│   │       ├── Clickable country nodes
+│   │       └── Entry point of spatial exploration
+│   │
+│   ├── CountryPage.js
+│   │   └── Drill-down Data View
+│   │       ├── Country-level environmental data
+│   │       ├── Sensor / agricultural metrics
+│   │       └── Detailed dashboard display
+│   │
+│   ├── data.js
+│   │   └── Mock Data Layer
+│   │       ├── Geographic dataset
+│   │       ├── Sensor values (temp, humidity, gas)
+│   │       └── Simulated TeleAgriCulture database
+│   │
+│   ├── index.css
+│   │   └── Global Styling System
+│   │       ├── Colour palette implementation
+│   │       ├── Layout + UI styling
+│   │       └── Responsive design rules
+│   │
+│   ├── App.test.js
+│   │   └── Basic testing scaffold
+│   │       ├── Component stability checks
+│   │       └── Future testing expansion
+│   │
+│   └── (index.js / main entry - implied)
+│
+└── Project Logic Flow
+    World (GlobeView)
+        ↓
+    Country Selection
+        ↓
+    CountryPage (Data Dashboard)
+        ↓
+    data.js (Mock dataset feeding UI)</code></pre>
+<p>The React prototype was organised into a clear and modular file structure to support scalability and separation of concerns. Each file was responsible for a specific part of the TeleAgriculture Earth visualisation system:</p>
+<ul>
+<li><strong>App.jsx</strong><br/>Acts as the root component of the application. It manages the overall routing logic and controls the switching between the Globe view and Country-level detail pages. It also handles global state for selected geographic regions.</li>
+<li><strong>GlobeView.js</strong><br/>This is the core visualisation component of the project. It renders the interactive Earth interface, including the 3D/visual globe representation and clickable country or region nodes. It represents the main entry point of the system’s spatial exploration flow.</li>
+<li><strong>CountryPage.js</strong><br/>Responsible for the drill-down interaction layer. When a user selects a country from the globe, this component displays detailed environmental and agricultural data for that region, continuing the hierarchical data structure (World → Country → City → Data).</li>
+<li><strong>data.js</strong><br/>Contains structured mock datasets used throughout the application. This includes geographic information, sensor values, and environmental metrics. It acts as a temporary data layer simulating real TeleAgriculture database integration.</li>
+<li><strong>index.css</strong><br/>Defines the global styling system for the prototype. It includes layout rules, colour definitions aligned with the TeleAgriculture design system, and responsive UI styling for both globe and dashboard components.</li>
+<li><strong>App.test.js</strong><br/>Provides basic testing scaffolding for the application. Although minimal, it was included to support component stability checks and future scalability for automated testing workflows.</li>
+</ul>
+<h3><strong>2. Core Technologies Used</strong></h3>
+<p>The prototype was developed using the following technologies and libraries:</p>
+<h4><strong>React Ecosystem</strong></h4>
+<ul>
+<li><strong>React.js</strong> – core framework for building UI components</li>
+<li><strong>react-router-dom</strong> – enables multi-page navigation (Globe → Country → Detail)</li>
+<li><strong>React Hooks (useState, useEffect, useRef)</strong> – state management and lifecycle control</li>
+</ul>
+<h4><strong>3D Globe &amp; Visualization</strong></h4>
+<ul>
+<li><strong>react-globe.gl</strong>
+<ul>
+<li>Main library used for rendering the interactive 3D Earth</li>
+<li>Built on top of Three.js</li>
+<li>Supports polygons, markers, and HTML overlay elements</li>
+</ul>
+</li>
+<li><strong>three.js</strong>
+<ul>
+<li>Provides WebGL-based rendering engine</li>
+<li>Used for material control and lighting (MeshPhongMaterial)</li>
+<li>Enables realistic globe shading and dark environmental tone</li>
+</ul>
+</li>
+<li><strong>topojson-client</strong>
+<ul>
+<li>Used to convert TopoJSON world map data into usable GeoJSON format</li>
+<li>Enables rendering of real-world country boundaries</li>
+</ul>
+</li>
+</ul>
+<h4><strong>Data Handling</strong></h4>
+<ul>
+<li>Custom <code>data.js</code> file acts as a lightweight mock database</li>
+<li>Stores:
+<ul>
+<li>Country codes (AT, DE, US, etc.)</li>
+<li>City-level geolocation data (lat/lng)</li>
+<li>Hierarchical mapping structure for drill-down interaction</li>
+</ul>
+</li>
+</ul>
+<h3><strong>3. Interaction Logic</strong></h3>
+<p>The system implements a three-level hierarchical navigation model:</p>
+<h4><strong>Level 1: Global View (GlobeView.js)</strong></h4>
+<ul>
+<li>Displays an interactive rotating globe</li>
+<li>Countries are rendered as polygon overlays</li>
+<li>Users can click a country to trigger a popup</li>
+<li>Uses <code>autoRotate</code> for continuous motion (ambient interaction)</li>
+</ul>
+<h4><strong>Level 2: Country View (CountryPage.js)</strong></h4>
+<ul>
+<li>Zooms into selected country using <code>pointOfView()</code></li>
+<li>Displays country boundary + city-level nodes</li>
+<li>Each city is an interactive HTML marker</li>
+<li>Clicking a city opens a data popup panel</li>
+</ul>
+<h4><strong>Level 3: City Data Layer</strong></h4>
+<ul>
+<li>Shows environmental dataset preview (temperature, humidity, gas, etc.)</li>
+<li>Supports navigation to future “dashboard” view (planned extension)</li>
+</ul>
+<p>This structure directly reflects the original design concept:</p>
+<p>World → Country → City → Data</p>
+<h3><strong>4. Key Interaction Features</strong></h3>
+<h4><strong>Globe Interaction</strong></h4>
+<ul>
+<li>Clickable country polygons</li>
+<li>Animated camera transitions</li>
+<li>Auto-rotating Earth for ambient motion</li>
+</ul>
+<h4><strong>City Nodes</strong></h4>
+<ul>
+<li>HTML-based markers rendered on globe surface</li>
+<li>Glow and pulse effects using dynamic styling</li>
+<li>Click event triggers state update (<code>setSelectedCity</code>)</li>
+</ul>
+<h4><strong>Popup System</strong></h4>
+<ul>
+<li>Glassmorphism-style UI panels</li>
+<li>Displays contextual metadata per location</li>
+<li>Includes navigation buttons (Detail / Dashboard)</li>
+</ul>
+<h4><strong>Routing System</strong></h4>
+<ul>
+<li><code>/</code> → GlobeView (global exploration)</li>
+<li><code>/country/:code</code> → CountryPage (drill-down view)</li>
+</ul>
+<h3><strong>5. Styling &amp; Visual System</strong></h3>
+<p>The visual system is controlled through CSS and inline styling:</p>
+<ul>
+<li>Dark ecological background: <code>#0A1A14</code></li>
+<li>Primary accent color: <code>#A8E6CF</code> (mint green glow)</li>
+<li>Glassmorphism UI panels (blur + transparency)</li>
+<li>Glowing marker animation using:
+<ul>
+<li><code>box-shadow</code></li>
+<li><code>keyframe pulse animation</code></li>
+</ul>
+</li>
+<li>Custom slider styling for time control (future expansion)</li>
+</ul>
+<h3><strong>6. Data Flow Logic</strong></h3>
+<p>The system follows a simple but structured data flow:</p>
+<ol>
+<li>User interacts with globe (country click)</li>
+<li>Country code is extracted via mapping table</li>
+<li>React Router navigates to <code>/country/:code</code></li>
+<li><code>CountryPage.js</code> loads relevant dataset from <code>data.js</code></li>
+<li>Cities are rendered as interactive nodes</li>
+<li>User selects city → popup displays environmental data</li>
+</ol>
+<p>This creates a progressive disclosure system, ensuring users only see data relevant to their current zoom level.</p>
+<h3><strong>7. Key Plugins / Dependencies Summary</strong></h3>
+<ul>
+<li><code>react</code></li>
+<li><code>react-dom</code></li>
+<li><code>react-router-dom</code></li>
+<li><code>react-globe.gl</code></li>
+<li><code>three</code></li>
+<li><code>topojson-client</code></li>
+</ul>
+<p>These libraries together enabled:</p>
+<ul>
+<li>3D globe rendering</li>
+<li>geospatial data mapping</li>
+<li>interactive navigation system</li>
+<li>component-based routing structure</li>
+</ul>
+<h3><strong>8. Technical Outcome</strong></h3>
+<p>The final prototype successfully demonstrates:</p>
+<ul>
+<li>A functional interactive geospatial data system</li>
+<li>A working drill-down navigation model</li>
+<li>Real-time 3D globe interaction using WebGL</li>
+<li>A scalable structure for future expansion into:
+<ul>
+<li>dashboard analytics</li>
+<li>live sensor data integration</li>
+<li>agricultural IoT system visualization</li>
+</ul>
+</li>
+</ul>
+<p>This technical stage bridges the gap between conceptual UI design (Figma) and a working interactive prototype, validating the feasibility of the TeleAgriculture spatial data model.</p>
+<h3><strong>Code Appendix</strong></h3>
+<p>App.js（routing）</p>
+<pre><code>import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import GlobeView from "./GlobeView";
+import CountryPage from "./CountryPage";
+
+export default function App() {
+  return (
+    &lt;Router&gt;
+      &lt;Routes&gt;
+        &lt;Route path="/" element={&lt;GlobeView /&gt;} /&gt;
+        &lt;Route path="/country/:code" element={&lt;CountryPage /&gt;} /&gt;
+      &lt;/Routes&gt;
+    &lt;/Router&gt;
+  );
+}</code></pre>
+<p><strong>GlobeView.js</strong></p>
+<p>Handles global 3D earth rendering, country selection, and popup interaction using react-globe.gl and auto-rotating Three.js scene.</p>
+<figure><img alt="" height="758" loading="lazy" src="../assets/archive/2026/05/Screenshot-2026-05-22-at-13.51.59-1024x758.png" width="1024"/></figure>
+<pre><code>import React, { useEffect, useState, useRef } from "react";
+import Globe from "react-globe.gl";
+import * as THREE from "three";
+import { feature } from "topojson-client";
+import { useNavigate } from "react-router-dom";
+
+const GlobeView = () =&gt; {
+  const globeEl = useRef();
+  const navigate = useNavigate();
+
+  const [countries, setCountries] = useState([]);
+  const [timeIndex, setTimeIndex] = useState(1980);
+
+  // popup state
+  const [selectedCountry, setSelectedCountry] = useState(null);
+
+  // name 全名映射
+  const countryNameMap = {
+    AT: "Austria",
+    DE: "Germany",
+    GB: "United Kingdom",
+    US: "United States",
+    CA: "Canada",
+    BE: "Belgium",
+    TG: "Togo",
+    FI: "Finland",
+    AU: "Australia"
+  };
+
+  const highlightMarkers = [
+    { lat: 47.5, lng: 14.5, country: "AT" },
+    { lat: 51.0, lng: 10.0, country: "DE" },
+    { lat: 54.0, lng: -2.0, country: "GB" },
+    { lat: 39.0, lng: -98.0, country: "US" },
+    { lat: 56.0, lng: -96.0, country: "CA" },
+    { lat: 50.5, lng: 4.5, country: "BE" },
+    { lat: 8.0, lng: 1.0, country: "TG" },
+    { lat: 64.0, lng: 26.0, country: "FI" },
+    { lat: -25.2744, lng: 133.7751, country: "AU" }
+  ];
+
+  useEffect(() =&gt; {
+    if (globeEl.current) {
+      globeEl.current.controls().autoRotate = true;
+      globeEl.current.controls().autoRotateSpeed = 0.4;
+    }
+
+    fetch("https://unpkg.com/world-atlas@2/countries-110m.json")
+      .then((res) =&gt; res.json())
+      .then((worldData) =&gt; {
+        const countries = feature(
+          worldData,
+          worldData.objects.countries
+        ).features;
+
+        setCountries(countries);
+      });
+  }, []);
+
+  return (
+    &lt;div style={{ position: "relative" }}&gt;
+
+      {/*  HUD POPUP（核心新增） */}
+      {selectedCountry &amp;&amp; (
+        &lt;div
+          style={{
+            position: "absolute",
+            top: "18%",
+            left: "50%",
+            transform: "translateX(-50%)",
+
+            width: "260px",
+            padding: "14px",
+
+            background: "rgba(10,26,20,0.78)",
+            backdropFilter: "blur(18px)",
+
+            border: "1px solid rgba(168,230,207,0.35)",
+            boxShadow: "0 0 18px rgba(168,230,207,0.15)",
+
+            borderRadius: "12px",
+            zIndex: 999,
+
+            color: "#A8E6CF",
+            fontFamily: "monospace"
+          }}
+        &gt;
+          {/*  close */}
+          &lt;button
+            onClick={() =&gt; setSelectedCountry(null)}
+            style={{
+              position: "absolute",
+              top: 8,
+              left: 8,
+
+              width: "22px",
+              height: "22px",
+
+              borderRadius: "4px",
+              background: "rgba(168,230,207,0.1)",
+              border: "1px solid rgba(168,230,207,0.4)",
+              color: "#A8E6CF",
+
+              cursor: "pointer",
+              fontSize: "10px"
+            }}
+          &gt;
+            ↵
+          &lt;/button&gt;
+
+          {/* content 内容 */}
+          &lt;div style={{ marginTop: "24px" }}&gt;
+            &lt;div style={{ fontSize: "14px", fontWeight: "bold" }}&gt;
+              {countryNameMap[selectedCountry.country] ||
+                selectedCountry.country}
+            &lt;/div&gt;
+
+            &lt;div style={{ fontSize: "11px", opacity: 0.7, marginTop: "6px" }}&gt;
+              {selectedCountry.country}
+            &lt;/div&gt;
+
+            &lt;div style={{ fontSize: "11px", marginTop: "10px", opacity: 0.8 }}&gt;
+              Environmental / prediction dataset node
+            &lt;/div&gt;
+
+            {/* DETAIL */}
+            &lt;button
+              onClick={() =&gt;
+                navigate(`/country/${selectedCountry.country}`)
+              }
+              style={{
+                marginTop: "10px",
+                width: "100%",
+
+                padding: "8px",
+
+                background: "#A8E6CF",
+                border: "none",
+                borderRadius: "8px",
+
+                fontWeight: "bold",
+                color: "#0A1A14",
+
+                cursor: "pointer"
+              }}
+            &gt;
+              Detail
+            &lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      )}
+
+      {/*  explaination 上方说明文字 */}
+      &lt;div
+        style={{
+          position: "absolute",
+          top: 10,
+          left: "50%",
+          transform: "translateX(-50%)",
+          zIndex: 10,
+
+          color: "#A8E6CF",
+          textAlign: "center",
+          fontFamily: "monospace",
+
+          maxWidth: "600px",
+          fontSize: "13px",
+          lineHeight: "1.6",
+
+          opacity: 0.9,
+          textShadow: "0 0 10px rgba(168,230,207,0.3)"
+        }}
+      &gt;
+        You can explore how global conditions evolve over time.&lt;br /&gt;
+        Select a time range to view &lt;b&gt;past 10 years of data&lt;/b&gt; or{" "}
+        &lt;b&gt;future 5-year predictions&lt;/b&gt;.
+      &lt;/div&gt;
+
+      {/*  TIME HUD */}
+      &lt;div
+        style={{
+          position: "absolute",
+          bottom: 30,
+          left: "50%",
+          transform: "translateX(-50%)",
+          zIndex: 10,
+
+          background: "rgba(10,26,20,0.6)",
+          backdropFilter: "blur(14px)",
+
+          border: "1px solid rgba(168,230,207,0.4)",
+          boxShadow: "0 0 20px rgba(168,230,207,0.15)",
+
+          padding: "14px 22px",
+          borderRadius: "14px",
+
+          display: "flex",
+          alignItems: "center",
+          gap: "16px",
+
+          color: "#A8E6CF",
+          fontFamily: "monospace"
+        }}
+      &gt;
+        &lt;div style={{ opacity: 0.7 }}&gt;TIME&lt;/div&gt;
+
+        &lt;div style={{ fontSize: "16px", fontWeight: "bold" }}&gt;
+          {timeIndex}
+        &lt;/div&gt;
+
+        &lt;input
+          type="range"
+          min="1980"
+          max="2031"
+          value={timeIndex}
+          onChange={(e) =&gt; setTimeIndex(Number(e.target.value))}
+          style={{
+            width: "220px",
+            appearance: "none",
+            background: "rgba(168,230,207,0.2)",
+            height: "2px",
+            borderRadius: "10px"
+          }}
+        /&gt;
+
+        &lt;div style={{ opacity: 0.6, fontSize: "12px" }}&gt;
+          historical → prediction
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      {/*  GLOBE */}
+      &lt;Globe
+        ref={globeEl}
+        width={window.innerWidth}
+        height={window.innerHeight}
+
+        globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
+        backgroundColor="#0A1A14"
+
+        globeMaterial={new THREE.MeshPhongMaterial({
+          color: "#0A1A14"
+        })}
+
+        polygonsData={countries}
+        polygonCapColor={() =&gt; "rgba(168,230,207,0.25)"}
+        polygonStrokeColor={() =&gt; "#7FE9C3"}
+        polygonAltitude={0.01}
+
+        onPolygonClick={(d) =&gt; {
+          const idToCode = {
+            40: "AT",
+            276: "DE",
+            826: "GB",
+            840: "US",
+            124: "CA",
+            56: "BE",
+            768: "TG",
+            246: "FI",
+            36: "AU"
+          };
+
+          const code = idToCode[d.id];
+
+          if (code) {
+            setSelectedCountry({ country: code });
+          }
+        }}
+
+        htmlElementsData={highlightMarkers}
+        htmlLat="lat"
+        htmlLng="lng"
+
+        htmlElement={(d) =&gt; {
+          const el = document.createElement("div");
+
+          const pulse = Math.sin(Date.now() * 0.002) * 0.5 + 0.5;
+
+          const size = 7 + pulse * 3;
+
+          el.style.width = `${size}px`;
+          el.style.height = `${size}px`;
+
+          el.style.borderRadius = "50%";
+          el.style.background = `rgba(168,230,207,${0.5 + pulse * 0.3})`;
+
+          el.style.boxShadow = "0 0 14px rgba(168,230,207,0.8)";
+          el.style.transform = "translate(-50%, -50%)";
+
+          el.style.position = "absolute";
+          el.style.cursor = "pointer";
+          el.style.pointerEvents = "auto";
+          el.style.zIndex = "9999";
+
+         el.onclick = (e) =&gt; {
+  e.stopPropagation();
+
+  setSelectedCountry({
+    country: d.country
+  });
+};
+
+          return el;
+        }}
+      /&gt;
+    &lt;/div&gt;
+  );
+};
+
+export default GlobeView;</code></pre>
+<p><strong>CountryPage.js</strong></p>
+<p>Implements hierarchical zoom-in system with city-level interactive nodes and contextual data popup.</p>
+<figure><img alt="" height="607" loading="lazy" src="../assets/archive/2026/05/Screenshot-2026-05-22-at-13.52.37-1024x607.png" width="1024"/></figure>
+<pre><code>import React, { useRef, useEffect, useState } from "react";
+import Globe from "react-globe.gl";
+import * as THREE from "three";
+import { useParams, useNavigate } from "react-router-dom";
+import { countryData } from "./data";
+
+const CountryPage = () =&gt; {
+  const globeEl = useRef();
+  const navigate = useNavigate();
+
+  const { code: rawCode } = useParams();
+  const code = (rawCode || "").toUpperCase();
+
+  const country = countryData?.[code];
+
+  const [countries, setCountries] = useState([]);
+  const [selectedCity, setSelectedCity] = useState(null);
+
+  //  country id mapping（必须和 world-atlas 对齐）
+  const idToCode = {
+    40: "AT",
+    276: "DE",
+    826: "GB",
+    840: "US",
+    124: "CA",
+    56: "BE",
+    768: "TG",
+    246: "FI",
+    36: "AU"
+  };
+
+  //  load world data
+  useEffect(() =&gt; {
+    fetch("https://unpkg.com/world-atlas@2/countries-110m.json")
+      .then((res) =&gt; res.json())
+      .then((worldData) =&gt; {
+        const { feature } = require("topojson-client");
+        const countries = feature(
+          worldData,
+          worldData.objects.countries
+        ).features;
+
+        setCountries(countries);
+      });
+  }, []);
+
+  //  zoom to country
+  useEffect(() =&gt; {
+    if (!globeEl.current || !countries.length) return;
+
+    const target = countries.find(
+      (d) =&gt; idToCode[d.id] === code
+    );
+
+    if (target) {
+      globeEl.current.pointOfView(
+        {
+          lat: 20,
+          lng: 0,
+          altitude: 2.5
+        },
+        1200
+      );
+    }
+  }, [countries, code]);
+
+  //  fallback
+  if (!country) {
+    return (
+      &lt;div
+        style={{
+          background: "#0A1A14",
+          color: "#A8E6CF",
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          fontFamily: "monospace",
+          flexDirection: "column"
+        }}
+      &gt;
+        &lt;div&gt;No country data found&lt;/div&gt;
+        &lt;div style={{ opacity: 0.6 }}&gt;code: {code}&lt;/div&gt;
+
+        &lt;button
+          onClick={() =&gt; navigate("/")}
+          style={{
+            marginTop: "20px",
+            padding: "10px 14px",
+            background: "rgba(168,230,207,0.1)",
+            border: "1px solid rgba(168,230,207,0.4)",
+            color: "#A8E6CF",
+            borderRadius: "8px",
+            cursor: "pointer"
+          }}
+        &gt;
+          ← BACK
+        &lt;/button&gt;
+      &lt;/div&gt;
+    );
+  }
+
+  return (
+    &lt;div style={{ position: "relative" }}&gt;
+
+      {/*  TITLE */}
+      &lt;div
+        style={{
+          position: "absolute",
+          top: 20,
+          left: "50%",
+          transform: "translateX(-50%)",
+          zIndex: 10,
+          color: "#A8E6CF",
+          fontFamily: "monospace",
+          textAlign: "center"
+        }}
+      &gt;
+        &lt;div style={{ fontSize: "24px", fontWeight: "bold" }}&gt;
+          {country.name}
+        &lt;/div&gt;
+        &lt;div style={{ fontSize: "12px", opacity: 0.6 }}&gt;
+          CITY DATA FIELD
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      {/*  BACK */}
+      &lt;button
+        onClick={() =&gt; navigate("/")}
+        style={{
+          position: "absolute",
+          top: 20,
+          left: 20,
+          zIndex: 10,
+          padding: "10px 14px",
+          background: "rgba(168,230,207,0.1)",
+          border: "1px solid rgba(168,230,207,0.4)",
+          borderRadius: "10px",
+          color: "#A8E6CF",
+          cursor: "pointer",
+          fontFamily: "monospace"
+        }}
+      &gt;
+        ← BACK
+      &lt;/button&gt;
+
+      {/*  CITY POPUP */}
+      {selectedCity &amp;&amp; (
+        &lt;div
+          style={{
+            position: "absolute",
+            top: "20%",
+            right: "5%",
+            zIndex: 999,
+            width: "260px",
+            padding: "16px",
+            background: "rgba(10,26,20,0.78)",
+            backdropFilter: "blur(18px)",
+            border: "1px solid rgba(168,230,207,0.35)",
+            boxShadow: "0 0 18px rgba(168,230,207,0.15)",
+            borderRadius: "14px",
+            color: "#A8E6CF",
+            fontFamily: "monospace"
+          }}
+        &gt;
+          &lt;button
+            onClick={() =&gt; setSelectedCity(null)}
+            style={{
+              position: "absolute",
+              top: 8,
+              right: 8,
+              background: "transparent",
+              border: "none",
+              color: "#A8E6CF",
+              cursor: "pointer"
+            }}
+          &gt;
+            ✕
+          &lt;/button&gt;
+
+          &lt;div style={{ fontSize: "18px", fontWeight: "bold" }}&gt;
+            {selectedCity.name}
+          &lt;/div&gt;
+
+          &lt;div style={{ fontSize: "12px", opacity: 0.6 }}&gt;
+            CITY NODE
+          &lt;/div&gt;
+
+          &lt;div style={{ display: "flex", gap: "10px", marginTop: "12px" }}&gt;
+            &lt;button
+              style={{
+                flex: 1,
+                padding: "10px",
+                background: "#A8E6CF",
+                border: "none",
+                borderRadius: "8px",
+                fontWeight: "bold",
+                cursor: "pointer"
+              }}
+            &gt;
+              Detail
+            &lt;/button&gt;
+
+            &lt;button
+              style={{
+                flex: 1,
+                padding: "10px",
+                border: "1px solid rgba(168,230,207,0.4)",
+                background: "transparent",
+                color: "#A8E6CF",
+                borderRadius: "8px",
+                cursor: "pointer"
+              }}
+            &gt;
+              Dashboard
+            &lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      )}
+
+      {/*  ONLY ONE COUNTRY VIEW */}
+      &lt;Globe
+        ref={globeEl}
+        width={window.innerWidth}
+        height={window.innerHeight}
+        backgroundColor="#0A1A14"
+        globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
+        globeMaterial={
+          new THREE.MeshPhongMaterial({
+            color: "#0A1A14"
+          })
+        }
+
+        //  ONLY RENDER CURRENT COUNTRY
+        polygonsData={countries.filter(
+          (d) =&gt; idToCode[d.id] === code
+        )}
+
+        polygonCapColor={() =&gt; "rgba(168,230,207,0.35)"}
+        polygonStrokeColor={() =&gt; "#7FE9C3"}
+        polygonAltitude={0.02}
+
+        //  CITY NODES
+        htmlElementsData={country.cities}
+        htmlLat="lat"
+        htmlLng="lng"
+
+        htmlElement={(city) =&gt; {
+          const el = document.createElement("div");
+
+          el.style.width = "12px";
+          el.style.height = "12px";
+          el.style.borderRadius = "50%";
+          el.style.background = "#A8E6CF";
+          el.style.boxShadow = "0 0 18px rgba(168,230,207,0.9)";
+          el.style.cursor = "pointer";
+          el.style.transform = "translate(-50%, -50%)";
+
+         el.style.pointerEvents = "auto";
+el.style.cursor = "pointer";
+el.style.position = "absolute";
+
+el.addEventListener("pointerdown", (e) =&gt; {
+  e.stopPropagation();
+  setSelectedCity(city);
+});
+
+          return el;
+        }}
+      /&gt;
+    &lt;/div&gt;
+  );
+};
+
+export default CountryPage;</code></pre>
+<p>Link to all the code：<a href="https://github.com/nanashireen/Creative-Industries/tree/main/src" rel="noopener" target="_blank">https://github.com/nanashireen/Creative-Industries/tree/main/src</a></p>
+<h3><strong>Summary</strong></h3>
+<p>After completing the development of the core globe visualisation system, I passed the codebase to Nana, who then continued the implementation by developing the Dashboard section of the TeleAgriculture system.</p>
+<p>My work focused primarily on building the interactive spatial layer, including the 3D globe interface, hierarchical navigation (world → country → city), and the core interaction logic using React, react-globe.gl, and Three.js. This established the structural foundation for how users explore and navigate environmental data spatially.</p>
+<p>Once this visualisation system was completed and stabilised, I handed it over to Nana so she could build upon it and design the Data Dashboard component. Her work translated the raw and spatially accessed data into more structured analytical visualisations, such as charts, metrics, and sensor summaries, which complemented the exploratory nature of the globe interface.</p>
+<p>This workflow allowed the project to develop in a clear sequence: first establishing the spatial interaction framework, and then extending it into detailed data analysis and dashboard representation, ensuring consistency across both exploration and interpretation layers of the TeleAgriculture system.</p>
+<p>The dashboard and data visualisation components were developed in parallel by Nana, who focused on translating the environmental sensor outputs into more structured analytical interfaces, including charts, summaries, and configurable data displays. Her work complemented the spatial exploration system by providing a clearer and more detailed representation of the underlying agricultural data.</p>
+    </article>
+    <nav class="post-nav"><a class="post-nav__item" href="user-testing.html"><span class="post-nav__label"><span class="t-en">← older</span><span class="t-zh">← 上一篇</span></span><span class="post-nav__title">User Testing</span></a><a class="post-nav__item post-nav__item--next" href="final-outcome.html"><span class="post-nav__label"><span class="t-en">newer →</span><span class="t-zh">下一篇 →</span></span><span class="post-nav__title">Final Outcome</span></a></nav>
+  </main>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/page.js"></script>
+</body>
+</html>

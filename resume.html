@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="copyright" content="© 2026 Qingzhou Cai. All rights reserved." />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>coco. / resume</title>
+<meta name="description" content="Qingzhou Cai — resume" />
+<meta name="theme-color" content="#fafafa" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Kalam:wght@300;400&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="rs-page" data-title="rs.title">
+<header class="nav is-scrolled" id="nav">
+<div class="nav__left">
+<a href="index.html" class="nav__back" id="back" aria-label="back">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+</a>
+<a href="index.html" class="nav__logo">c<span>.</span></a>
+</div>
+<nav class="nav__links" id="navLinks">
+<a href="index.html#about" data-i18n="nav.about">about</a>
+<a href="index.html#projects" data-i18n="nav.projects">projects</a>
+<a href="index.html#experience" data-i18n="nav.experience">experience</a>
+<a href="index.html#blog" data-i18n="nav.blog">blog</a>
+<a href="index.html#contact" data-i18n="nav.contact">contact</a>
+<a href="archive.html" class="nav__archive" data-i18n="nav.archive">archive</a>
+</nav>
+<div class="nav__right">
+<button class="lang" id="langToggle" aria-label="switch language">
+<span data-lang="en">EN</span><span class="lang__slash">/</span><span data-lang="zh">中</span>
+</button>
+<button class="nav__burger" id="burger" aria-label="open menu"><span></span><span></span></button>
+</div>
+</header>
+<main class="rs">
+<div class="rs__head">
+<p class="rs__crumb"><a href="index.html" data-i18n="rs.home">home</a><span>/</span><span data-i18n="rs.crumb">one page</span></p>
+<h1 class="rs__title" data-i18n="rs.title">resume</h1>
+<p class="rs__sub" data-i18n="rs.sub">recruiters like this more than the site :)</p>
+<div class="rs__actions">
+<button type="button" class="pill" id="copyLink">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg><span data-i18n="rs.copy">copy link</span>
+</button>
+<a class="pill" id="downloadPdf" href="assets/resume/QingzhouCai_CV.pdf" download="QingzhouCai_CV.pdf">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19.5h14"/></svg><span data-i18n="rs.download">download pdf</span>
+</a>
+</div>
+</div>
+<div class="rs__paper" data-cv="en">
+<div class="rs__page"><div class="rs__img">
+<img src="assets/resume/cv-en-1.webp" alt="Qingzhou Cai — resume" width="1400" height="1979" />
+<a class="rs__hot" href="mailto:qingzhoucai@gmail.com" style="left:37.57%;top:5.21%;width:21.2%;height:1.51%" aria-label="email qingzhoucai@gmail.com"></a>
+</div></div>
+</div>
+<div class="rs__paper" data-cv="zh" hidden>
+<div class="rs__page"><img src="assets/resume/cv-zh-1.webp" alt="蔡晴洲 个人简历 第 1 页" width="1400" height="1979" loading="lazy" /></div>
+<div class="rs__page"><img src="assets/resume/cv-zh-2.webp" alt="蔡晴洲 个人简历 第 2 页" width="1400" height="1979" loading="lazy" /></div>
+</div>
+</main>
+<div class="toast" id="toast">copied!</div>
+<script src="js/i18n.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/page.js"></script>
+<script src="js/resume.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<meta name="copyright" content="© 2026 Qingzhou Cai. All rights reserved." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>coco. / Raspberry pi and Ultrasonic sensor</title>
+  <meta name="theme-color" content="#fafafa" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Kalam:wght@300;400&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="rs-page">
+  <header class="nav is-scrolled" id="nav">
+    <div class="nav__left">
+      
+      <a href="../archive.html#ug/y1/pme" class="nav__back" id="back" aria-label="back">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      </a>
+      <a href="../index.html" class="nav__logo">c<span>.</span></a>
+    </div>
+    <nav class="nav__links" id="navLinks">
+      <a href="../index.html#about" data-i18n="nav.about">about</a>
+      <a href="../index.html#projects" data-i18n="nav.projects">projects</a>
+      <a href="../index.html#experience" data-i18n="nav.experience">experience</a>
+      <a href="../index.html#blog" data-i18n="nav.blog">blog</a>
+      <a href="../index.html#contact" data-i18n="nav.contact">contact</a>
+      <a href="../archive.html" class="nav__archive is-active" data-i18n="nav.archive">archive</a>
+    </nav>
+    <div class="nav__right">
+      <button class="lang" id="langToggle" aria-label="switch language">
+        <span data-lang="en">EN</span><span class="lang__slash">/</span><span data-lang="zh">中</span>
+      </button>
+      <button class="nav__burger" id="burger" aria-label="open menu"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="rs post">
+    <div class="rs__head">
+      <p class="rs__crumb"><a href="../archive.html" data-i18n="ar.title">archive</a><span>/</span><a href="../archive.html#ug/y1/pme"><span class="t-en">year 1 · pervasive media exploration</span><span class="t-zh">一年级 · 泛在媒体探索</span></a></p>
+      <h1 class="post__title">Raspberry pi and Ultrasonic sensor</h1>
+      <p class="post__meta"><span class="t-en">26 apr 2025</span><span class="t-zh">2025 年 4 月 26 日</span> · <span class="t-en">3 min read</span><span class="t-zh">约 3 分钟读完</span></p>
+      <p class="post__note t-zh">这篇文章写于在学校的课程期间，原文是英文。</p>
+    </div>
+    <article class="prose">
+<p>This week, I experimented with the interactive_sensor.py script that uses an ultrasonic distance sensor and Pygame to create a dynamic glitch art effect. I modified the script in several ways to better understand how distance measurements influence the visual output and to get more familiar with Python and GPIO operations on Raspberry Pi.</p>
+<p>I tested the following modifications:</p>
+<ul>
+<li>Changed clock.tick() to different frame rates (1 FPS and 100 FPS) to observe how speed impacts the visuals.</li>
+</ul>
+<figure class="gallery">
+<figure><img alt="" height="276" loading="lazy" src="../assets/archive/2025/04/e17baf2c-af86-407d-a9f5-f074868fd5c1.jpg" width="831"/></figure>
+<figure><img alt="" height="259" loading="lazy" src="../assets/archive/2025/04/e5869b46-0a1b-4890-b6ab-7a8233447aa3.jpg" width="948"/></figure>
+</figure>
+<figure><video controls="" playsinline="" preload="metadata" src="../assets/archive/2025/04/85f365ba-50ba-4150-9f74-90b457fece50.mp4"></video></figure>
+<figure><video controls="" playsinline="" preload="metadata" src="../assets/archive/2025/04/c35cb142-13e8-4ff1-820b-b05235aac8d1.mp4"></video></figure>
+<ul>
+<li>Wrote a custom function colourmove(COLOUR) to change the color dynamically depending on distance ranges.</li>
+</ul>
+<figure><img alt="" height="768" loading="lazy" src="../assets/archive/2025/04/7096c005-cd7d-40b4-930b-2659a85abe50-1024x768.jpg" width="1024"/></figure>
+<figure><video controls="" playsinline="" preload="metadata" src="../assets/archive/2025/04/0b45ffd0-578b-4840-a6a3-fc164927e6af.mp4"></video></figure>
+<ul>
+<li>Adjusted the circle size calculation formulas:</li>
+</ul>
+<p>    300 – distance * 5</p>
+<p>    300 – distance * 10</p>
+<p>    30 – distance * 3</p>
+<figure><img alt="" height="576" loading="lazy" src="../assets/archive/2025/04/IMG_0683-1024x576.jpg" width="1024"/></figure>
+<ul>
+<li>Modified the glitch effect’s randomness by changing the shift values in glitch_surface().</li>
+</ul>
+<p>    Example: shift = random.randint(-20, 200) for a stronger glitch.</p>
+<p>    Also adjusted the row selection range: random.randint(0, HEIGHT-20).</p>
+<figure class="gallery">
+<figure><img alt="" height="348" loading="lazy" src="../assets/archive/2025/04/5b6afe91-ed15-43e1-bcc7-43f4ce12657d-1024x348.jpg" width="1024"/></figure>
+<figure><img alt="" height="333" loading="lazy" src="../assets/archive/2025/04/54943506-bd6a-4315-8a25-d0a2851db2a6-1024x333.jpg" width="1024"/></figure>
+</figure>
+<figure><video controls="" playsinline="" preload="metadata" src="../assets/archive/2025/04/198_1745677707.mp4"></video></figure>
+<h3><strong>What I Learned</strong></h3>
+<ul>
+<li><strong>Frame rate control</strong>: By changing clock.tick(), I learned that higher FPS (like 100) made the glitch effect smoother but less noticeable, while very low FPS (like 1) made the screen updates extremely slow and choppy.</li>
+<li><strong>Distance-based color control</strong>: Creating the colourmove() function taught me how to map sensor input to visual output through if-else conditions.</li>
+<li><strong>Circle size mapping</strong>: I understood how the visual elements can scale non-linearly with sensor distance. For example, using distance * 10 made the circle shrink much faster compared to distance * 3.</li>
+<li><strong>Glitch randomness</strong>: Increasing the shift value in the glitch function created more chaotic and dramatic visual disruptions, while smaller shift ranges kept the visuals more subtle.</li>
+</ul>
+<figure><video controls="" playsinline="" preload="metadata" src="../assets/archive/2025/04/200_1745679935.mp4"></video></figure>
+<h3><strong>Observations</strong></h3>
+<ul>
+<li><strong>Very Close Distance (2–10 cm)</strong>:
+<ul>
+<li>High glitch intensity.</li>
+<li>Color switched frequently (based on colourmove() function).</li>
+<li>Circle size became very large or even reached the maximum.</li>
+</ul>
+</li>
+<li><strong>Medium Distance (10–50 cm)</strong>:
+<ul>
+<li>Moderate glitch effects.</li>
+<li>Colors changed less often.</li>
+<li>Circle sizes were medium.</li>
+</ul>
+</li>
+<li><strong>Far Distance (50–400 cm)</strong>:
+<ul>
+<li>Minimal to almost no glitching.</li>
+<li>Color defaulted to white (as per original code).</li>
+<li>Circles became very small.</li>
+</ul>
+</li>
+</ul>
+<h3><strong>Questions Answered</strong></h3>
+<ol>
+<li><strong>What happens if intensity is negative?</strong> </li>
+</ol>
+<p>If intensity becomes negative (without the max(1, …) safeguard), the glitch function would either crash (due to invalid loop count) or cause no glitch effects, because the range in for loop would be invalid.</p>
+<p>2. <strong>How does the glitch effect change with distance?</strong> </p>
+<ol>
+
+</ol>
+<p>The closer the object, the higher the intensity of the glitch effect (more row shifts happen), resulting in a more chaotic, “broken” appearance. As distance increases, glitch effects become milder and the image stabilizes.</p>
+<p><strong>Reflection</strong></p>
+<p>This project has truly enabled me to understand how to convert real-time inputs from the physical world, such as distance, into visual changes in the digital world. At the same time, I have gained more solid practical experience in setting up GPIO pins, reading sensor data, and presenting this data in creative ways.</p>
+<p>In the future, I intend to further expand this project. For example, I want to add sound effects based on distance changes, or make multiple different shapes appear on the screen and change as objects move.</p>
+<p><strong>interactive_sensor.py script</strong>:</p>
+<object></object><a href="../assets/archive/2025/04/interactive-sensor.pdf" target="_blank">interactive sensor</a><a href="../assets/archive/2025/04/interactive-sensor.pdf" target="_blank">Download</a>
+    </article>
+    <nav class="post-nav"><a class="post-nav__item" href="lighting-an-led.html"><span class="post-nav__label"><span class="t-en">← older</span><span class="t-zh">← 上一篇</span></span><span class="post-nav__title">Lighting an LED</span></a><a class="post-nav__item post-nav__item--next" href="electronics-and-computer-science-department.html"><span class="post-nav__label"><span class="t-en">newer →</span><span class="t-zh">下一篇 →</span></span><span class="post-nav__title">Electronics and Computer Science Department</span></a></nav>
+  </main>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/page.js"></script>
+</body>
+</html>

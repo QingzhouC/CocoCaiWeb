@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<meta name="copyright" content="© 2026 Qingzhou Cai. All rights reserved." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>coco. / Week 10 reflection</title>
+  <meta name="theme-color" content="#fafafa" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Kalam:wght@300;400&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="rs-page">
+  <header class="nav is-scrolled" id="nav">
+    <div class="nav__left">
+      
+      <a href="../archive.html#ug/y2/cc2" class="nav__back" id="back" aria-label="back">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      </a>
+      <a href="../index.html" class="nav__logo">c<span>.</span></a>
+    </div>
+    <nav class="nav__links" id="navLinks">
+      <a href="../index.html#about" data-i18n="nav.about">about</a>
+      <a href="../index.html#projects" data-i18n="nav.projects">projects</a>
+      <a href="../index.html#experience" data-i18n="nav.experience">experience</a>
+      <a href="../index.html#blog" data-i18n="nav.blog">blog</a>
+      <a href="../index.html#contact" data-i18n="nav.contact">contact</a>
+      <a href="../archive.html" class="nav__archive is-active" data-i18n="nav.archive">archive</a>
+    </nav>
+    <div class="nav__right">
+      <button class="lang" id="langToggle" aria-label="switch language">
+        <span data-lang="en">EN</span><span class="lang__slash">/</span><span data-lang="zh">中</span>
+      </button>
+      <button class="nav__burger" id="burger" aria-label="open menu"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="rs post">
+    <div class="rs__head">
+      <p class="rs__crumb"><a href="../archive.html" data-i18n="ar.title">archive</a><span>/</span><a href="../archive.html#ug/y2/cc2"><span class="t-en">year 2 · creative computing ii: applied programming</span><span class="t-zh">二年级 · 创意计算 II：应用编程</span></a></p>
+      <h1 class="post__title">Week 10 reflection</h1>
+      <p class="post__meta"><span class="t-en">11 jan 2026</span><span class="t-zh">2026 年 1 月 11 日</span> · <span class="t-en">3 min read</span><span class="t-zh">约 3 分钟读完</span></p>
+      <p class="post__note t-zh">这篇文章写于在学校的课程期间，原文是英文。</p>
+    </div>
+    <article class="prose">
+<h2>TinyML Audio Interaction &amp; Data Collection</h2>
+<h2>Overview</h2>
+<p>This project focuses on the foundational stage of the TinyML pipeline: categorical data acquisition. Using an ESP32-S3 microcontroller and a digital PDM microphone, I developed a system to capture, process, and archive a high-quality audio dataset designed for gesture and sound recognition. The objective was to create a robust dataset of 30 samples across three distinct classes: Claps, Snaps, and Whistles.</p>
+<h3>Hardware Configuration</h3>
+<p>The system utilises a XIAO ESP32-S3 paired with a capacitive PDM microphone. Unlike analog alternatives, PDM provides a high-frequency, 1-bit digital stream that is highly resistant to electromagnetic interference, ensuring signal integrity during the sampling process.</p>
+<h3>Data Specifications</h3>
+<p>To balance audio fidelity with the strict memory constraints of an edge device, the following parameters were implemented:</p>
+<ul>
+<li><strong>Sample Rate:</strong> 16,000Hz (16kHz), providing sufficient bandwidth for human-generated sounds while optimizing SRAM usage.</li>
+<li><strong>Bit Depth:</strong> 16-bit PCM.</li>
+<li><strong>Format:</strong> Standardised WAV files with a 44-byte RIFF header, ensuring compatibility with machine learning training platforms.</li>
+<li><strong>Storage:</strong> Automated file management on an SD card, including a <code>metadata.csv</code> log for ground-truth labelling.</li>
+</ul>
+<figure><img alt="" height="1024" loading="lazy" src="../assets/archive/2026/01/Screenshot-2026-01-12-at-07.09.00-437x1024.png" width="437"/></figure>
+<h2>Methodology: Data Collection &amp; Quality Control</h2>
+<p>The reliability of a TinyML model is directly tied to the quality of its training data. My collection process followed strict protocols to minimize noise and bias:</p>
+<ul>
+<li><strong>Environmental Consistency:</strong> All samples were recorded at a fixed distance of <strong>20-30cm</strong> to maintain uniform amplitude.</li>
+<li><strong>Data Cleaning:</strong> I implemented a manual verification loop. For instance, when a “snap” sample was corrupted by ambient noise, it was immediately discarded and re-recorded.</li>
+<li><strong>Dataset Diversity:</strong> To prevent overfitting, I intentionally introduced slight variations in the intensity and pitch of each gesture, creating a more generalised representation for the model.</li>
+</ul>
+<h2>Analysis &amp; Critical Reflections</h2>
+<h3><strong>1. System Constraints</strong></h3>
+<p>The project highlights the severe memory and processing trade-offs in edge computing. At 16kHz, a 1-second mono clip consumes approximately 32KB of buffer space. Doubling the sample rate would have exhausted the available SRAM, illustrating why TinyML necessitates feature-efficient architectures over high-fidelity raw data.</p>
+<h3><strong>2. Bias and Representation</strong></h3>
+<p>A critical analysis of datasets like “Google Speech Commands” reveals a bias toward standard accents. This project acknowledges that small-scale datasets are prone to “algorithmic exclusion.” By practicing manual collection, I observed how easily specific demographics (e.g., children or non-native speakers) could be missed, emphasising the need for community-led, diverse data sourcing.</p>
+<h3><strong>3. Ethics of Edge Sensing</strong></h3>
+<p>The application of TinyML introduces a significant privacy advantage which is Data Locality. By processing audio directly on the sensor (the “edge”), the system avoids the privacy risks associated with cloud-based surveillance. This enables ethical applications, such as biodiversity monitoring or medical anomaly detection, where the “always-on” nature serves the user rather than data extraction.</p>
+<h3><strong>4. Future Integration: The ML Pipeline</strong></h3>
+<p>This dataset represents the first step in a complete TinyML deployment. The next phase involves:</p>
+<ol>
+<li><strong>Digital Signal Processing (DSP):</strong> Converting raw waveforms into <strong>Spectrograms</strong> or MFCCs.</li>
+<li><strong>Model Training:</strong> Utilising a Neural Network to classify the spectral patterns.</li>
+<li><strong>Deployment:</strong> Quantising the model to run in real-time on the ESP32-S3.</li>
+</ol>
+    </article>
+    <nav class="post-nav"><a class="post-nav__item" href="week-8-reflection-2.html"><span class="post-nav__label"><span class="t-en">← older</span><span class="t-zh">← 上一篇</span></span><span class="post-nav__title">Week 9 reflection</span></a><a class="post-nav__item post-nav__item--next" href="final-project.html"><span class="post-nav__label"><span class="t-en">newer →</span><span class="t-zh">下一篇 →</span></span><span class="post-nav__title">Final Project</span></a></nav>
+  </main>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/page.js"></script>
+</body>
+</html>

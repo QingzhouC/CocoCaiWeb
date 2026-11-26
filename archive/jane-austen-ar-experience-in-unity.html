@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<meta name="copyright" content="© 2026 Qingzhou Cai. All rights reserved." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>coco. / Jane Austen AR Experience in Unity</title>
+  <meta name="theme-color" content="#fafafa" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Kalam:wght@300;400&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="rs-page">
+  <header class="nav is-scrolled" id="nav">
+    <div class="nav__left">
+      
+      <a href="../archive.html#ug/y1/atm" class="nav__back" id="back" aria-label="back">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      </a>
+      <a href="../index.html" class="nav__logo">c<span>.</span></a>
+    </div>
+    <nav class="nav__links" id="navLinks">
+      <a href="../index.html#about" data-i18n="nav.about">about</a>
+      <a href="../index.html#projects" data-i18n="nav.projects">projects</a>
+      <a href="../index.html#experience" data-i18n="nav.experience">experience</a>
+      <a href="../index.html#blog" data-i18n="nav.blog">blog</a>
+      <a href="../index.html#contact" data-i18n="nav.contact">contact</a>
+      <a href="../archive.html" class="nav__archive is-active" data-i18n="nav.archive">archive</a>
+    </nav>
+    <div class="nav__right">
+      <button class="lang" id="langToggle" aria-label="switch language">
+        <span data-lang="en">EN</span><span class="lang__slash">/</span><span data-lang="zh">中</span>
+      </button>
+      <button class="nav__burger" id="burger" aria-label="open menu"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="rs post">
+    <div class="rs__head">
+      <p class="rs__crumb"><a href="../archive.html" data-i18n="ar.title">archive</a><span>/</span><a href="../archive.html#ug/y1/atm"><span class="t-en">year 1 · algorithmic thinking &amp; methods</span><span class="t-zh">一年级 · 算法思维与方法</span></a></p>
+      <h1 class="post__title">Jane Austen AR Experience in Unity</h1>
+      <p class="post__meta"><span class="t-en">25 apr 2025</span><span class="t-zh">2025 年 4 月 25 日</span> · <span class="t-en">2 min read</span><span class="t-zh">约 2 分钟读完</span></p>
+      <p class="post__note t-zh">这篇文章写于在学校的课程期间，原文是英文。</p>
+    </div>
+    <article class="prose">
+<p>At this stage, I started developing an iOS augmented reality experience based on Unity and AR Foundation, themed around the writer Jane Austen. As part of my Winchester Cathedral AR project, this initiative aims to enable audiences to meet historical figures in AR, thereby fostering a stronger emotional connection.</p>
+<p>Functional Objectives</p>
+<p>The core features I aim to implement include:</p>
+<ol>
+<li>Auto-playing an introductory voiceover upon launch;</li>
+<li>Sequentially playing Jane Austen’s representative quotes when her model is clicked;</li>
+<li>Ensuring the 3D model appears stably in front of users in AR environments, enabling voice interaction.</li>
+</ol>
+<figure><video controls="" playsinline="" preload="metadata" src="../assets/archive/2025/05/234_1748223927.mp4"></video></figure>
+<p>Technical Implementation</p>
+<ul>
+<li>Used Unity 2022 and AR Foundation plugin, configured with ARKit to set up the AR scene;</li>
+<li>Added AR Session and AR Session Origin to the XR Origin, ensuring the main camera is enabled;</li>
+<li>Imported Jane Austen’s 3D model into the scene, attached Animator and Audio Source components;</li>
+<li>Wrote C# scripts to control the welcome voiceover at startup and trigger quote playback via click events;</li>
+<li>Fine-tuned the model’s position, scaling, and anchoring logic for consistent performance across devices.</li>
+</ul>
+<p>Issues and Debugging</p>
+<p>During development, I encountered two key problems:</p>
+<ol>
+<li>Camera Failure to Open</li>
+</ol>
+<ul>
+<li>Problem：ARKit initially failed to enable camera access properly. Although I’d correctly filled in the Camera Usage Description in Player Settings &gt; iOS &gt; Other Settings, the camera couldn’t activate on iOS devices, causing the AR view to remain black. Initial suspicions included unrecognized permissions, uninitialized AR Session, or plugin version compatibility issues.</li>
+</ul>
+<p>2. Audio Not Playing</p>
+<ol></ol>
+<ul>
+<li>Problem：The Audio Source component in Unity failed to load audio assets correctly, and the model’s playback logic wasn’t activated.</li>
+<li>Solutions：<br/>◦ Confirmed audio files were properly imported into Project Assets and paths were correctly referenced in Audio Source.<br/>◦ Added delay mechanisms (using Invoke() or Coroutine) to the script to ensure audio triggered after scene initialization.<br/>◦ Debugged with Debug.Log() to track script flow, confirming click events and audio callbacks bound correctly. Now the model plays welcome voiceover on startup and quotes sequentially on click, with smooth audio and script operation.</li>
+</ul>
+<figure><img alt="" height="494" loading="lazy" src="../assets/archive/2025/05/image-57.png" width="856"/></figure>
+<p>What I gained</p>
+<ul>
+<li>Got familiar with the basic construction process of AR Foundation and the permission configuration of ARKit.</li>
+<li>Learned to control the voice interaction behavior of 3D models through scripts in Unity.</li>
+<li>Understood that the key to realizing emotional narrative in augmented reality environments lies in the design of detailed interactions and trigger logic. For example, characters introduce themselves first, then converse with users helps create a sense of presence.</li>
+</ul>
+    </article>
+    <nav class="post-nav"><a class="post-nav__item" href="week-11-reading.html"><span class="post-nav__label"><span class="t-en">← older</span><span class="t-zh">← 上一篇</span></span><span class="post-nav__title">Week 11 Reading</span></a><a class="post-nav__item post-nav__item--next" href="prototype-design.html"><span class="post-nav__label"><span class="t-en">newer →</span><span class="t-zh">下一篇 →</span></span><span class="post-nav__title">Prototype Design</span></a></nav>
+  </main>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/page.js"></script>
+</body>
+</html>

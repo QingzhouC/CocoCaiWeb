@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<meta name="copyright" content="© 2026 Qingzhou Cai. All rights reserved." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>coco. / Exploring Serial Communication Between Arduino and Processing for Temperature-Controlled Visuals</title>
+  <meta name="theme-color" content="#fafafa" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Kalam:wght@300;400&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="rs-page">
+  <header class="nav is-scrolled" id="nav">
+    <div class="nav__left">
+      
+      <a href="../archive.html#ug/y1/atm" class="nav__back" id="back" aria-label="back">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      </a>
+      <a href="../index.html" class="nav__logo">c<span>.</span></a>
+    </div>
+    <nav class="nav__links" id="navLinks">
+      <a href="../index.html#about" data-i18n="nav.about">about</a>
+      <a href="../index.html#projects" data-i18n="nav.projects">projects</a>
+      <a href="../index.html#experience" data-i18n="nav.experience">experience</a>
+      <a href="../index.html#blog" data-i18n="nav.blog">blog</a>
+      <a href="../index.html#contact" data-i18n="nav.contact">contact</a>
+      <a href="../archive.html" class="nav__archive is-active" data-i18n="nav.archive">archive</a>
+    </nav>
+    <div class="nav__right">
+      <button class="lang" id="langToggle" aria-label="switch language">
+        <span data-lang="en">EN</span><span class="lang__slash">/</span><span data-lang="zh">中</span>
+      </button>
+      <button class="nav__burger" id="burger" aria-label="open menu"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="rs post">
+    <div class="rs__head">
+      <p class="rs__crumb"><a href="../archive.html" data-i18n="ar.title">archive</a><span>/</span><a href="../archive.html#ug/y1/atm"><span class="t-en">year 1 · algorithmic thinking &amp; methods</span><span class="t-zh">一年级 · 算法思维与方法</span></a></p>
+      <h1 class="post__title">Exploring Serial Communication Between Arduino and Processing for Temperature-Controlled Visuals</h1>
+      <p class="post__meta"><span class="t-en">21 may 2025</span><span class="t-zh">2025 年 5 月 21 日</span> · <span class="t-en">2 min read</span><span class="t-zh">约 2 分钟读完</span></p>
+      <p class="post__note t-zh">这篇文章写于在学校的课程期间，原文是英文。</p>
+    </div>
+    <article class="prose">
+<p>This week, my focus is on establishing serial communication between Arduino and Processing to create a jellyfish animation that responds in real time to temperature. The goal is to make the jellyfish’s visual behavior such as swimming speed and colour react to real-time data detected by a DS18B20 digital temperature sensor.</p>
+<figure><img alt="" height="240" loading="lazy" src="../assets/archive/2025/05/image-24.png" width="366"/></figure>
+<p>I connected the DS18B20 temperature sensor to digital pin D2 of an Arduino UNO, and in accordance with the OneWire protocol, a 4.7kΩ pull-up resistor was connected in series on the data line. The sensor is powered by the Arduino’s 5V and GND pins, with the connection wires arranged on a breadboard, as shown in below.</p>
+<figure><img alt="" height="300" loading="lazy" src="../assets/archive/2025/05/image-26.png" width="534"/></figure>
+<p>In Processing, I wrote a program to achieve the following functions:</p>
+<ul>
+<li>Monitor serial data sent by Arduino</li>
+<li>Map temperature values to control:</li>
+<li>The up-down floating speed of the jellyfish</li>
+<li>The jellyfish’s colour (graduating from cool blue to high-temperature red)</li>
+<li>A real-time temperature bar displayed on the left</li>
+</ul>
+<p>But I encountered a key issue: Processing isn’t responding at all. To troubleshoot, I’ve done the following debugging:</p>
+<ul>
+<li>Used Serial.list() to check the current serial port list and confirm the correct port is selected</li>
+<li>Closed Arduino’s serial monitor to prevent port occupation</li>
+<li>Temporarily replaced Arduino’s output with simple strings like “Hello” to ensure Processing can receive basic data at least</li>
+</ul>
+<p>This picture shows the expansion board structure I used for powering external components, which helps maintain stable connections and tidy wiring.</p>
+<figure><img alt="" height="458" loading="lazy" src="../assets/archive/2025/05/image-27.png" width="584"/></figure>
+<p>What I Learned:</p>
+<ul>
+<li>The serial port cannot be occupied by two programs simultaneously: The Arduino serial monitor and Processing cannot be opened at the same time, otherwise communication will fail.</li>
+<li>The serial port number is not fixed: The port number should be reconfirmed via Serial.list() each time the computer is restarted.</li>
+<li>It’s a good habit to debug with dummy data first: Printing fixed strings (like “Hello”) from the Arduino side can quickly identify whether the problem lies in the serial communication layer rather than the sensor.</li>
+<li>Visualizing abstract data (e.g., temperature → animation behavior) is an intuitive and interesting way of data interaction.</li>
+</ul>
+<p>Further development</p>
+<ul>
+<li>Experiment with adding multiple jellyfish or floating bubbles to enhance overall immersion.</li>
+<li>Explore mapping temperature data to the acoustic dimension, e.g., controlling pitch or intensity so users can perceive temperature changes audibly.</li>
+</ul>
+    </article>
+    <nav class="post-nav"><a class="post-nav__item" href="final-reflection-winchester-cathedral-ar-project.html"><span class="post-nav__label"><span class="t-en">← older</span><span class="t-zh">← 上一篇</span></span><span class="post-nav__title">Final Reflection: Winchester Cathedral AR Project</span></a><a class="post-nav__item post-nav__item--next" href="interactive-installation-at-tate-modern.html"><span class="post-nav__label"><span class="t-en">newer →</span><span class="t-zh">下一篇 →</span></span><span class="post-nav__title">Interactive Installation at Tate Modern</span></a></nav>
+  </main>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/page.js"></script>
+</body>
+</html>

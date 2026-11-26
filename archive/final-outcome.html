@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<meta name="copyright" content="© 2026 Qingzhou Cai. All rights reserved." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>coco. / Final Outcome</title>
+  <meta name="theme-color" content="#fafafa" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Kalam:wght@300;400&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="rs-page">
+  <header class="nav is-scrolled" id="nav">
+    <div class="nav__left">
+      
+      <a href="../archive.html#ug/y2/ci" class="nav__back" id="back" aria-label="back">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      </a>
+      <a href="../index.html" class="nav__logo">c<span>.</span></a>
+    </div>
+    <nav class="nav__links" id="navLinks">
+      <a href="../index.html#about" data-i18n="nav.about">about</a>
+      <a href="../index.html#projects" data-i18n="nav.projects">projects</a>
+      <a href="../index.html#experience" data-i18n="nav.experience">experience</a>
+      <a href="../index.html#blog" data-i18n="nav.blog">blog</a>
+      <a href="../index.html#contact" data-i18n="nav.contact">contact</a>
+      <a href="../archive.html" class="nav__archive is-active" data-i18n="nav.archive">archive</a>
+    </nav>
+    <div class="nav__right">
+      <button class="lang" id="langToggle" aria-label="switch language">
+        <span data-lang="en">EN</span><span class="lang__slash">/</span><span data-lang="zh">中</span>
+      </button>
+      <button class="nav__burger" id="burger" aria-label="open menu"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="rs post">
+    <div class="rs__head">
+      <p class="rs__crumb"><a href="../archive.html" data-i18n="ar.title">archive</a><span>/</span><a href="../archive.html#ug/y2/ci"><span class="t-en">year 2 · creative industries</span><span class="t-zh">二年级 · 创意产业</span></a></p>
+      <h1 class="post__title">Final Outcome</h1>
+      <p class="post__meta"><span class="t-en">22 may 2026</span><span class="t-zh">2026 年 5 月 22 日</span> · <span class="t-en">9 min read</span><span class="t-zh">约 9 分钟读完</span></p>
+      <p class="post__note t-zh">这篇文章写于在学校的课程期间，原文是英文。</p>
+    </div>
+    <article class="prose">
+<h3><strong>Interactive System</strong></h3>
+<p>The final outcome of the project focuses on the development of the globe-based data visualisation interface, which acts as the main entry point for exploring global environmental datasets within the TeleAgriculture system.</p>
+<p>This section was primarily my responsibility, and it was developed after the final Figma prototype was reviewed and discussed with Julian. Based on this feedback, we decided to prioritise the implementation of the interactive globe visualisation as the core functional layer of the system, as it effectively connects geographical context with environmental data narratives.</p>
+<p>The globe interface was built as a real-time interactive mapping system, allowing users to explore global environmental conditions through spatial navigation. The visual design follows a dark, radar-like aesthetic, with neon green highlights representing active data nodes. These nodes are positioned on countries across the globe and act as entry points into deeper datasets.</p>
+<figure><img alt="" height="607" loading="lazy" src="../assets/archive/2026/05/Screenshot-2026-05-22-at-14.00.45-1-1024x607.png" width="1024"/></figure>
+<h3><strong>Time-Based Data Interaction</strong></h3>
+<p>A key interaction feature of this system is the time slider located at the bottom of the interface, which allows users to move between historical data and predictive future models. This design decision was directly informed by the collaboration with Omar and Vidula. Omar’s work on data collection and archiving provided the historical dataset structure, while Vidula’s predictive modelling enabled the integration of future forecasting. By embedding both datasets into a single temporal interface, the globe becomes a dynamic system that visualises change over time rather than static geographic information.</p>
+<h3><strong>Country-Level Interaction &amp; Data Exploration</strong></h3>
+<p>When users click on a highlighted country node, the system transitions into a country-specific data view, where a contextual information panel appears above the globe.</p>
+<figure><img alt="" height="607" loading="lazy" src="../assets/archive/2026/05/Screenshot-2026-05-22-at-14.01.13-1-1024x607.png" width="1024"/></figure>
+<p>This popup card presents key information including:</p>
+<ul>
+<li>The selected country name and ISO code</li>
+<li>The selected year (linked directly to the global time slider)</li>
+<li>A dataset classification label (Environmental / prediction dataset node)</li>
+<li>A primary action button leading to deeper data exploration (“Detail”)</li>
+</ul>
+<p>This interaction design creates a clear hierarchical flow:<br/><strong>Global overview → Country selection → Temporal dataset exploration → Detailed data view</strong></p>
+<p>The popup system was designed to maintain spatial awareness, ensuring that users always understand their position within the global dataset while still being able to access detailed information.</p>
+<h3><strong>City-Level Data Exploration (Design Refined by Nana)</strong></h3>
+<figure><img alt="" height="607" loading="lazy" src="../assets/archive/2026/05/Screenshot-2026-05-22-at-13.52.37-1-1024x607.png" width="1024"/></figure>
+<p>This section was originally designed as part of the interaction flow I developed for transitioning from the globe interface into country-specific dashboards. It defines the structural logic of moving from global selection to city-level environmental data nodes, where users can explore individual urban monitoring points such as Baldwinsville (USA).</p>
+<p>After I passed on the initial dashboard and interaction structure, Nana further refined and developed this section, improving both the visual hierarchy and interaction clarity while maintaining the overall design language of the system.</p>
+<p>In the refined version, each city node is presented as an interactive data point within a geographically isolated country view. When selected, the node opens a contextual information panel that provides key operational controls and identity information, including:</p>
+<ul>
+<li>City name and classification (CITY NODE)</li>
+<li>Access options for Detail View and Dashboard View</li>
+<li>Navigation controls such as close and back functions</li>
+</ul>
+<p>To enhance spatial awareness during deep navigation, a miniature globe preview is also integrated into the interface, allowing users to maintain a sense of global positioning while focusing on localised data exploration.</p>
+<p>This refinement strengthens the overall system by improving usability and ensuring consistency across hierarchical data levels, bridging global-scale visualisation with city-level analytical interaction.</p>
+<h3><strong>Dashboard System (Nana’s Contribution &amp; Integration)</strong></h3>
+<p>Following the development of the globe-based visualisation system, the project was extended through the creation of a detailed data dashboard interface, which was developed by Nana. This stage was built directly on top of the interaction flow I designed, where users select a country on the globe and enter a contextual data environment through the popup system.</p>
+<p>The dashboard system acts as the second layer of the data experience, translating geographic selection into detailed environmental and urban-scale insights. While I focused on the global and country-level visualisation, Nana developed the deeper analytical interface, ensuring continuity across the entire user journey.</p>
+<h3><strong>Country Overview </strong></h3>
+<figure><img alt="" height="578" loading="lazy" src="../assets/archive/2026/05/Screenshot-2026-05-22-at-14.02.32-1024x578.png" width="1024"/></figure>
+<p>The country overview is triggered after selecting a country node from the globe interface. It presents a structured breakdown of regional environmental conditions, starting from a city-level overview map with key monitoring locations.</p>
+<p>At the top of the interface, the system displays the selected region name (e.g. <em>“Lomé, TG Overview”</em>) alongside a LIVE STREAMING status indicator and a unique Kit ID, reinforcing the idea of real-time sensor connectivity. A light mode toggle is also included, supporting flexible visual accessibility.</p>
+<p>The central map focuses on the selected country (Togo), highlighting key urban monitoring nodes such as Lomé and Sokodé. This ensures continuity from the globe interaction, where users previously selected the country at a global scale.</p>
+<h3><strong>Environmental Data Modules</strong></h3>
+<figure><img alt="" height="578" loading="lazy" src="../assets/archive/2026/05/Screenshot-2026-05-22-at-14.02.51-1024x578.png" width="1024"/></figure>
+<p>Below the map, the dashboard presents multiple structured data blocks:</p>
+<ul>
+<li><strong>Live Weather Panel</strong>: showing real-time temperature, humidity, wind speed, and general weather conditions</li>
+<li><strong>Drought Risk Assessment</strong>: a scored environmental risk system visualised through a circular indicator and a 30-day precipitation trend chart</li>
+<li><strong>Sensor Status &amp; Sync Information</strong>: displaying device health, last synchronisation date, and system status indicators</li>
+</ul>
+<p>These modules transform abstract environmental datasets into readable and actionable insights, maintaining a balance between scientific accuracy and visual clarity.</p>
+<h3><strong>Data Drill-down System (Detail &amp; Dashboard Views – Nana’s Implementation)</strong></h3>
+<p>Following the country-level interaction design that I developed within the globe visualisation system, Nana further extended the interface into a more detailed data drill-down structure, consisting of two key layers: the Raw Data View and the Dashboard View. These pages are accessed through the “Detail” and “Dashboard” actions within the country overview interface, completing the full interaction pathway from global exploration to in-depth environmental analysis.</p>
+<h3><strong>Raw Data View (Environmental Data Layer)</strong></h3>
+<figure><img alt="" height="578" loading="lazy" src="../assets/archive/2026/05/Screenshot-2026-05-22-at-14.02.58-1024x578.png" width="1024"/></figure>
+<figure><img alt="" height="578" loading="lazy" src="../assets/archive/2026/05/Screenshot-2026-05-22-at-14.03.00-1024x578.png" width="1024"/></figure>
+<p>The Raw Data page represents the first level of detailed information after selecting a country node. It maintains the same visual language as the rest of the system, using a dark, high-contrast interface with neon green highlights to reinforce real-time monitoring.</p>
+<p>At the top of the interface, the system displays the selected location (e.g. <em>“Lomé, TG Details”</em>) alongside a LIVE STREAMING indicator and device ID, reinforcing the idea of continuous environmental data flow.</p>
+<p>The page presents multiple structured data modules:</p>
+<ul>
+<li><strong>Live Weather Panel</strong>: displaying real-time temperature, humidity, wind speed, and weather conditions</li>
+<li><strong>Drought Risk Assessment</strong>: including risk scoring, precipitation averages, evaporation rates, and a 30-day precipitation trend visualisation</li>
+<li><strong>Device &amp; Sync Information</strong>: showing system status, last synchronisation timestamps, and operational health indicators</li>
+<li><strong>Atmospheric Data Layer</strong>: introducing deeper environmental metrics such as ambient temperature and humidity</li>
+</ul>
+<p>Additionally, a miniature preview of the full interface is retained in the corner, supporting spatial orientation during navigation.</p>
+<p>This layer focuses on exposing <strong>raw environmental sensor outputs</strong>, allowing users to inspect data at a granular level before moving into analytical interpretation.</p>
+<h3><strong>Dashboard View (Analytical Layer)</strong></h3>
+<figure><img alt="" height="578" loading="lazy" src="../assets/archive/2026/05/Screenshot-2026-05-22-at-14.03.09-1024x578.png" width="1024"/></figure>
+<figure><img alt="" height="578" loading="lazy" src="../assets/archive/2026/05/Screenshot-2026-05-22-at-14.03.12-1024x578.png" width="1024"/></figure>
+<p>The Dashboard page builds on the raw data layer by transforming environmental readings into structured analytical summaries. It is designed for interpretation, comparison, and system-level monitoring rather than raw inspection.</p>
+<p>The interface includes several key analytical modules:</p>
+<ul>
+<li><strong>System Efficiency Trend (24H Performance)</strong>: visualising system stability over time with an average efficiency indicator (Avg: 98.2%)</li>
+<li><strong>Ambient Temperature Analytics</strong>: summarising minimum, average, and maximum values alongside a 24-hour distribution graph</li>
+<li><strong>Humidity Analytics Panel</strong>: presenting similar statistical breakdowns with a clear “HIGH” status indicator</li>
+<li><strong>Relative Environmental Comparison</strong>: a dual-metric visualisation comparing temperature and humidity trends side by side</li>
+</ul>
+<p>This layer shifts the system from data observation to data interpretation, enabling users to understand environmental conditions at a glance rather than through raw values.</p>
+<h3><strong>Landing Interface (System Entry Page – Nana’s Implementation)</strong></h3>
+<p>In addition to extending the dashboard system, Nana also designed the entry interface of the TeleAgriculture web application, which functions as the first interaction point for users entering the platform. This page establishes the visual identity, system purpose, and interaction tone before users access the main globe-based visualisation system.</p>
+<figure><img alt="" height="607" loading="lazy" src="../assets/archive/2026/05/Screenshot-2026-05-22-at-14.00.35-1024x607.png" width="1024"/></figure>
+<p>A key feature introduced in this stage is the theme switching capability, allowing users to toggle between a dark and light interface mode. This adds accessibility and flexibility to the system while maintaining the same core visual language across different viewing conditions.</p>
+<figure><img alt="" height="578" loading="lazy" src="../assets/archive/2026/05/Screenshot-2026-05-22-at-14.02.36-1024x578.png" width="1024"/></figure>
+<h3><strong>Final Outcome Summary – TeleAgriculture System</strong></h3>
+<p>The final outcome of the TeleAgriculture project is a multi-layered interactive web application that combines global data visualisation, environmental analytics, and a hardware-based monitoring ecosystem. The system was developed collaboratively, with each team member contributing to different layers of the platform. My primary focus was the globe-based visualisation system and interaction architecture, while Nana developed and extended the dashboard, data analysis layers, and entry interface, ensuring a coherent end-to-end user experience.</p>
+<p>The final system operates as a unified digital ecosystem that connects geographical exploration, real-time environmental data, and predictive analytics through a consistent visual and interaction language.</p>
+<h3><strong>Core System Structure</strong></h3>
+<p>The platform is structured around a progressive interaction flow:</p>
+<p><strong>Landing Page → Globe Visualisation → Country Selection → Data Popup → Raw Data View → Analytical Dashboard</strong></p>
+<p>This structure allows users to gradually move from a global overview of agricultural conditions into highly detailed, location-specific environmental data.</p>
+<h3><strong>Globe-Based Visualisation (My Contribution)</strong></h3>
+<p>The central component of the system is the interactive 3D globe interface, which I designed and implemented using React and react-globe.gl. This interface allows users to explore global environmental conditions through spatial interaction.</p>
+<p>Key features include:</p>
+<ul>
+<li>A dark, radar-inspired visual style with neon green data nodes</li>
+<li>Clickable country markers representing environmental data locations</li>
+<li>A time slider enabling transitions between historical data and predictive future models</li>
+<li>A country-level popup system providing contextual dataset access</li>
+</ul>
+<p>This layer establishes the spatial foundation of the system, translating abstract environmental datasets into a navigable global interface.</p>
+<h3><strong>Dashboard &amp; Data Layers (Nana’s Contribution)</strong></h3>
+<p>Building on the interaction structure, Nana developed a series of structured analytical dashboards that extend the user journey into deeper levels of data interpretation.</p>
+<p>These include:</p>
+<ul>
+<li><strong>Country Overview Dashboard</strong>: real-time weather, drought risk analysis, and sensor status</li>
+<li><strong>Raw Data View</strong>: detailed environmental readings and device-level information</li>
+<li><strong>Dashboard Analytics View</strong>: system performance, temperature/humidity statistics, and comparative trends</li>
+<li><strong>City-Level Data Exploration</strong>: refined node-based navigation with contextual popups</li>
+</ul>
+<p>Together, these layers transform raw sensor outputs into structured, readable environmental intelligence.</p>
+<h3><strong>System Entry Interface</strong></h3>
+<p>Nana also designed the landing page, which introduces the platform’s identity, key statistics, and system purpose. It establishes the branding of TeleAgriculture as a global environmental intelligence platform, and provides a clear entry point into the system through a “GET STARTED” interaction.</p>
+<h3><strong>Design Philosophy</strong></h3>
+<p>Across all modules, the system maintains a consistent design language based on:</p>
+<ul>
+<li>Dark/eco-tech visual identity</li>
+<li>Neon green highlights for live data states</li>
+<li>Glassmorphism-style UI components</li>
+<li>Hierarchical data storytelling (global → local → analytical)</li>
+</ul>
+<p>This ensures that complex environmental datasets remain visually accessible and structurally intuitive.</p>
+<h3><strong>Final Outcome</strong></h3>
+<p>Overall, TeleAgriculture functions as a complete digital ecosystem for environmental monitoring and agricultural intelligence, combining:</p>
+<ul>
+<li>Spatial data exploration (globe interface)</li>
+<li>Structured analytical dashboards</li>
+<li>Real-time sensor integration</li>
+<li>Hardware procurement system</li>
+<li>Predictive environmental modelling</li>
+</ul>
+<p>The final prototype demonstrates how environmental data can be transformed into an interactive, multi-layered storytelling system, bridging geography, technology, and ecological awareness within a single coherent platform.</p>
+<p>Link to project GitHub for all the code: <a href="https://github.com/nanashireen/Creative-Industries/tree/main/src" rel="noopener" target="_blank">https://github.com/nanashireen/Creative-Industries/tree/main/src</a></p>
+<p>Link to Final PPT: <a href="https://canva.link/rzbq3zwhv52m2ld" rel="noopener" target="_blank">https://canva.link/rzbq3zwhv52m2ld</a></p>
+    </article>
+    <nav class="post-nav"><a class="post-nav__item" href="technical-process.html"><span class="post-nav__label"><span class="t-en">← older</span><span class="t-zh">← 上一篇</span></span><span class="post-nav__title">Technical Process</span></a><a class="post-nav__item post-nav__item--next" href="final-reflection.html"><span class="post-nav__label"><span class="t-en">newer →</span><span class="t-zh">下一篇 →</span></span><span class="post-nav__title">Final Reflection</span></a></nav>
+  </main>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/page.js"></script>
+</body>
+</html>

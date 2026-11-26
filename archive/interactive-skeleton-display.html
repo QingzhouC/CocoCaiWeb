@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<meta name="copyright" content="© 2026 Qingzhou Cai. All rights reserved." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>coco. / Interactive Skeleton Display</title>
+  <meta name="theme-color" content="#fafafa" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Kalam:wght@300;400&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="rs-page">
+  <header class="nav is-scrolled" id="nav">
+    <div class="nav__left">
+      
+      <a href="../archive.html#ug/y1/atm" class="nav__back" id="back" aria-label="back">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      </a>
+      <a href="../index.html" class="nav__logo">c<span>.</span></a>
+    </div>
+    <nav class="nav__links" id="navLinks">
+      <a href="../index.html#about" data-i18n="nav.about">about</a>
+      <a href="../index.html#projects" data-i18n="nav.projects">projects</a>
+      <a href="../index.html#experience" data-i18n="nav.experience">experience</a>
+      <a href="../index.html#blog" data-i18n="nav.blog">blog</a>
+      <a href="../index.html#contact" data-i18n="nav.contact">contact</a>
+      <a href="../archive.html" class="nav__archive is-active" data-i18n="nav.archive">archive</a>
+    </nav>
+    <div class="nav__right">
+      <button class="lang" id="langToggle" aria-label="switch language">
+        <span data-lang="en">EN</span><span class="lang__slash">/</span><span data-lang="zh">中</span>
+      </button>
+      <button class="nav__burger" id="burger" aria-label="open menu"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="rs post">
+    <div class="rs__head">
+      <p class="rs__crumb"><a href="../archive.html" data-i18n="ar.title">archive</a><span>/</span><a href="../archive.html#ug/y1/atm"><span class="t-en">year 1 · algorithmic thinking &amp; methods</span><span class="t-zh">一年级 · 算法思维与方法</span></a></p>
+      <h1 class="post__title">Interactive Skeleton Display</h1>
+      <p class="post__meta"><span class="t-en">20 mar 2025</span><span class="t-zh">2025 年 3 月 20 日</span> · <span class="t-en">2 min read</span><span class="t-zh">约 2 分钟读完</span></p>
+      <p class="post__note t-zh">这篇文章写于在学校的课程期间，原文是英文。</p>
+    </div>
+    <article class="prose">
+<figure><img alt="" height="678" loading="lazy" src="../assets/archive/2025/05/image-47.png" width="904"/></figure>
+<p>During my continued exploration of other interactive installations at Winchester Cathedral, I encountered a fascinating touchscreen exhibition that uses digital means to guide visitors through the composition of a set of historical human bones. The installation primarily features a human skeleton diagram, allowing visitors to click on different parts to view their names, with colours indicating which individual each bone belongs to. Four colour-coded slots above the screen clearly explain that the bones in the display case do not come from a single person, but are a mix of remains from four individuals.</p>
+<figure><img alt="" height="678" loading="lazy" src="../assets/archive/2025/05/image-45.png" width="904"/></figure>
+<p>This visual overlay is highly inspiring. It not only conveys the complexity of archaeological analysis but also makes people realize that what we’re facing isn’t “a complete person,” but fragmented clues of intertwined lives like a puzzle that needs to be identified piece by piece.</p>
+<figure><img alt="" height="678" loading="lazy" src="../assets/archive/2025/05/image-46.png" width="904"/></figure>
+<p>However, from a user experience (UX) perspective, this interactive system still has obvious room for improvement. Although the clickable bones are marked with slightly bold black lines, this marking is very inconspicuous. For example, when my friend used it, they tried to click on a certain bone multiple times, but the interface didn’t respond. We initially thought the system was faulty, but later realized that only the slightly thicker lines were interactive. This kind of prompting is too obscure and easily causes misunderstanding and frustration.</p>
+<p>Reflection</p>
+<p>This experience has made me realize the importance of clarity and affordance in interactive design. In an educational and information-dense context, visual guidance must be explicit enough. Using line thickness alone to distinguish clickable areas is clearly insufficient. More effective improvements could include:</p>
+<ul>
+<li>Highlighting elements with a glow when the mouse cursor or finger hovers over them;</li>
+<li>Adding a short tutorial animation or operation instructions;</li>
+<li>Using color contrast or icon prompts instead of relying solely on line variations.</li>
+</ul>
+<p>This experience also reminds me again: all design should prioritize the experience of first-time users. As designers, we often overlook newcomers’ unfamiliarity with interfaces because we know how the interaction works. Design should be self-explanatory, not requiring users to trial and error their way through.</p>
+<p>Idea about my project</p>
+<p>Combining with my ongoing Winchester Cathedral AR project, this experience has further strengthened my design direction:</p>
+<ul>
+<li>Clearly mark interactive areas to avoid user misclicks;</li>
+<li>Add click feedback, such as subtle animations or color flashes;</li>
+<li>From the perspective of users’ first contact, prioritize usability and guidance design upfront rather than treating them as later patches.</li>
+</ul>
+    </article>
+    <nav class="post-nav"><a class="post-nav__item" href="research-and-inspirations.html"><span class="post-nav__label"><span class="t-en">← older</span><span class="t-zh">← 上一篇</span></span><span class="post-nav__title">Research and Inspirations</span></a><a class="post-nav__item post-nav__item--next" href="wearables-hackathon-with-emilie-giles.html"><span class="post-nav__label"><span class="t-en">newer →</span><span class="t-zh">下一篇 →</span></span><span class="post-nav__title">Wearables Hackathon with Emilie Giles</span></a></nav>
+  </main>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/page.js"></script>
+</body>
+</html>

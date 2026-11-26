@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<meta name="copyright" content="© 2026 Qingzhou Cai. All rights reserved." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>coco. / Crystal ball Arduino</title>
+  <meta name="theme-color" content="#fafafa" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Kalam:wght@300;400&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="rs-page">
+  <header class="nav is-scrolled" id="nav">
+    <div class="nav__left">
+      
+      <a href="../archive.html#ug/y1/cc1" class="nav__back" id="back" aria-label="back">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      </a>
+      <a href="../index.html" class="nav__logo">c<span>.</span></a>
+    </div>
+    <nav class="nav__links" id="navLinks">
+      <a href="../index.html#about" data-i18n="nav.about">about</a>
+      <a href="../index.html#projects" data-i18n="nav.projects">projects</a>
+      <a href="../index.html#experience" data-i18n="nav.experience">experience</a>
+      <a href="../index.html#blog" data-i18n="nav.blog">blog</a>
+      <a href="../index.html#contact" data-i18n="nav.contact">contact</a>
+      <a href="../archive.html" class="nav__archive is-active" data-i18n="nav.archive">archive</a>
+    </nav>
+    <div class="nav__right">
+      <button class="lang" id="langToggle" aria-label="switch language">
+        <span data-lang="en">EN</span><span class="lang__slash">/</span><span data-lang="zh">中</span>
+      </button>
+      <button class="nav__burger" id="burger" aria-label="open menu"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="rs post">
+    <div class="rs__head">
+      <p class="rs__crumb"><a href="../archive.html" data-i18n="ar.title">archive</a><span>/</span><a href="../archive.html#ug/y1/cc1"><span class="t-en">year 1 · creative computing i: introduction to programming</span><span class="t-zh">一年级 · 创意计算 I：编程入门</span></a></p>
+      <h1 class="post__title">Crystal ball Arduino</h1>
+      <p class="post__meta"><span class="t-en">13 jan 2025</span><span class="t-zh">2025 年 1 月 13 日</span> · <span class="t-en">2 min read</span><span class="t-zh">约 2 分钟读完</span></p>
+      <p class="post__note t-zh">这篇文章写于在学校的课程期间，原文是英文。</p>
+    </div>
+    <article class="prose">
+<figure><img alt="" height="795" loading="lazy" src="../assets/archive/2025/01/IMG_8135-1024x795.jpg" width="1024"/></figure>
+<p>In this project, I used Arduino to create a crystal ball that can “predict” the future. It’s a fun interactive installation where users can ask the all – knowing crystal ball a question and then get an answer by flipping it over. Although the answers are pre – set, the content can be customized as needed. Through the combination of technology and creativity in this project, I not only learned the basic operations of Arduino but also gained a deeper understanding of how to design and implement interactive experiences.</p>
+<p>During the production process, I used an Arduino board and a tilt switch to simulate the action of shaking the crystal ball, thus randomly selecting an answer. In addition, I utilized an LCD display to show the answer. The LCD screen supports 16 columns and 2 rows, with a total of 32 characters. Despite having many pins, only some necessary pins need to be connected to ensure the screen can be powered and communicate properly. When implementing the hardware connection, I gained a more in – depth understanding of circuit layout, communication protocols (such as I2C), and the Arduino Liquid Crystal library.</p>
+<p>Through this project, I not only honed my hardware and programming skills but also experienced the joy of bringing entertainment and surprises to users through interactive installations. It made me realise that simple technologies can become very interesting through creative design. I hope to further integrate such interactive elements into more complex designs in the future to create a more immersive experience for users.</p>
+    </article>
+    <nav class="post-nav"><a class="post-nav__item" href="python-for-programmers-on-codecademy.html"><span class="post-nav__label"><span class="t-en">← older</span><span class="t-zh">← 上一篇</span></span><span class="post-nav__title">Python for Programmers on Codecademy</span></a></nav>
+  </main>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/page.js"></script>
+</body>
+</html>

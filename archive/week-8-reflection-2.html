@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<meta name="copyright" content="© 2026 Qingzhou Cai. All rights reserved." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>coco. / Week 9 reflection</title>
+  <meta name="theme-color" content="#fafafa" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Kalam:wght@300;400&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="rs-page">
+  <header class="nav is-scrolled" id="nav">
+    <div class="nav__left">
+      
+      <a href="../archive.html#ug/y2/cc2" class="nav__back" id="back" aria-label="back">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      </a>
+      <a href="../index.html" class="nav__logo">c<span>.</span></a>
+    </div>
+    <nav class="nav__links" id="navLinks">
+      <a href="../index.html#about" data-i18n="nav.about">about</a>
+      <a href="../index.html#projects" data-i18n="nav.projects">projects</a>
+      <a href="../index.html#experience" data-i18n="nav.experience">experience</a>
+      <a href="../index.html#blog" data-i18n="nav.blog">blog</a>
+      <a href="../index.html#contact" data-i18n="nav.contact">contact</a>
+      <a href="../archive.html" class="nav__archive is-active" data-i18n="nav.archive">archive</a>
+    </nav>
+    <div class="nav__right">
+      <button class="lang" id="langToggle" aria-label="switch language">
+        <span data-lang="en">EN</span><span class="lang__slash">/</span><span data-lang="zh">中</span>
+      </button>
+      <button class="nav__burger" id="burger" aria-label="open menu"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="rs post">
+    <div class="rs__head">
+      <p class="rs__crumb"><a href="../archive.html" data-i18n="ar.title">archive</a><span>/</span><a href="../archive.html#ug/y2/cc2"><span class="t-en">year 2 · creative computing ii: applied programming</span><span class="t-zh">二年级 · 创意计算 II：应用编程</span></a></p>
+      <h1 class="post__title">Week 9 reflection</h1>
+      <p class="post__meta"><span class="t-en">11 jan 2026</span><span class="t-zh">2026 年 1 月 11 日</span> · <span class="t-en">1 min read</span><span class="t-zh">约 1 分钟读完</span></p>
+      <p class="post__note t-zh">这篇文章写于在学校的课程期间，原文是英文。</p>
+    </div>
+    <article class="prose">
+<p>Building an ER Diagram for a Music Dataset</p>
+<p>In Week 9, I created an ER diagram using Mermaid to represent a music dataset containing artists, albums, tracks, and genres. This task helped me better understand how raw dataset attributes can be organised into structured database entities and relationships.</p>
+<figure><img alt="" height="1024" loading="lazy" src="../assets/archive/2026/01/Week9_Assignment2-782x1024.png" width="782"/></figure>
+<p>I learned how to define entities with attributes and how to represent different types of relationships such as one-to-many and many-to-many. For example, one artist can create many albums, and one album can contain many tracks. I also learned that a many-to-many relationship, such as between artists and genres, requires a join table to avoid data redundancy.</p>
+<p>Using Mermaid syntax was challenging at first because small mistakes could break the diagram. However, after testing in the live editor, I became more confident in writing correct ER diagram syntax. Visualising the dataset in diagram form made the data structure much clearer than reading it from a table or CSV file.</p>
+<p>This exercise helped me realise the importance of data modelling before building machine learning or database systems. A well-designed structure makes data easier to manage, query, and analyse. In future projects, I would like to apply ER diagrams earlier in the design process to improve data organisation and system planning.</p>
+    </article>
+    <nav class="post-nav"><a class="post-nav__item" href="week-8-reflection.html"><span class="post-nav__label"><span class="t-en">← older</span><span class="t-zh">← 上一篇</span></span><span class="post-nav__title">Week 8 reflection</span></a><a class="post-nav__item post-nav__item--next" href="week-10-reflection.html"><span class="post-nav__label"><span class="t-en">newer →</span><span class="t-zh">下一篇 →</span></span><span class="post-nav__title">Week 10 reflection</span></a></nav>
+  </main>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/page.js"></script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<meta name="copyright" content="© 2026 Qingzhou Cai. All rights reserved." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>coco. / Raspberry pi and Temperature sensor</title>
+  <meta name="theme-color" content="#fafafa" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Kalam:wght@300;400&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="rs-page">
+  <header class="nav is-scrolled" id="nav">
+    <div class="nav__left">
+      
+      <a href="../archive.html#ug/y1/pme" class="nav__back" id="back" aria-label="back">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      </a>
+      <a href="../index.html" class="nav__logo">c<span>.</span></a>
+    </div>
+    <nav class="nav__links" id="navLinks">
+      <a href="../index.html#about" data-i18n="nav.about">about</a>
+      <a href="../index.html#projects" data-i18n="nav.projects">projects</a>
+      <a href="../index.html#experience" data-i18n="nav.experience">experience</a>
+      <a href="../index.html#blog" data-i18n="nav.blog">blog</a>
+      <a href="../index.html#contact" data-i18n="nav.contact">contact</a>
+      <a href="../archive.html" class="nav__archive is-active" data-i18n="nav.archive">archive</a>
+    </nav>
+    <div class="nav__right">
+      <button class="lang" id="langToggle" aria-label="switch language">
+        <span data-lang="en">EN</span><span class="lang__slash">/</span><span data-lang="zh">中</span>
+      </button>
+      <button class="nav__burger" id="burger" aria-label="open menu"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="rs post">
+    <div class="rs__head">
+      <p class="rs__crumb"><a href="../archive.html" data-i18n="ar.title">archive</a><span>/</span><a href="../archive.html#ug/y1/pme"><span class="t-en">year 1 · pervasive media exploration</span><span class="t-zh">一年级 · 泛在媒体探索</span></a></p>
+      <h1 class="post__title">Raspberry pi and Temperature sensor</h1>
+      <p class="post__meta"><span class="t-en">20 may 2025</span><span class="t-zh">2025 年 5 月 20 日</span> · <span class="t-en">7 min read</span><span class="t-zh">约 7 分钟读完</span></p>
+      <p class="post__note t-zh">这篇文章写于在学校的课程期间，原文是英文。</p>
+    </div>
+    <article class="prose">
+<p><strong>Sensor Used:</strong> DHT11 (Temperature &amp; Humidity)</p>
+<p><strong>Date:</strong> 8 April 2025</p>
+<p><strong>Sensor Placement:</strong> On top of Raspberry Pi, near window, on the desk</p>
+<figure><img alt="" height="800" loading="lazy" src="../assets/archive/2025/05/grove-temperature-humidity-sensor-dht11-seeed-mmp-0758-40341143060675.webp" width="800"/></figure>
+<p><br/>The Pi Hut (n.d.) <em>Grove – Temperature &amp; Humidity Sensor (DHT11)</em> [Online image]. Available at: The Pi Hut website (Accessed: 20 May 2025)</p>
+<p><br/>In this task, I used a DHT11 temperature and humidity sensor connected to a Raspberry Pi, I recorded environmental data at four different times throughout a single day. Alongside each two-minute sensing session, I closely observed the space around me — noting sound, light, movement, and atmosphere. Rather than focusing purely on numbers and datas, I aimed to compare what the sensor could detect with what I could feel and experience as a person.</p>
+<p><br/>This process helped me discover where human senses and sensor data align, and where they diverge. Sometimes, subtle changes in airflow or mood were deeply noticeable to me but invisible to the sensor. At other times, the sensor caught gradual humidity shifts that I would have overlooked. Through this reflection, I began to think about how sensing could be made more experiential and interactive like turning data into something people can see, hear, or feel in real time.</p>
+<p><strong><br/><strong>Session 1 – 15:19–15:21</strong></strong></p>
+<a href="../assets/archive/2025/05/TempLog1.txt" target="_blank">TempLog1</a><a href="../assets/archive/2025/05/TempLog1.txt" target="_blank">Download</a>
+<p><strong>Where I placed the sensor:</strong> On the Raspberry Pi, near the window (window closed)</p>
+<p><strong>Sensor data:</strong></p>
+<ul>
+<li>Highest temperature: 41°C (I placed my hands around it)</li>
+<li>Lowest temperature: 25°C</li>
+<li>Humidity range: 35%–80%</li>
+</ul>
+<p><strong>What I noticed:</strong></p>
+<p>• <strong>Sounds:</strong> Very quiet</p>
+<p>• <strong>Movement:</strong> None. The room had 4 people, all sitting still</p>
+<p>• <strong>Light:</strong> Bright direct sunlight</p>
+<p>• <strong>Other:</strong> Room felt still and warm, slight heat build-up on Pi</p>
+<p><strong>What surprised me today:</strong></p>
+<p>The temperature rose dramatically (35–41°C) when I placed my hands around the sensor. It showed how sensitive the sensor was to nearby heat, especially body heat.</p>
+<p><strong>What the sensor missed:</strong></p>
+<p>It didn’t reflect how dry or stale the air felt, humidity was just a number.</p>
+<p><strong>How this session felt:</strong></p>
+<p>Warm and still. My awareness increased after comparing my body’s experience with the sensor’s numbers.</p>
+<hr/>
+<p><strong>Session 2 – 15:48–15:50</strong></p>
+<a href="../assets/archive/2025/05/TempLog2.txt" target="_blank">TempLog2</a><a href="../assets/archive/2025/05/TempLog2.txt" target="_blank">Download</a>
+<p><strong>Where I placed the sensor:</strong> Same location</p>
+<p><strong>Sensor data:</strong></p>
+<p>• Temperature range: 25°C to 28.9°C</p>
+<p>• Humidity range: 30%–74%</p>
+<p><strong>What I noticed:</strong></p>
+<p>• <strong>Sounds:</strong> Low conversation</p>
+<p>• <strong>Movement:</strong> I shook a book above the sensor to simulate airflow</p>
+<p>• <strong>Light:</strong> Afternoon sun still present</p>
+<p>• <strong>Other:</strong> Air felt fresher during shaking, but sensor only showed small changes</p>
+<p><strong>What surprised me today:</strong></p>
+<p>The temperature barely dropped despite the active airflow from book-shaking.</p>
+<p><strong>What the sensor missed:</strong></p>
+<p>It didn’t pick up airflow or movement, just temperature, even though the sensation of cooling was strong to me.</p>
+<p><strong>How this session felt:</strong></p>
+<p>More “interactive” as I was consciously altering the space and paying attention to cause and effect.</p>
+<hr/>
+<p><strong>Session 3 – 16:13–16:15</strong></p>
+<a href="../assets/archive/2025/05/TempLog3.txt" target="_blank">TempLog3</a><a href="../assets/archive/2025/05/TempLog3.txt" target="_blank">Download</a>
+<p><strong>Where I placed the sensor:</strong> Same location</p>
+<p><strong>Sensor data:</strong></p>
+<p>• Temperature: 25°C to 28.9°C</p>
+<p>• Humidity: 30%–80%</p>
+<p><strong>What I noticed:</strong></p>
+<p>• <strong>Sounds:</strong> I screamed into the sensor and breathed heavily on it</p>
+<p>• <strong>Movement:</strong> None otherwise</p>
+<p>• <strong>Light:</strong> Still bright</p>
+<p>• <strong>Other:</strong> The sensor responded slowly, but temperature rose a bit</p>
+<p><strong>What surprised me today:</strong></p>
+<p>Screaming into the sensor and breathing didn’t cause as big a spike as I expected. The sensor is less responsive to sound or sudden breath than it is to steady body heat.</p>
+<p><strong>What the sensor missed:</strong></p>
+<p>No response to loud sound. Even if the environment felt active, the sensor’s numbers didn’t change significantly.</p>
+<p><strong>How this session felt:</strong></p>
+<p>Kind of strange. I was loud and disruptive but the data remained calm.</p>
+<hr/>
+<p><strong>Session 4 – 16:51–16:53</strong></p>
+<a href="../assets/archive/2025/05/TempLog4.txt" target="_blank">TempLog4</a><a href="../assets/archive/2025/05/TempLog4.txt" target="_blank">Download</a>
+<p><strong>Where I placed the sensor:</strong> Same location</p>
+<p><strong>Sensor data:</strong></p>
+<p>Temperature: 25°C to 28.9°C</p>
+<p>Humidity: 30%–80%</p>
+<p><strong>What I noticed:</strong></p>
+<p><strong>Sounds:</strong> Light movement </p>
+<p><strong>Movement:</strong> 4 people in room, low activity</p>
+<p><strong>Light:</strong> Artificial lights on, windows had been open for 10 minutes</p>
+<p><strong>Other:</strong> Air felt more balanced </p>
+<p><strong>What surprised me today:</strong> The space felt fresh and lively after having the windows open, even though temperature stayed about the same.</p>
+<p><strong>What the sensor missed:</strong> The improvement in perceived air quality and mood of the room.</p>
+<p><strong>How this session felt:</strong> The space felt more breathable and relaxed after window opened.</p>
+<hr/>
+<p><strong>Visualising the Data with Jupyter Notebook</strong></p>
+<p>To better understand the patterns in the temperature and humidity data I collected, I used Jupyter Notebook to visualize the data for these four time periods. I first wrote a Python script to parse the raw sensor logs and converted them into structured data using Pandas. Then, I created line charts and subplot comparisons with matplotlib to observe how the environment changes at different times of the day.</p>
+<p>Initially, I tried plotting temperature and humidity data from four different experimental conditions on one graph for intuitive trend comparison, using plt.plot() in matplotlib with distinct colors and legend labels for each curve.</p>
+<p>However, although I clearly used different colors, the graph showed almost only one line for both temperature and humidity data. This was because the values recorded by sensors in the four experiments were too close, with extremely high overlap between the lines, making them visually indistinguishable.</p>
+<figure class="gallery">
+<figure><img alt="" height="640" loading="lazy" src="../assets/archive/2025/05/Screenshot-2025-05-20-at-20.03.49-1024x640.png" width="1024"/></figure>
+</figure>
+<figure><img alt="" height="640" loading="lazy" src="../assets/archive/2025/05/Screenshot-2025-05-20-at-20.03.59-1024x640.png" width="1024"/></figure>
+<p>To solve the problem that all data overlapped on one graph with barely visible differences, I switched to using matplotlib’s subplot method, plotting the four sets of experimental data in four small sub-graphs respectively. In this way, the slight temperature changes in each group can be presented more clearly.</p>
+<pre><code>fig, axs = plt.subplots(2, 2, figsize=(14, 10))  # Create into 2*2 graphs
+
+# Each graph represent a set of data
+axs[0, 0].plot(log1["Time (s)"], log1["Temperature (C)"], color='red')
+axs[0, 0].set_title("TempLog1 - Bright Sunlight")
+axs[0, 0].set_ylabel("Temperature (°C)")
+
+axs[0, 1].plot(log2["Time (s)"], log2["Temperature (C)"], color='blue')
+axs[0, 1].set_title("TempLog2 - Airflow Simulation")
+
+axs[1, 0].plot(log3["Time (s)"], log3["Temperature (C)"], color='green')
+axs[1, 0].set_title("TempLog3 - Windows Opened")
+
+axs[1, 1].plot(log4["Time (s)"], log4["Temperature (C)"], color='orange')
+axs[1, 1].set_title("TempLog4 - Windows Opened Again")
+
+for ax in axs.flat:
+    ax.set_xlabel("Time (s)")
+    ax.grid(True)
+
+plt.suptitle("Temperature Trends under Different Conditions", fontsize=16)
+plt.tight_layout()
+plt.show()</code></pre>
+<p>The improvements brought by this approach:</p>
+<ul>
+<li>Each temperature curve has its exclusive space without mutual occlusion.</li>
+<li>Subplot titles clearly mark the corresponding experimental conditions.</li>
+<li>The graph becomes neater and easier to compare change trends across different experiments.</li>
+</ul>
+<figure><img alt="" height="726" loading="lazy" src="../assets/archive/2025/05/HumidityVisual-1024x726.png" width="1024"/></figure>
+<p>Each subplot shows the humidity change over 120 seconds, these data were collected at a frequency of once every 2 seconds within 2 minutes, so each group of data contains approximately 60 records and all in different conditions.</p>
+<ul>
+<li>All four sessions show a sudden spike in humidity between 35s–45s, likely caused by close-range breathing or hand warmth.</li>
+<li>Interestingly, even under different environmental setups (sunlight, airflow, open windows), the pattern is almost identical, showing the sensor’s sensitivity to human proximity rather than ambient room changes.</li>
+<li>This suggests that short-term human interaction with the sensor can strongly affect its readings something to consider when designing interactions based on such data.</li>
+</ul>
+<figure><img alt="" height="726" loading="lazy" src="../assets/archive/2025/05/TempVisul-1024x726.png" width="1024"/></figure>
+<p>Temperature rises gradually over time in all sessions, regardless of conditions:</p>
+<ul>
+<li>In all four charts, we see a smooth and steady increase, from around 25°C to nearly 29°C.</li>
+<li>Unlike humidity, temperature is less responsive to short human input, and more influenced by accumulated heat over time.</li>
+<li>The minor variations may reflect slight differences in room activity, light, or window positioning.</li>
+</ul>
+<h2><strong>Reflection on Data Similarity</strong></h2>
+<p>After visualising all four sets of experimental data, I noticed that they appeared strikingly similar in overall trend, making them difficult to distinguish. Both the temperature and humidity readings showed very minor variations between sessions.</p>
+<p>I believe this similarity can be attributed to several factors:</p>
+<ul>
+<li>All experiments were conducted on the same day, in the same room, where the environmental conditions (temperature, humidity, lighting) remained fairly constant.</li>
+<li>The interactions we introduced such as book-shaking, breathing, or opening windows were relatively subtle or short-lived, and may not have been enough to produce significant changes in the readings.</li>
+<li>The sensor used (DHT11) has a limited resolution and slower response time, which may prevent it from detecting small or rapid changes in the environment.</li>
+</ul>
+<p>As a result, the data across different sessions showed very little variation, making it challenging to draw clear distinctions between experimental conditions based solely on the sensor output.</p>
+<h2><strong>Overall Reflections</strong></h2>
+<ul>
+<li><strong>Did the sensor change how I looked at the space?</strong> Yes. I started noticing how small actions like placing hands, opening a window, or even shouting can (or cannot) affect the environment, and how sometimes our perception diverges from what data shows.</li>
+<li><strong>Did the sensor catch anything I missed?</strong> Yes, such as gradual humidity shifts I wouldn’t have noticed otherwise.</li>
+<li><strong>Were there things only I could spot?</strong> Definitely. The feeling of air flow, human energy, tension in the room, or emotional tone all invisible to the sensor.</li>
+</ul>
+<h2><strong>Interactive Sensing Idea</strong></h2>
+<h3><strong>“The Breathing Room”</strong></h3>
+<p><strong>Idea:</strong> Convert sensor data into human-perceivable feedback</p>
+<ul>
+<li><strong>Temperature</strong> → Colour gradient on a projection to the wall</li>
+<li><strong>Humidity</strong> → Ambient sound: low humidity = dry crackling, high humidity = muffled rain sounds</li>
+<li><strong>Data feedback</strong> -&gt; Projected over a room, updating live</li>
+</ul>
+<h3><strong>Interactions:</strong></h3>
+<ul>
+<li>People wave hands over sensor — light ripples react (motion sensing + heat mapping)</li>
+<li>Changes in environment shown through lighting fading or soundscape morphing</li>
+</ul>
+<h3><strong><strong>Benefits:</strong></strong></h3>
+<ul>
+<li>Good for classrooms, meditation spaces, shared environments</li>
+</ul>
+<ul>
+<li>Makes invisible patterns feel real</li>
+</ul>
+<ul>
+<li>Encourages attention to space</li>
+</ul>
+    </article>
+    <nav class="post-nav"><a class="post-nav__item" href="smart-materials.html"><span class="post-nav__label"><span class="t-en">← older</span><span class="t-zh">← 上一篇</span></span><span class="post-nav__title">Smart Materials</span></a></nav>
+  </main>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/page.js"></script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<meta name="copyright" content="© 2026 Qingzhou Cai. All rights reserved." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>coco. / Week 8 reflection</title>
+  <meta name="theme-color" content="#fafafa" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Kalam:wght@300;400&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="rs-page">
+  <header class="nav is-scrolled" id="nav">
+    <div class="nav__left">
+      
+      <a href="../archive.html#ug/y2/cc2" class="nav__back" id="back" aria-label="back">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      </a>
+      <a href="../index.html" class="nav__logo">c<span>.</span></a>
+    </div>
+    <nav class="nav__links" id="navLinks">
+      <a href="../index.html#about" data-i18n="nav.about">about</a>
+      <a href="../index.html#projects" data-i18n="nav.projects">projects</a>
+      <a href="../index.html#experience" data-i18n="nav.experience">experience</a>
+      <a href="../index.html#blog" data-i18n="nav.blog">blog</a>
+      <a href="../index.html#contact" data-i18n="nav.contact">contact</a>
+      <a href="../archive.html" class="nav__archive is-active" data-i18n="nav.archive">archive</a>
+    </nav>
+    <div class="nav__right">
+      <button class="lang" id="langToggle" aria-label="switch language">
+        <span data-lang="en">EN</span><span class="lang__slash">/</span><span data-lang="zh">中</span>
+      </button>
+      <button class="nav__burger" id="burger" aria-label="open menu"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="rs post">
+    <div class="rs__head">
+      <p class="rs__crumb"><a href="../archive.html" data-i18n="ar.title">archive</a><span>/</span><a href="../archive.html#ug/y2/cc2"><span class="t-en">year 2 · creative computing ii: applied programming</span><span class="t-zh">二年级 · 创意计算 II：应用编程</span></a></p>
+      <h1 class="post__title">Week 8 reflection</h1>
+      <p class="post__meta"><span class="t-en">11 jan 2026</span><span class="t-zh">2026 年 1 月 11 日</span> · <span class="t-en">3 min read</span><span class="t-zh">约 3 分钟读完</span></p>
+      <p class="post__note t-zh">这篇文章写于在学校的课程期间，原文是英文。</p>
+    </div>
+    <article class="prose">
+<h2>Making a Dataset </h2>
+<p>TouchEmotion: Touch Interaction Dataset for Emotion Classification</p>
+<h2>Dataset Description</h2>
+<p>This dataset contains touch interaction data collected from a capacitive touch sensor connected to an ESP32-based microcontroller. The dataset is designed for training AI models to classify human emotional states based on touch behaviour patterns.</p>
+<p>Each sample represents a short interaction session and includes numerical features extracted from raw touch signals.</p>
+<h2>Data Format</h2>
+<p>Each record is stored as a row in a CSV file with the following structure:</p>
+<figure><table><thead><tr><th>Column Name</th><th>Description</th></tr></thead><tbody><tr><td>timestamp_ms</td><td>Time of recording in milliseconds</td></tr><tr><td>pressCount</td><td>Number of touch events</td></tr><tr><td>avgInterval</td><td>Average interval between touches (ms)</td></tr><tr><td>maxInterval</td><td>Maximum interval between touches (ms)</td></tr><tr><td>duration</td><td>Total interaction duration (ms)</td></tr><tr><td>label</td><td>Emotion label</td></tr></tbody></table></figure>
+<p>Example:</p>
+<pre><code>5004,4,123,186,384,anxious
+10004,8,121,205,721,anxious</code></pre>
+<p>Motivation</p>
+<p>This dataset was created for a university project exploring how human emotions can be inferred from touch interaction patterns. The goal is to support AI-based emotion classification in interactive media installations and affective computing systems.</p>
+<p>The dataset aims to demonstrate how physical interaction data can be used as input for machine learning in creative and media-based applications.</p>
+<h2>Composition</h2>
+<p>The dataset consists of multiple CSV files, each containing multiple samples of touch interaction data.</p>
+<p>Each sample includes:</p>
+<ul>
+<li>Timestamp</li>
+<li>Touch frequency</li>
+<li>Temporal intervals</li>
+<li>Interaction duration</li>
+<li>Emotion label</li>
+</ul>
+<p>Emotion labels include:</p>
+<ul>
+<li>calm</li>
+<li>anxious</li>
+<li>excited</li>
+<li>sad</li>
+</ul>
+<p>The dataset contains only numerical sensor data and does not include any personally identifiable information.</p>
+<h2>Collection Process</h2>
+<p>The data was collected using a capacitive touch sensor connected to a XIAO ESP32-S3 microcontroller. The device recorded touch signals and calculated statistical features for each interaction session.</p>
+<p>The dataset was created through handcrafted data collection by the author. The author performed touch interactions while intentionally expressing different emotional states.</p>
+<p>The data was stored locally on an SD card and later exported as CSV files.</p>
+<h2>Preprocessing</h2>
+<p>Raw sensor signals were processed into statistical features including press count, average interval, maximum interval, and duration.</p>
+<p>No normalisation was applied in the raw dataset. Missing or invalid readings were manually removed.</p>
+<h2>TinyML Touch Sensor Interaction</h2>
+<h2><strong>1. Chosen Topic</strong></h2>
+<p>Motion / Anomaly Detection</p>
+<p>I chose motion and anomaly detection because touch interaction patterns can reflect different human behaviours and emotional states, which are suitable for lightweight machine learning on microcontrollers.</p>
+<h2><strong>2. Three Real-World Situations</strong></h2>
+<ol>
+<li>Emotional interaction detection a touch sensor could recognise whether a user is calm or anxious based on how frequently and irregularly they touch the surface.</li>
+<li>Stress monitoring device a wearable device could detect abnormal touch patterns such as rapid tapping, which may indicate stress or nervousness.</li>
+<li>Interactive media installation an installation could respond differently when users touch gently versus aggressively, creating adaptive storytelling or visual effects.</li>
+</ol>
+<h2><strong>3. Simple System Sketch</strong></h2>
+<figure><img alt="" height="769" loading="lazy" src="../assets/archive/2026/01/IMG_4784-1024x769.jpg" width="1024"/></figure>
+<h3><strong>Explanation:</strong></h3>
+<ul>
+<li>Sensor: Capacitive touch sensor</li>
+<li>Data: Touch count, time intervals, duration</li>
+<li>Model: Classifies touch pattern (e.g. calm / anxious)</li>
+<li>Output: Triggers different feedback in an interactive system</li>
+</ul>
+<h2><strong>4. Edge Impulse Exploration</strong></h2>
+<p>I explored the Edge Impulse interface and became familiar with:</p>
+<ul>
+<li>Data Acquisition: uploading CSV sensor data</li>
+</ul>
+<figure class="gallery">
+<figure><img alt="" height="743" loading="lazy" src="../assets/archive/2026/01/Screenshot-2026-01-07-at-22.46.19-1024x743.png" width="1024"/></figure>
+<figure><img alt="" height="743" loading="lazy" src="../assets/archive/2026/01/Screenshot-2026-01-07-at-22.46.24-1024x743.png" width="1024"/></figure>
+</figure>
+<figure class="gallery">
+<figure><img alt="" height="743" loading="lazy" src="../assets/archive/2026/01/Screenshot-2026-01-07-at-22.46.28-1024x743.png" width="1024"/></figure>
+<figure><img alt="" height="743" loading="lazy" src="../assets/archive/2026/01/Screenshot-2026-01-07-at-22.46.36-1024x743.png" width="1024"/></figure>
+</figure>
+<ul>
+<li>Create Impulse: choosing input blocks and learning blocks</li>
+</ul>
+<figure><img alt="" height="951" loading="lazy" src="../assets/archive/2026/01/Screenshot-2026-01-07-at-23.01.48-1024x951.png" width="1024"/></figure>
+<ul>
+<li>Training: viewing feature extraction and training process</li>
+</ul>
+<figure><img alt="" height="1024" loading="lazy" src="../assets/archive/2026/01/Screenshot-2026-01-07-at-23.11.42-923x1024.png" width="923"/></figure>
+<ul>
+<li>Deployment: seeing how models can be exported to microcontrollers</li>
+</ul>
+<figure><img alt="" height="978" loading="lazy" src="../assets/archive/2026/01/Screenshot-2026-01-07-at-23.11.56-1024x978.png" width="1024"/></figure>
+<p>This helped me understand the full workflow of TinyML development.</p>
+<h2><strong>5. Tiny Data Collection</strong></h2>
+<p>I used the touch sensor dataset from Assignment 1.</p>
+<p>The data includes:</p>
+<ul>
+<li>timestamp_ms</li>
+<li>pressCount</li>
+<li>avgInterval</li>
+<li>maxInterval</li>
+<li>duration</li>
+<li>label</li>
+</ul>
+<figure class="gallery">
+<figure><img alt="" height="1024" loading="lazy" src="../assets/archive/2026/01/Screenshot-2026-01-07-at-22.14.33-1-848x1024.png" width="848"/></figure>
+<figure><img alt="" height="1024" loading="lazy" src="../assets/archive/2026/01/Screenshot-2026-01-07-at-22.14.36-1-845x1024.png" width="845"/></figure>
+</figure>
+<figure class="gallery">
+<figure><img alt="" height="1024" loading="lazy" src="../assets/archive/2026/01/Screenshot-2026-01-07-at-22.14.40-1-848x1024.png" width="848"/></figure>
+<figure><img alt="" height="1024" loading="lazy" src="../assets/archive/2026/01/Screenshot-2026-01-07-at-22.14.44-1-841x1024.png" width="841"/></figure>
+</figure>
+<p>I uploaded a small number of samples into Edge Impulse to observe how the data is visualised inside the platform. I did not train a full model yet.</p>
+<h2><strong>6. Short Reflection </strong></h2>
+<p>Collecting data was more difficult than expected because human touch behaviour is not consistent. The same emotion can produce very different interaction patterns. On a small microcontroller, memory and processing power are limited, which means the model must stay very simple. Noise in sensor data can easily affect model accuracy. To improve the model, I would collect data from more users and increase the number of samples. I would also try to balance the dataset between different emotion categories. Feature selection is important to avoid overloading the TinyML model.</p>
+    </article>
+    <nav class="post-nav"><a class="post-nav__item" href="week-6-reflection.html"><span class="post-nav__label"><span class="t-en">← older</span><span class="t-zh">← 上一篇</span></span><span class="post-nav__title">Week 6 reflection</span></a><a class="post-nav__item post-nav__item--next" href="week-8-reflection-2.html"><span class="post-nav__label"><span class="t-en">newer →</span><span class="t-zh">下一篇 →</span></span><span class="post-nav__title">Week 9 reflection</span></a></nav>
+  </main>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/page.js"></script>
+</body>
+</html>

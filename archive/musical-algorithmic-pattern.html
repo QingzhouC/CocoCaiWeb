@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<meta name="copyright" content="© 2026 Qingzhou Cai. All rights reserved." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>coco. / Musical Algorithmic Pattern</title>
+  <meta name="theme-color" content="#fafafa" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Kalam:wght@300;400&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="rs-page">
+  <header class="nav is-scrolled" id="nav">
+    <div class="nav__left">
+      
+      <a href="../archive.html#ug/y1/pme" class="nav__back" id="back" aria-label="back">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      </a>
+      <a href="../index.html" class="nav__logo">c<span>.</span></a>
+    </div>
+    <nav class="nav__links" id="navLinks">
+      <a href="../index.html#about" data-i18n="nav.about">about</a>
+      <a href="../index.html#projects" data-i18n="nav.projects">projects</a>
+      <a href="../index.html#experience" data-i18n="nav.experience">experience</a>
+      <a href="../index.html#blog" data-i18n="nav.blog">blog</a>
+      <a href="../index.html#contact" data-i18n="nav.contact">contact</a>
+      <a href="../archive.html" class="nav__archive is-active" data-i18n="nav.archive">archive</a>
+    </nav>
+    <div class="nav__right">
+      <button class="lang" id="langToggle" aria-label="switch language">
+        <span data-lang="en">EN</span><span class="lang__slash">/</span><span data-lang="zh">中</span>
+      </button>
+      <button class="nav__burger" id="burger" aria-label="open menu"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="rs post">
+    <div class="rs__head">
+      <p class="rs__crumb"><a href="../archive.html" data-i18n="ar.title">archive</a><span>/</span><a href="../archive.html#ug/y1/pme"><span class="t-en">year 1 · pervasive media exploration</span><span class="t-zh">一年级 · 泛在媒体探索</span></a></p>
+      <h1 class="post__title">Musical Algorithmic Pattern</h1>
+      <p class="post__meta"><span class="t-en">5 may 2025</span><span class="t-zh">2025 年 5 月 5 日</span> · <span class="t-en">5 min read</span><span class="t-zh">约 5 分钟读完</span></p>
+      <p class="post__note t-zh">这篇文章写于在学校的课程期间，原文是英文。</p>
+    </div>
+    <article class="prose">
+<p>This week, the task was to create a musical algorithmic pattern using p5.js. Before starting with p5.js, I experimented with Strudel, a browser-based live coding tool for music inspired by TidalCycles.</p>
+<p>I wrote a simple music pattern in Strudel:</p>
+<pre><code>$: note("c6, bb3 g3 [bf3 c4]").s("piano").fast(2).pan(0).color('lightblue')
+
+$: note("c2, ac3 g3 [f3 c4]").s("piano").slow(2).pan(1).color('lightgreen').spiral()
+
+note("c6, bb3 g3 [bf3 c4]").fast(2)</code></pre>
+<p>This code generates two melodic lines:</p>
+<ul>
+<li>The first is a faster, higher-pitched pattern panned to the left.</li>
+<li>The second is a slower, lower-pitched pattern panned to the right, with a spiral effect.</li>
+</ul>
+<p>I also used the fast(2) function to double the speed of the first sequence, inspired by what we learned about manipulating patterns through simple transformations like speed change and layering.</p>
+<figure><video controls="" playsinline="" preload="metadata" src="../assets/archive/2025/05/206_1746370204.mp4"></video></figure>
+<h2><strong>Inspirations</strong></h2>
+<p>My inspiration for this work came from a combination of:</p>
+<ul>
+<li><strong>Early Algorithmic Composition</strong>: <em>Musical Dice Game</em>, where randomness and simple rules are used to generate music.</li>
+<li><strong>Contemporary Live Coding</strong>: Artists working with <strong>TidalCycles</strong> and <strong>Algoraves</strong> who create music algorithmically in real time.</li>
+<li><strong>Minimalism and Repetition in Music</strong>: The idea that repetition combined with small changes can keep the listener engaged, an idea discussed in class and common in works by composers like Steve Reich.</li>
+</ul>
+<p>In my Strudel piece, I explored repetition, slight variations (different note groups, speeds), and stereo panning to create movement across the left and right channels.</p>
+<h2><strong>Moving to p5.js</strong></h2>
+<p>The final requirement is to recreate an algorithmic musical pattern in p5.js., so I delved into learning how to use p5.js to combine sound and graphics for visualizing music. At first, my code was very simple mainly using p5.Oscillator to generate notes in the C major scale, playing them one after another every 400 milliseconds. At this stage, the program only looped through notes sequentially with no visual effects, just pure sound.</p>
+<figure><img alt="" height="1139" loading="lazy" src="../assets/archive/2025/05/Screenshot-2025-05-04-at-15.30.49-1-edited.png" width="2024"/></figure>
+<figure><audio src="../assets/archive/2025/05/第一段.mp3"></audio></figure>
+<p>After, I made the first improvement which is instead of playing notes in a sequential loop, I changed them to play randomly. This made me realize that randomness can inject more “vitality” into the sound, each playback carries uncertainty, making people more eager to anticipate what the next note will be and more likely to stay engaged.</p>
+<figure><img alt="" height="411" loading="lazy" src="../assets/archive/2025/05/Screenshot-2025-05-04-at-15.32.39-edited-1.png" width="730"/></figure>
+<figure><audio src="../assets/archive/2025/05/第二段.mp3"></audio></figure>
+<p>Finally, I introduced a “spiral” visualization effect. I added a points array, and every time playNote() plays a new note, the program calculates a new spiral point and adds it to the array. The point’s theta and radius control its position on the spiral, while its frequency information maps to color (using the HSB hue model) and size. Thus, low-frequency notes appear as cool-colored small dots, while high-frequency notes show as warm-colored large dots. The entire scene uses a semi-transparent background to continuously “erase” old points, creating a sense of flow.</p>
+<p><strong>Final code</strong>:</p>
+<pre><code>let osc;
+let notes = [261.63, 293.66, 329.63, 349.23, 392.00, 440.00, 493.88]; // C major scale
+let currentNote = 0;
+let points = []; // 保存螺旋的点(save the dot on the spiral)
+
+function setup() {
+  createCanvas(600, 600);
+  osc = new p5.Oscillator('sine'); //创建一个sine波振荡器（Create a sine wave oscillator）
+  osc.start();
+  osc.amp(0); //初始时音量为0（Initial volume = 0)
+  
+  setInterval(playNote, 400); // Play note every 400 ms
+  
+  colorMode(HSB, 360, 100, 100);
+  background(0);
+}
+
+function playNote() {
+  let n = floor(random(notes.length));
+  let freq = notes[n];
+  osc.freq(freq);
+  osc.amp(0.5, 0.05);
+  
+  let theta = points.length * 0.3; 
+  // 每个点的角度(Angle of each point)
+  // θ角度 = 当前点的数量 * 0.3（控制螺旋的紧密度）(θ angle = number of current points * 0.3 (controls the tightness of the spiral))
+  // 比如：第1个点是 0.3 弧度，第2个点是 0.6 弧度...(For example: the 1st point is 0.3 radians, the 2nd point is 0.6 radians...)
+  let radius = 20 + points.length * 2; 
+  // 半径 = 20 + 当前点数量 * 2(Radius = 20 + number of current points * 2)
+  // 随着点数增多，半径越来越大 → 形成螺旋往外扩的效果(As the number of points increases, the radius becomes larger → creating an effect of the spiral expanding outward)
+  
+  points.push({
+    theta: theta, // Save the angle
+    radius: radius, // Save the radius
+    freq: freq // Save the frequency for color/size mapping
+  });
+  
+  // 只保留一定数量的点，避免太卡(Keep only a certain number of points to avoid lag)
+  if (points.length &gt; 200) {
+    points.shift();
+  }
+}
+
+function draw() {
+  translate(width / 2, height / 2); // 画布中心为坐标中心(The center of the canvas is the coordinate center)
+  
+  noStroke(); // No outline
+  
+  // 画螺旋(Draw spiral)
+  for (let i = 0; i &lt; points.length; i++) {
+    let p = points[i];
+    let x = p.radius * cos(p.theta);
+  // x-coordinate = radius * cos(angle)
+  // This horizontally offsets the points along the spiral path
+    let y = p.radius * sin(p.theta);
+  // y-coordinate = radius * sin(angle)
+  // This vertically offsets the points along the spiral path
+    
+    // 根据音频频率映射颜色 &amp; 大小
+    let hue = map(p.freq, 261.63, 493.88, 0, 360);     
+  // Map frequency (261.63 ~ 493.88) to hue (0~360 degrees) in HSB color
+  // Lower frequencies are cool colors, higher frequencies are warm colors
+    let size = map(p.freq, 261.63, 493.88, 5, 20);  
+  // Map frequency to point size (lower frequency → smaller point, higher frequency → larger point)
+    
+    fill(hue, 80, 100);
+    ellipse(x, y, size, size);
+  }
+}</code></pre>
+<figure><video controls="" playsinline="" preload="metadata" src="../assets/archive/2025/05/205_1746370201.mp4"></video></figure>
+
+<h3><strong>Summary</strong></h3>
+<p>This exercise not only helped me understand the relevance between sound and images but also made me realize that “sense of structure” and “sense of rhythm” should be considered when designing visualization. In the future, I hope to try making this spiral not just passive visualization, but able to respond to user interactions (such as changing the shape of the spiral when clicked).</p>
+    </article>
+    <nav class="post-nav"><a class="post-nav__item" href="embodied-intelligence.html"><span class="post-nav__label"><span class="t-en">← older</span><span class="t-zh">← 上一篇</span></span><span class="post-nav__title">Embodied Intelligence</span></a><a class="post-nav__item post-nav__item--next" href="sasha-luccionis-youtube-video-sasha-article.html"><span class="post-nav__label"><span class="t-en">newer →</span><span class="t-zh">下一篇 →</span></span><span class="post-nav__title">Sasha Luccioni’s Youtube video &amp; Sasha’ article</span></a></nav>
+  </main>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/page.js"></script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<meta name="copyright" content="© 2026 Qingzhou Cai. All rights reserved." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>coco. / Smart Materials</title>
+  <meta name="theme-color" content="#fafafa" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Kalam:wght@300;400&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="rs-page">
+  <header class="nav is-scrolled" id="nav">
+    <div class="nav__left">
+      
+      <a href="../archive.html#ug/y1/pme" class="nav__back" id="back" aria-label="back">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      </a>
+      <a href="../index.html" class="nav__logo">c<span>.</span></a>
+    </div>
+    <nav class="nav__links" id="navLinks">
+      <a href="../index.html#about" data-i18n="nav.about">about</a>
+      <a href="../index.html#projects" data-i18n="nav.projects">projects</a>
+      <a href="../index.html#experience" data-i18n="nav.experience">experience</a>
+      <a href="../index.html#blog" data-i18n="nav.blog">blog</a>
+      <a href="../index.html#contact" data-i18n="nav.contact">contact</a>
+      <a href="../archive.html" class="nav__archive is-active" data-i18n="nav.archive">archive</a>
+    </nav>
+    <div class="nav__right">
+      <button class="lang" id="langToggle" aria-label="switch language">
+        <span data-lang="en">EN</span><span class="lang__slash">/</span><span data-lang="zh">中</span>
+      </button>
+      <button class="nav__burger" id="burger" aria-label="open menu"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="rs post">
+    <div class="rs__head">
+      <p class="rs__crumb"><a href="../archive.html" data-i18n="ar.title">archive</a><span>/</span><a href="../archive.html#ug/y1/pme"><span class="t-en">year 1 · pervasive media exploration</span><span class="t-zh">一年级 · 泛在媒体探索</span></a></p>
+      <h1 class="post__title">Smart Materials</h1>
+      <p class="post__meta"><span class="t-en">5 may 2025</span><span class="t-zh">2025 年 5 月 5 日</span> · <span class="t-en">4 min read</span><span class="t-zh">约 4 分钟读完</span></p>
+      <p class="post__note t-zh">这篇文章写于在学校的课程期间，原文是英文。</p>
+    </div>
+    <article class="prose">
+<p><strong>Topic: </strong></p>
+<p>Expanding the Four-Leaf Clover Circuit with Arduino Interactivity</p>
+<figure class="gallery">
+<figure><img alt="" height="576" loading="lazy" src="../assets/archive/2025/05/IMG_8152-min-1-1024x576.jpg" width="1024"/></figure>
+<figure><img alt="" height="576" loading="lazy" src="../assets/archive/2025/05/IMG_8153-min-1-1024x576.jpg" width="1024"/></figure>
+</figure>
+<p><strong>What I learned:</strong></p>
+<p>This week, we built on the workshop led by Sara on smart materials. In class, our group created a four-leaf clover pattern using copper tape, shaped by cutting out four heart pieces and assembling them together along with a long stem. We attached this to a thermochromic fabric, which changes color when heated. The circuit included a resistor at the center of the clover, soldered to copper tape using wires, and when powered, the resistor heated up, transferring heat to the copper tape and revealing the clover pattern.</p>
+<figure><video controls="" playsinline="" preload="metadata" src="../assets/archive/2025/05/211_1746460542.mp4"></video></figure>
+<p>To expand this, I wanted to integrat an Arduino UNO and programmed a simple interactive feature. I connected a temperature sensor (NTC thermistor) to monitor the surrounding temperature. In my code, I will set a condition: the resistor only heats up when the temperature is below 20°C. This makes the four-leaf clover appear only in cooler environments, adding an element of environmental interactivity. I will also added an LED indicator: when the system is actively heating, the LED turns on to show that the circuit is live.</p>
+<p>For the temperature sensing, I designed an interactive system that adds environmental responsiveness to the circuit. I will connect a 10K NTC thermistor to the Arduino as a temperature sensor. The idea was to make the heating circuit activate only when the surrounding temperature is below 20°C, adding a layer of context-aware behavior. I also going to integrat an LED indicator that lights up whenever the resistor is heating, giving clear feedback about the system’s status. I will also going to add a relay, if the current of the heater is relatively high, it is best to supply power to the heating circuit with an independent power source, and Arduino only controls the relay signal. This is because the heating resistor cannot be directly powered by Arduino, otherwise, it will be burned out, the relay is used to solve this problem.</p>
+<p><strong>Wiring Connections:</strong></p>
+<p><strong>Thermistor Section:</strong></p>
+<ul>
+<li>Connect one end of the thermistor to 5V.</li>
+<li>Connect the other end to A0 (analog input) and to a 10K resistor.</li>
+<li>Connect the other end of the 10K resistor to GND. </li>
+</ul>
+<p><strong>LED Indicator:</strong></p>
+<ul>
+<li>Connect the long leg of the LED to Arduino’s D3 (through a 220Ω resistor).</li>
+<li>Connect the short leg of the LED to GND.</li>
+</ul>
+<p><strong>Relay Module:</strong></p>
+<ul>
+<li>Connect the IN pin to Arduino’s D7.</li>
+<li>Connect VCC and GND to Arduino’s 5V and GND.</li>
+</ul>
+<p><strong>On the relay’s output side:</strong></p>
+<ul>
+<li>Connect the Normally Open (NO) terminal to the positive side of the external heating element circuit.</li>
+<li>Connect the Common (COM) terminal to the positive side of the external power supply. </li>
+</ul>
+<p><strong>Arduino code</strong>：</p>
+<pre><code>const int tempPin = A0;//thermistor connected to A0
+const int ledPin = 3; // LED connected D3
+const int relayPin = 7; // relay connected to D7
+
+// Thermal sensitivity parameters
+const float BETA = 3950;     
+const float seriesResistor = 10000; // Voltage - dividing resistor
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+  pinMode(relayPin, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int analogValue = analogRead(tempPin);
+  // Convert the input into temperature
+
+  float resistance = (1023.0 / analogValue - 1) * seriesResistor; // Convert the analog value into the resistance value (in ohms) of the thermistor
+
+  float temperature = 1.0 / (log(resistance / 10000) / BETA + 1.0 / 298.15) - 273.15; // Use the B-parameter formula to convert the resistance value into temperature (in degrees Celsius)
+
+  Serial.print("Temperature: ");
+  Serial.print(temperature);
+  Serial.println(" C");
+
+  if (temperature &lt; 20.0) {
+    digitalWrite(relayPin, HIGH); // turn on heat
+    digitalWrite(ledPin, HIGH);   // light up LED
+  } else {
+    digitalWrite(relayPin, LOW);  // turn off heat
+    digitalWrite(ledPin, LOW);    // turn off LED
+  }
+  
+  delay(500); // update every 0.5 seconds
+}</code></pre>
+<p><strong>Critical reflection:</strong></p>
+<p>Through this task, I learned how to combine basic physical circuits with microcontroller-based interactivity. I found it interesting how a simple resistive heating circuit can be made more dynamic and responsive by adding just a few components and writing a bit of code. The main challenge I faced was ensuring that the Arduino could safely control the heating element, because the resistor’s power draw is higher than what an Arduino pin can handle directly, I needed to add a relay module to safely switch the power to the resistor. This introduced me to the concept of interfacing high-power circuits with low-power microcontrollers.</p>
+<p><strong>Next steps:</strong></p>
+<p>Next, I want to improve the interactivity by making the system touch-responsive, utilizing a capacitive touch sensor to ensure that the clover shows only when someone touches the fabric. I would also like to explore with PWM control to gradually modify the heating strength, allowing the pattern to fade in and out more smoothly.</p>
+    </article>
+    <nav class="post-nav"><a class="post-nav__item" href="sasha-luccionis-youtube-video-sasha-article.html"><span class="post-nav__label"><span class="t-en">← older</span><span class="t-zh">← 上一篇</span></span><span class="post-nav__title">Sasha Luccioni’s Youtube video &amp; Sasha’ article</span></a><a class="post-nav__item post-nav__item--next" href="raspberry-pi-and-temperature-sensor.html"><span class="post-nav__label"><span class="t-en">newer →</span><span class="t-zh">下一篇 →</span></span><span class="post-nav__title">Raspberry pi and Temperature sensor</span></a></nav>
+  </main>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/page.js"></script>
+</body>
+</html>

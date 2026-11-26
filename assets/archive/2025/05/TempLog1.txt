@@ -1,0 +1,72 @@
+
+0 Temp:25.0 C / 77.0 F    Humidity: 35%
+1 Temp:24.9 C / 76.8 F    Humidity: 34%
+2 Temp:25.0 C / 77.0 F    Humidity: 34%
+3 Temp:25.0 C / 77.0 F    Humidity: 33%
+4 Temp:25.0 C / 77.0 F    Humidity: 33%
+5 Temp:25.1 C / 77.2 F    Humidity: 33%
+A full buffer was not returned. Try again.
+A full buffer was not returned. Try again.
+6 Temp:25.5 C / 77.9 F    Humidity: 33%
+7 Temp:25.6 C / 78.1 F    Humidity: 33%
+8 Temp:25.7 C / 78.3 F    Humidity: 32%
+9 Temp:25.8 C / 78.4 F    Humidity: 32%
+A full buffer was not returned. Try again.
+10 Temp:26.1 C / 79.0 F    Humidity: 32%
+11 Temp:26.3 C / 79.3 F    Humidity: 32%
+12 Temp:26.4 C / 79.5 F    Humidity: 32%
+13 Temp:26.6 C / 79.9 F    Humidity: 32%
+14 Temp:26.8 C / 80.2 F    Humidity: 32%
+15 Temp:27.0 C / 80.6 F    Humidity: 32%
+16 Temp:27.2 C / 81.0 F    Humidity: 32%
+Checksum did not validate. Try again.
+17 Temp:27.6 C / 81.7 F    Humidity: 31%
+18 Temp:27.8 C / 82.0 F    Humidity: 31%
+19 Temp:28.0 C / 82.4 F    Humidity: 30%
+20 Temp:28.1 C / 82.6 F    Humidity: 30%
+21 Temp:28.3 C / 82.9 F    Humidity: 30%
+22 Temp:28.3 C / 82.9 F    Humidity: 30%
+Checksum did not validate. Try again.
+23 Temp:28.5 C / 83.3 F    Humidity: 30%
+24 Temp:28.5 C / 83.3 F    Humidity: 30%
+25 Temp:28.6 C / 83.5 F    Humidity: 30%
+26 Temp:28.6 C / 83.5 F    Humidity: 30%
+27 Temp:28.6 C / 83.5 F    Humidity: 29%
+28 Temp:28.6 C / 83.5 F    Humidity: 29%
+29 Temp:28.6 C / 83.5 F    Humidity: 29%
+30 Temp:28.6 C / 83.5 F    Humidity: 29%
+31 Temp:28.6 C / 83.5 F    Humidity: 29%
+32 Temp:28.6 C / 83.5 F    Humidity: 29%
+33 Temp:28.6 C / 83.5 F    Humidity: 29%
+34 Temp:28.6 C / 83.5 F    Humidity: 29%
+35 Temp:28.6 C / 83.5 F    Humidity: 29%
+Checksum did not validate. Try again.
+36 Temp:28.5 C / 83.3 F    Humidity: 35%
+37 Temp:28.5 C / 83.3 F    Humidity: 49%
+38 Temp:28.5 C / 83.3 F    Humidity: 59%
+39 Temp:28.5 C / 83.3 F    Humidity: 66%
+40 Temp:28.5 C / 83.3 F    Humidity: 70%
+41 Temp:28.5 C / 83.3 F    Humidity: 74%
+A full buffer was not returned. Try again.
+Checksum did not validate. Try again.
+42 Temp:28.7 C / 83.7 F    Humidity: 80%
+43 Temp:28.8 C / 83.8 F    Humidity: 77%
+44 Temp:28.9 C / 84.0 F    Humidity: 54%
+A full buffer was not returned. Try again.
+45 Temp:28.9 C / 84.0 F    Humidity: 39%
+46 Temp:28.9 C / 84.0 F    Humidity: 37%
+47 Temp:28.9 C / 84.0 F    Humidity: 35%
+48 Temp:28.9 C / 84.0 F    Humidity: 34%
+49 Temp:28.9 C / 84.0 F    Humidity: 33%
+50 Temp:28.9 C / 84.0 F    Humidity: 33%
+A full buffer was not returned. Try again.
+51 Temp:28.8 C / 83.8 F    Humidity: 32%
+52 Temp:28.7 C / 83.7 F    Humidity: 31%
+53 Temp:28.7 C / 83.7 F    Humidity: 31%
+54 Temp:28.7 C / 83.7 F    Humidity: 31%
+Checksum did not validate. Try again.
+55 Temp:28.6 C / 83.5 F    Humidity: 31%
+56 Temp:28.5 C / 83.3 F    Humidity: 31%
+57 Temp:28.5 C / 83.3 F    Humidity: 30%
+58 Temp:28.5 C / 83.3 F    Humidity: 30%
+59 Temp:28.5 C / 83.3 F    Humidity: 30%

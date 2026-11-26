@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<meta name="copyright" content="© 2026 Qingzhou Cai. All rights reserved." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>coco. / Expanding the Generative Space</title>
+  <meta name="theme-color" content="#fafafa" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Kalam:wght@300;400&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="rs-page">
+  <header class="nav is-scrolled" id="nav">
+    <div class="nav__left">
+      
+      <a href="../archive.html#ug/y1/atm" class="nav__back" id="back" aria-label="back">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      </a>
+      <a href="../index.html" class="nav__logo">c<span>.</span></a>
+    </div>
+    <nav class="nav__links" id="navLinks">
+      <a href="../index.html#about" data-i18n="nav.about">about</a>
+      <a href="../index.html#projects" data-i18n="nav.projects">projects</a>
+      <a href="../index.html#experience" data-i18n="nav.experience">experience</a>
+      <a href="../index.html#blog" data-i18n="nav.blog">blog</a>
+      <a href="../index.html#contact" data-i18n="nav.contact">contact</a>
+      <a href="../archive.html" class="nav__archive is-active" data-i18n="nav.archive">archive</a>
+    </nav>
+    <div class="nav__right">
+      <button class="lang" id="langToggle" aria-label="switch language">
+        <span data-lang="en">EN</span><span class="lang__slash">/</span><span data-lang="zh">中</span>
+      </button>
+      <button class="nav__burger" id="burger" aria-label="open menu"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="rs post">
+    <div class="rs__head">
+      <p class="rs__crumb"><a href="../archive.html" data-i18n="ar.title">archive</a><span>/</span><a href="../archive.html#ug/y1/atm"><span class="t-en">year 1 · algorithmic thinking &amp; methods</span><span class="t-zh">一年级 · 算法思维与方法</span></a></p>
+      <h1 class="post__title">Expanding the Generative Space</h1>
+      <p class="post__meta"><span class="t-en">1 may 2025</span><span class="t-zh">2025 年 5 月 1 日</span> · <span class="t-en">3 min read</span><span class="t-zh">约 3 分钟读完</span></p>
+      <p class="post__note t-zh">这篇文章写于在学校的课程期间，原文是英文。</p>
+    </div>
+    <article class="prose">
+<p><br/>This week’s lecture by Terence Broad completely reshaped my perspective on what it means to “create” with AI. Instead of showing us how to prompt better images or get more polished results, he took us into the messy, glitchy, and often unstable process of working against the model treating neural networks not as tools, but as unpredictable creative collaborators.</p>
+<p>What impressed me most was that Terence first gained fame through a project where he trained a neural network to “reconstruct” the movie Blade Runner frame by frame. At first, this sounded like a purely technical experiment, but as he talked about the work being exhibited at the Whitney Museum and sparking copyright disputes, I began to realize it was something deeper: a machine “trying to recall” a movie it had “watched”.</p>
+<figure><img alt="" height="683" loading="lazy" src="../assets/archive/2025/05/blade-runner-2049-city-1024x683.avif" width="1024"/></figure>
+<p>The Independent (2017) <em>Blade Runner 2049 VFX cityscape still</em> [Online image]. Published 7 October 2017. Available at: The Independent website (Accessed: 1 May 2025)</p>
+<p>This makes me wonder: are we using AI to replicate culture, or should we let it “misremember”, “distort”, or “hallucinate” to find new meanings within those imperfections?</p>
+<p>What fascinated me most was Terence’s later attempt to abandon datasets entirely. In his project Unstable Equilibrium, he replaced the generator and discriminator in a traditional GAN with two generators that imitated each other. The images produced by this structure are often unstable and bizarre, yet highly charged with tension.</p>
+<figure><img alt="" height="513" loading="lazy" src="../assets/archive/2025/05/unstable_equilibrium_1_1-1024x513.png" width="1024"/></figure>
+<p>Broad, T. (2019) <em>(un)stable equilibrium</em> [Online image]. Image: still from (un)stable equilibrium 1:1. Available at: <a href="https://terencebroad.com/works/unstable-equilibrium" rel="noopener" target="_blank">https://terencebroad.com/works/unstable-equilibrium</a> (Accessed: 1 May 2025)</p>
+<p>This concept of “reference-free creation” was revolutionary to me. In my own projects, I often rely on existing data or aesthetics for guidance. But this lesson made me ask: What would happen if we let the model generate logic internally? What if instead of training it from the outside, we let it “create the world from within”?</p>
+<p>Another memorable concept was “network bending” instead of training models to perform new tasks, Terence directly introduced filters, noise, and masks into a network’s “middle layers” to interfere with neuron activation paths, yielding bizarre outputs.</p>
+<figure><img alt="" height="231" loading="lazy" src="../assets/archive/2025/05/entropy-24-00028-g007-1024x231.png" width="1024"/></figure>
+<p>Broad, T. et al. (2022) <em>Figure 1: Overview of network bending framework</em> [Online image]. In <em>Network Bending: Expressive Manipulation of Generative Models in Multiple Domains</em>. <em>Entropy</em>. doi: 10.3390/e24010028 (Accessed: 1 May 2025)</p>
+<p>This resembles glitch art at the code level. By forgoing control over results and intentionally “breaking” the system in specific ways, he observes what emerges. This approach made me realize: sometimes the most powerful creations don’t start from scratch, but from inserting new elements into existing systems to unleash their unexpected potential.</p>
+<p>This lesson has challenged many of my assumptions about AI. I used to see AI as a tool that needed to be “optimized” crafting better prompts, training with cleaner data, and seeking perfect results. But Terence’s practice is the complete opposite. He doesn’t pursue “correctness,” but rather “contradiction,” “chaos,” and “failure”.</p>
+<p>I’ve come to realize that:</p>
+<ul>
+<li>Prompts are just one approach intervening in network structures is also a possibility.</li>
+<li>“Failure” isn’t an acceptable cost, but can become the very objective of creation.</li>
+<li>Neural networks can be “played” like musical instruments, not just used as tools.</li>
+<li>The “generation space” isn’t just about outcomes, but a behavioral process in itself.</li>
+</ul>
+    </article>
+    <nav class="post-nav"><a class="post-nav__item" href="loops-of-perception-workshop.html"><span class="post-nav__label"><span class="t-en">← older</span><span class="t-zh">← 上一篇</span></span><span class="post-nav__title">Loops of Perception Workshop</span></a><a class="post-nav__item post-nav__item--next" href="vvvv-workshop.html"><span class="post-nav__label"><span class="t-en">newer →</span><span class="t-zh">下一篇 →</span></span><span class="post-nav__title">vvvv workshop</span></a></nav>
+  </main>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/page.js"></script>
+</body>
+</html>
