@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
 <meta name="copyright" content="© 2026 Qingzhou Cai. All rights reserved." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>coco. / Week 2 Experiment: One Blue, One Yellow, Six Middles</title>
+  <title>coco. / Week 2 Reading: One Colour, Many Mixes</title>
   <meta name="theme-color" content="#fafafa" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -38,26 +38,17 @@
   <main class="rs post">
     <div class="rs__head">
       <p class="rs__crumb"><a href="../archive.html" data-i18n="ar.title">archive</a><span>/</span><a href="../archive.html#ug/y3/epr"><span class="t-en">year 3 · experimental practice &amp; research</span><span class="t-zh">三年级 · 实验性实践与研究</span></a></p>
-      <h1 class="post__title">Week 2 Experiment: One Blue, One Yellow, Six Middles</h1>
+      <h1 class="post__title">Week 2 Reading: One Colour, Many Mixes</h1>
       <p class="post__meta"><span class="t-en">10 oct 2026</span><span class="t-zh">2026 年 10 月 10 日</span></p>
       <p class="post__note t-zh">这篇文章写于在学校的课程期间，原文是英文。</p>
     </div>
     <article class="prose">
-<p>In my reading post on <em>Chromatic Algorithms</em> I wrote one quick sentence: when I mixed the same blue and yellow in plain RGB maths the middle turned grey, but in OKLCH it stayed vivid. This week I wanted to slow that sentence down. If two fixed colours can give a different middle depending on the maths, then “mixing” is not one thing. It is a choice, and usually a choice someone else made for me.</p>
+<p>In my first post on Carolyn L. Kane’s <em>Chromatic Algorithms</em>, I mentioned in one sentence that when I mixed the same blue and yellow in plain RGB maths, the middle turned a dull grey, but in a perceptual colour space (OKLCH) it stayed vivid. I kept coming back to that sentence, because it suggests something strange: one colour can have several recipes.</p>
 
-<h3>The question</h3>
-<p>Kane argues that colour on a computer is not found but produced, through code, hardware and standards (Kane, 2014). So my question was simple: if I keep the two end colours exactly the same and only change the mixing method, how many different “middles” can I get, and which one is the “real” mix?</p>
+<h3>One pair, many middles</h3>
+<p>I kept the two ends fixed, pure screen blue <code>#0000ff</code> and pure yellow <code>#ffff00</code>, and only changed the space the browser mixes in (W3C, 2024). Plain sRGB averages the numbers and lands exactly on grey. OKLab, the perceptual space, gives a soft misty blue, because its straight line passes near the grey centre (Ottosson, 2020). OKLCH walks around the hue circle instead and finds a bright teal. Asked to go the long way round, it passes through hot pink. None of these is wrong. Each answers a different question: average the numbers, keep the lightness, or keep the colourfulness.</p>
 
-<h3>Set-up</h3>
-<p>I chose the most extreme pair I could: pure screen blue <code>#0000ff</code> and pure screen yellow <code>#ffff00</code>. In RGB they are exact opposites, so any problem in the maths should show clearly. Modern CSS lets a gradient choose which colour space it mixes in (W3C, 2024), so I made one gradient per method and changed nothing else:</p>
-<pre><code>background: linear-gradient(to right in srgb,  #0000ff, #ffff00);
-background: linear-gradient(to right in oklch, #0000ff, #ffff00);
-/* …the same line again for srgb-linear, oklab, hsl
-      and “oklch longer hue” */</code></pre>
-<p>Then I worked out the exact 50% colour of each one with a small Python script, using Ottosson’s published OKLab formulas (Ottosson, 2020), so I was not just trusting my eyes.</p>
-
-<h3>Results</h3>
-<p>These bars are not screenshots. They are drawn live by your browser, so you are running the experiment while you read. The small line marks the middle.</p>
+<figure>
 <div class="mix-test">
 <div class="mix-row">
   <p class="mix-row__label"><code>srgb</code></p>
@@ -91,21 +82,15 @@ background: linear-gradient(to right in oklch, #0000ff, #ffff00);
 </div>
 </div>
 <p class="mix-test__fallback">If all six bars look the same, your browser does not support colour-space gradients yet. The hex codes above are still the true middles.</p>
+<figcaption>The same two colours mixed in six colour spaces, drawn live by your browser. The line marks the middle (W3C, 2024; Ottosson, 2020).</figcaption>
+</figure>
 
-<h3>Observations</h3>
-<ul>
-<li><strong>sRGB</strong> takes the average of each number: (0, 0, 255) and (255, 255, 0) meet at (128, 128, 128). Mathematically correct, visually dead. The colour simply cancels itself out.</li>
-<li><strong>Linear RGB</strong> averages the actual light, not the encoded numbers, so the grey is lighter. More “physical”, but still grey.</li>
-<li><strong>OKLab</strong> was the surprise. It is the perceptual space, yet the middle is a soft, misty blue rather than vivid. Because blue and yellow sit on almost opposite sides, the straight line between them passes close to the grey centre.</li>
-<li><strong>OKLCH</strong> does not draw a straight line. It keeps the colourfulness and walks around the hue circle, so the middle becomes a bright teal-green. Choosing “longer hue” sends it the other way round, through hot pink.</li>
-<li><strong>HSL</strong> also goes round the wheel, but it gives a neon green that looks much brighter than both ends.</li>
-</ul>
-<p>One more detail I did not expect: the OKLCH middle my script calculated is outside what an ordinary sRGB screen can show. The browser has to squeeze it back into range. The most vivid middle does not fully exist on my screen; the screen hands me an approximation.</p>
+<h3>Why this matters to Kane’s argument</h3>
+<p>As children we learn that blue and yellow paint make green, so “mixing” feels like a natural fact. On screen it is not. Kane argues that digital colour is produced through code, hardware and standards, and that standardisation slowly hides the choices behind it (Kane, 2014). The grey gradient is a perfect small example. For years it was simply the default on the web. Nobody chose grey on purpose; it came from the maths underneath, and most people, including me, never asked.</p>
+<p>What unsettled me most is that the vivid OKLCH middle is outside what a normal sRGB screen can show, so the browser has to squeeze it into range. The colour I “mixed” never fully appears. The screen gives me an approximation and presents it as the colour.</p>
 
-<h3>Reflection</h3>
-<p>Before this test I thought of “mixing” as a fact, like two paints in a jar. Most of us learn that blue and yellow paint make green. On screen, the same idea gives grey, misty blue, teal, pink or neon green, and none of them is wrong. Each one answers a different question: average the numbers, average the light, keep the perceived lightness, keep the colourfulness. So a colour does not have one recipe. It has several, and the method is a design decision.</p>
-<p>This links back to Kane in a very practical way. Her point about standardisation is that the defaults hide the choices (Kane, 2014). For years, the default gradient on the web was the grey one. Nobody chose grey on purpose; it came from the maths underneath. It also made me look again at my own Bézier palette tool from my internship. I was smoothing colours in one space without asking whether another space would give a completely different “smooth”.</p>
-<p>For my practice, the useful lesson is not “always use OKLCH”. The grey middle could be exactly right for a calm or broken feeling, and the pink detour could be a deliberate surprise. Next, I want to let a sensor or a person’s touch choose the mixing method itself, so the space between two colours changes depending on who is interacting.</p>
+<h3>What I take into my practice</h3>
+<p>This also changed how I see the Bézier palette tool I built during my internship. I smoothed colours in one space without asking whether another space would give a completely different idea of “smooth”. The lesson is not to always use OKLCH. The grey middle might suit a calm or broken mood, and the pink detour could be a deliberate surprise. What matters is choosing the method instead of inheriting it. Next, I would like to let a sensor or a person’s touch decide the mixing space, so the colour between two points depends on who is interacting.</p>
 
 <h3>Bibliography</h3>
 <ul>
