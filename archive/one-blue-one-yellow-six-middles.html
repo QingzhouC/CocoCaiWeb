@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<meta name="copyright" content="© 2026 Qingzhou Cai. All rights reserved." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>coco. / Week 2 Experiment: One Blue, One Yellow, Six Middles</title>
+  <meta name="theme-color" content="#fafafa" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Kalam:wght@300;400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="rs-page">
+  <header class="nav is-scrolled" id="nav">
+    <div class="nav__left">
+      <a href="../archive.html#ug/y3/epr" class="nav__back" id="back" aria-label="back">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      </a>
+      <a href="../index.html" class="nav__logo">c<span>.</span></a>
+    </div>
+    <nav class="nav__links" id="navLinks">
+      <a href="../index.html#about" data-i18n="nav.about">about</a>
+      <a href="../index.html#projects" data-i18n="nav.projects">projects</a>
+      <a href="../index.html#experience" data-i18n="nav.experience">experience</a>
+      <a href="../index.html#blog" data-i18n="nav.blog">blog</a>
+      <a href="../index.html#contact" data-i18n="nav.contact">contact</a>
+      <a href="../archive.html" class="nav__archive is-active" data-i18n="nav.archive">archive</a>
+    </nav>
+    <div class="nav__right">
+      <button class="lang" id="langToggle" aria-label="switch language">
+        <span data-lang="en">EN</span><span class="lang__slash">/</span><span data-lang="zh">中</span>
+      </button>
+      <button class="nav__burger" id="burger" aria-label="open menu"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="rs post">
+    <div class="rs__head">
+      <p class="rs__crumb"><a href="../archive.html" data-i18n="ar.title">archive</a><span>/</span><a href="../archive.html#ug/y3/epr"><span class="t-en">year 3 · experimental practice &amp; research</span><span class="t-zh">三年级 · 实验性实践与研究</span></a></p>
+      <h1 class="post__title">Week 2 Experiment: One Blue, One Yellow, Six Middles</h1>
+      <p class="post__meta"><span class="t-en">10 oct 2026</span><span class="t-zh">2026 年 10 月 10 日</span></p>
+      <p class="post__note t-zh">这篇文章写于在学校的课程期间，原文是英文。</p>
+    </div>
+    <article class="prose">
+<p>In my reading post on <em>Chromatic Algorithms</em> I wrote one quick sentence: when I mixed the same blue and yellow in plain RGB maths the middle turned grey, but in OKLCH it stayed vivid. This week I wanted to slow that sentence down. If two fixed colours can give a different middle depending on the maths, then “mixing” is not one thing. It is a choice, and usually a choice someone else made for me.</p>
+
+<h3>The question</h3>
+<p>Kane argues that colour on a computer is not found but produced, through code, hardware and standards (Kane, 2014). So my question was simple: if I keep the two end colours exactly the same and only change the mixing method, how many different “middles” can I get, and which one is the “real” mix?</p>
+
+<h3>Set-up</h3>
+<p>I chose the most extreme pair I could: pure screen blue <code>#0000ff</code> and pure screen yellow <code>#ffff00</code>. In RGB they are exact opposites, so any problem in the maths should show clearly. Modern CSS lets a gradient choose which colour space it mixes in (W3C, 2024), so I made one gradient per method and changed nothing else:</p>
+<pre><code>background: linear-gradient(to right in srgb,  #0000ff, #ffff00);
+background: linear-gradient(to right in oklch, #0000ff, #ffff00);
+/* …the same line again for srgb-linear, oklab, hsl
+      and “oklch longer hue” */</code></pre>
+<p>Then I worked out the exact 50% colour of each one with a small Python script, using Ottosson’s published OKLab formulas (Ottosson, 2020), so I was not just trusting my eyes.</p>
+
+<h3>Results</h3>
+<p>These bars are not screenshots. They are drawn live by your browser, so you are running the experiment while you read. The small line marks the middle.</p>
+<div class="mix-test">
+<div class="mix-row">
+  <p class="mix-row__label"><code>srgb</code></p>
+  <div class="mix-row__bar" style="background:linear-gradient(to right in srgb, #0000ff, #ffff00)"><span class="mix-row__mid" aria-hidden="true"></span></div>
+  <p class="mix-row__note"><span class="mix-row__chip" style="background:#808080"></span><code>#808080</code> · flat grey, no colour at all</p>
+</div>
+<div class="mix-row">
+  <p class="mix-row__label"><code>srgb-linear</code></p>
+  <div class="mix-row__bar" style="background:linear-gradient(to right in srgb-linear, #0000ff, #ffff00)"><span class="mix-row__mid" aria-hidden="true"></span></div>
+  <p class="mix-row__note"><span class="mix-row__chip" style="background:#bcbcbc"></span><code>#bcbcbc</code> · a lighter grey</p>
+</div>
+<div class="mix-row">
+  <p class="mix-row__label"><code>oklab</code></p>
+  <div class="mix-row__bar" style="background:linear-gradient(to right in oklab, #0000ff, #ffff00)"><span class="mix-row__mid" aria-hidden="true"></span></div>
+  <p class="mix-row__note"><span class="mix-row__chip" style="background:#6cabc7"></span><code>#6cabc7</code> · a soft, misty sky blue</p>
+</div>
+<div class="mix-row">
+  <p class="mix-row__label"><code>oklch (shorter hue)</code></p>
+  <div class="mix-row__bar" style="background:linear-gradient(to right in oklch, #0000ff, #ffff00)"><span class="mix-row__mid" aria-hidden="true"></span></div>
+  <p class="mix-row__note"><span class="mix-row__chip" style="background:#00cfbd"></span><code>#00cfbd</code> · a bright teal-green</p>
+</div>
+<div class="mix-row">
+  <p class="mix-row__label"><code>oklch (longer hue)</code></p>
+  <div class="mix-row__bar" style="background:linear-gradient(to right in oklch longer hue, #0000ff, #ffff00)"><span class="mix-row__mid" aria-hidden="true"></span></div>
+  <p class="mix-row__note"><span class="mix-row__chip" style="background:#ff3185"></span><code>#ff3185</code> · hot pink, going the other way round</p>
+</div>
+<div class="mix-row">
+  <p class="mix-row__label"><code>hsl</code></p>
+  <div class="mix-row__bar" style="background:linear-gradient(to right in hsl, #0000ff, #ffff00)"><span class="mix-row__mid" aria-hidden="true"></span></div>
+  <p class="mix-row__note"><span class="mix-row__chip" style="background:#00ff80"></span><code>#00ff80</code> · neon spring green</p>
+</div>
+</div>
+<p class="mix-test__fallback">If all six bars look the same, your browser does not support colour-space gradients yet. The hex codes above are still the true middles.</p>
+
+<h3>Observations</h3>
+<ul>
+<li><strong>sRGB</strong> takes the average of each number: (0, 0, 255) and (255, 255, 0) meet at (128, 128, 128). Mathematically correct, visually dead. The colour simply cancels itself out.</li>
+<li><strong>Linear RGB</strong> averages the actual light, not the encoded numbers, so the grey is lighter. More “physical”, but still grey.</li>
+<li><strong>OKLab</strong> was the surprise. It is the perceptual space, yet the middle is a soft, misty blue rather than vivid. Because blue and yellow sit on almost opposite sides, the straight line between them passes close to the grey centre.</li>
+<li><strong>OKLCH</strong> does not draw a straight line. It keeps the colourfulness and walks around the hue circle, so the middle becomes a bright teal-green. Choosing “longer hue” sends it the other way round, through hot pink.</li>
+<li><strong>HSL</strong> also goes round the wheel, but it gives a neon green that looks much brighter than both ends.</li>
+</ul>
+<p>One more detail I did not expect: the OKLCH middle my script calculated is outside what an ordinary sRGB screen can show. The browser has to squeeze it back into range. The most vivid middle does not fully exist on my screen; the screen hands me an approximation.</p>
+
+<h3>Reflection</h3>
+<p>Before this test I thought of “mixing” as a fact, like two paints in a jar. Most of us learn that blue and yellow paint make green. On screen, the same idea gives grey, misty blue, teal, pink or neon green, and none of them is wrong. Each one answers a different question: average the numbers, average the light, keep the perceived lightness, keep the colourfulness. So a colour does not have one recipe. It has several, and the method is a design decision.</p>
+<p>This links back to Kane in a very practical way. Her point about standardisation is that the defaults hide the choices (Kane, 2014). For years, the default gradient on the web was the grey one. Nobody chose grey on purpose; it came from the maths underneath. It also made me look again at my own Bézier palette tool from my internship. I was smoothing colours in one space without asking whether another space would give a completely different “smooth”.</p>
+<p>For my practice, the useful lesson is not “always use OKLCH”. The grey middle could be exactly right for a calm or broken feeling, and the pink detour could be a deliberate surprise. Next, I want to let a sensor or a person’s touch choose the mixing method itself, so the space between two colours changes depending on who is interacting.</p>
+
+<h3>Bibliography</h3>
+<ul>
+<li>Kane, C. L. (2014) <em>Chromatic Algorithms: Synthetic Color, Computer Art, and Aesthetics after Code</em>. Chicago: University of Chicago Press.</li>
+<li>Ottosson, B. (2020) ‘A perceptual color space for image processing’. Available at: <a href="https://bottosson.github.io/posts/oklab/" target="_blank" rel="noopener">https://bottosson.github.io/posts/oklab/</a> (Accessed: 10 October 2026).</li>
+<li>W3C (2024) <em>CSS Color Module Level 4</em>, section 12: ‘Color Interpolation’. Available at: <a href="https://www.w3.org/TR/css-color-4/#interpolation" target="_blank" rel="noopener">https://www.w3.org/TR/css-color-4/#interpolation</a> (Accessed: 10 October 2026).</li>
+</ul>
+    </article>
+  </main>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/page.js"></script>
+</body>
+</html>
