@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<meta name="copyright" content="© 2026 Qingzhou Cai. All rights reserved." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>coco. / Week 2 Reading: Chromatic Algorithms</title>
+  <meta name="theme-color" content="#fafafa" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Kalam:wght@300;400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="rs-page">
+  <header class="nav is-scrolled" id="nav">
+    <div class="nav__left">
+      
+      <a href="../archive.html#ug/y3/epr" class="nav__back" id="back" aria-label="back">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      </a>
+      <a href="../index.html" class="nav__logo">c<span>.</span></a>
+    </div>
+    <nav class="nav__links" id="navLinks">
+      <a href="../index.html#about" data-i18n="nav.about">about</a>
+      <a href="../index.html#projects" data-i18n="nav.projects">projects</a>
+      <a href="../index.html#experience" data-i18n="nav.experience">experience</a>
+      <a href="../index.html#blog" data-i18n="nav.blog">blog</a>
+      <a href="../index.html#contact" data-i18n="nav.contact">contact</a>
+      <a href="../archive.html" class="nav__archive is-active" data-i18n="nav.archive">archive</a>
+    </nav>
+    <div class="nav__right">
+      <button class="lang" id="langToggle" aria-label="switch language">
+        <span data-lang="en">EN</span><span class="lang__slash">/</span><span data-lang="zh">中</span>
+      </button>
+      <button class="nav__burger" id="burger" aria-label="open menu"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="rs post">
+    <div class="rs__head">
+      <p class="rs__crumb"><a href="../archive.html" data-i18n="ar.title">archive</a><span>/</span><a href="../archive.html#ug/y3/epr"><span class="t-en">year 3 · experimental practice &amp; research</span><span class="t-zh">三年级 · 实验性实践与研究</span></a></p>
+      <h1 class="post__title">Week 2 Reading: Chromatic Algorithms</h1>
+      <p class="post__meta"><span class="t-en">27 nov 2026</span><span class="t-zh">2026 年 11 月 27 日</span></p>
+      <p class="post__note t-zh">这篇文章写于在学校的课程期间，原文是英文。</p>
+    </div>
+    <article class="prose">
+<p>This week’s reading, <em>Chromatic Algorithms: Synthetic Color, Computer Art, and Aesthetics after Code</em> by Carolyn L. Kane, has made me rethink something I use every single day but almost never question, which is colour on a screen. I type a hex code, pick a swatch from a colour picker, and the colour simply “appears”. Kane reminds me that this simplicity has a long and surprisingly wild history behind it, and that every colour I see on a screen is, in the end, a piece of code.</p>
+
+<figure><img alt="Timeline of the book: chromatic visions from 400 B.C. to 1969, disciplining colour from 1965 to 1984, and colour after code today" loading="lazy" src="../assets/posts/chromatic-algorithms/how-colour-became-code.webp" width="1600" height="1000"/><figcaption>Author’s own diagram (2026), based on the structure of Kane (2014).</figcaption></figure>
+
+<h3>From optics to algorithms</h3>
+<p>The book follows colour from philosophy and optics to algorithms. It starts with classical and modern ideas of colour from Plato through Goethe, moves to industrial colour, synthetic dyes and Day-Glo psychedelics, and then to video synthesis, early computer art, experimental colour systems, and finally the step “from chromakey to the alpha channel” (Kane, 2014). Kane uses a media archaeology approach, which means she does not just tell a story of progress, but digs into forgotten machines, experiments and artists to understand how our current way of seeing was built (New Books Network, 2014).</p>
+<p>What surprised me most is how emotional and even utopian early computer colour was. Kane shows that the first computer-generated colours, made with huge post-war number-crunching machines, were so fantastic that artists and computer scientists saw them as psychedelic, even revolutionary, signs of a better future for humans and machines (Kane, 2014). Today, we would never describe a default blue in a colour picker as “revolutionary”. This made me realise that our relationship with digital colour has become very calm, maybe too calm.</p>
+
+<h3>Standardisation and what we lose</h3>
+<p>The part I keep thinking about is Kane’s argument that the explosive growth of personal computing, and its need for off-the-shelf software, led to standardisation and gradually closed the experimental field where computer artists used to thrive (Kane, 2014). For example, when colour became a menu option in commercial software, it became easier for everyone to use, but also more invisible. We choose from what the software gives us, instead of asking how the colour is produced.</p>
+<p>Honestly, this made me look at my own work in a slightly uncomfortable way. During my internship, I built a Bézier-curve colour tool to smooth uneven palettes, and the tool and the refined palette were adopted into the company’s design system. At the time, I only saw it as solving a practical problem, making colours more consistent. But after this reading, I realise I was also taking part in exactly the process Kane describes, turning colour into rules, tokens and standards. Consistency is important in product design, but it also means some “strange” or unexpected colours will never appear.</p>
+
+<figure><img alt="Three rows of colour swatches mixing blue into yellow: straight RGB maths turns grey in the middle, OKLCH stays vivid, and Bézier easing shifts where the change happens" loading="lazy" src="../assets/posts/chromatic-algorithms/three-ways-of-mixing.webp" width="1600" height="1000"/><figcaption>Author’s own experiment (2026). The same two colours mixed three ways: in RGB, in the OKLCH perceptual space (Ottosson, 2020), and with a Bézier easing curve.</figcaption></figure>
+
+<h3>A small experiment</h3>
+<p>To understand Kane’s idea that the colour on screen and the code underneath are two different worlds, I tried a simple test. I mixed the same blue and yellow in three different ways. When I used straight RGB maths, the middle of the gradient turned into a dull grey, even though both end colours are bright. When I mixed them in a perceptual colour space (OKLCH), the colours stayed alive and moved through cyan and green instead. And when I added a Bézier curve, I could decide where the change happens. The two end colours never changed, only the code in between. This is exactly what I find exciting about Kane’s “gap”, the colour we see is not fixed, it depends on the model, the maths and the choices hidden behind it.</p>
+
+<h3>What this means for my practice</h3>
+<p>Kane says that the gap between bright, bold colour on screen and the increasingly abstract code underneath still attracts artists and designers from many fields (Kane, 2014). For my experimental practice this term, I want to work inside that gap instead of hiding it. For example, instead of always choosing “safe” colours from a design system, I want to let colour be generated by data, sensors or even mistakes, and see what kind of colours appear when I don’t fully control them.</p>
+
+<p>In general, this week’s reading has made me understand that digital colour is not neutral. Every colour on a screen carries a history of technology, commerce and standardisation. As someone who both designs systems and wants to experiment, I think my job is not to choose one side, but to know when to follow the rules and when to break them on purpose.</p>
+
+<h3>Bibliography</h3>
+<ul>
+<li>Kane, C. L. (2014) <em>Chromatic Algorithms: Synthetic Color, Computer Art, and Aesthetics after Code</em>. Chicago: University of Chicago Press.</li>
+<li>New Books Network (2014) ‘Carolyn L. Kane, Chromatic Algorithms: Synthetic Color, Computer Art, and Aesthetics after Code’. Available at: <a href="https://newbooksnetwork.com/carolyn-l-kane-chromatic-algorithms-synthetic-color-computer-art-and-aesthetics-after-code-u-of-chicago-press-2014-3" target="_blank" rel="noopener">https://newbooksnetwork.com/carolyn-l-kane-chromatic-algorithms-synthetic-color-computer-art-and-aesthetics-after-code-u-of-chicago-press-2014-3</a> (Accessed: 27 November 2026).</li>
+<li>Cycling ’74 (2016) ‘Book Review: Chromatic Algorithms’. Available at: <a href="https://cycling74.com/2016/05/10/book-review-chromatic-algorithms" target="_blank" rel="noopener">https://cycling74.com/2016/05/10/book-review-chromatic-algorithms</a> (Accessed: 27 November 2026).</li>
+<li>Ottosson, B. (2020) ‘A perceptual color space for image processing’. Available at: <a href="https://bottosson.github.io/posts/oklab/" target="_blank" rel="noopener">https://bottosson.github.io/posts/oklab/</a> (Accessed: 27 November 2026).</li>
+</ul>
+    </article>
+  </main>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/page.js"></script>
+</body>
+</html>
