@@ -74,7 +74,7 @@ note("c6, bb3 g3 [bf3 c4]").fast(2)</code></pre>
 <figure><img alt="" height="411" loading="lazy" src="../assets/archive/2025/05/Screenshot-2025-05-04-at-15.32.39-edited-1.png" width="730"/></figure>
 <figure><audio src="../assets/archive/2025/05/第二段.mp3"></audio></figure>
 <p>Finally, I introduced a “spiral” visualization effect. I added a points array, and every time playNote() plays a new note, the program calculates a new spiral point and adds it to the array. The point’s theta and radius control its position on the spiral, while its frequency information maps to color (using the HSB hue model) and size. Thus, low-frequency notes appear as cool-colored small dots, while high-frequency notes show as warm-colored large dots. The entire scene uses a semi-transparent background to continuously “erase” old points, creating a sense of flow.</p>
-<p><strong>Final code</strong>:</p>
+<h3>Final code</h3>
 <pre><code>let osc;
 let notes = [261.63, 293.66, 329.63, 349.23, 392.00, 440.00, 493.88]; // C major scale
 let currentNote = 0;
@@ -145,10 +145,9 @@ function draw() {
   }
 }</code></pre>
 <figure><video controls="" playsinline="" preload="metadata" src="../assets/archive/2025/05/205_1746370201.mp4"></video></figure>
-
 <h3><strong>Summary</strong></h3>
 <p>This exercise not only helped me understand the relevance between sound and images but also made me realize that “sense of structure” and “sense of rhythm” should be considered when designing visualization. In the future, I hope to try making this spiral not just passive visualization, but able to respond to user interactions (such as changing the shape of the spiral when clicked).</p>
-    </article>
+</article>
     <nav class="post-nav"><a class="post-nav__item" href="embodied-intelligence.html"><span class="post-nav__label"><span class="t-en">← older</span><span class="t-zh">← 上一篇</span></span><span class="post-nav__title">Embodied Intelligence</span></a><a class="post-nav__item post-nav__item--next" href="sasha-luccionis-youtube-video-sasha-article.html"><span class="post-nav__label"><span class="t-en">newer →</span><span class="t-zh">下一篇 →</span></span><span class="post-nav__title">Sasha Luccioni’s Youtube video &amp; Sasha’ article</span></a></nav>
   </main>
 

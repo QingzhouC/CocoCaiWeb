@@ -45,7 +45,7 @@
     </div>
     <article class="prose">
 <p>At this stage, I started developing an iOS augmented reality experience based on Unity and AR Foundation, themed around the writer Jane Austen. As part of my Winchester Cathedral AR project, this initiative aims to enable audiences to meet historical figures in AR, thereby fostering a stronger emotional connection.</p>
-<p>Functional Objectives</p>
+<h3>Functional Objectives</h3>
 <p>The core features I aim to implement include:</p>
 <ol>
 <li>Auto-playing an introductory voiceover upon launch;</li>
@@ -53,7 +53,7 @@
 <li>Ensuring the 3D model appears stably in front of users in AR environments, enabling voice interaction.</li>
 </ol>
 <figure><video controls="" playsinline="" preload="metadata" src="../assets/archive/2025/05/234_1748223927.mp4"></video></figure>
-<p>Technical Implementation</p>
+<h3>Technical Implementation</h3>
 <ul>
 <li>Used Unity 2022 and AR Foundation plugin, configured with ARKit to set up the AR scene;</li>
 <li>Added AR Session and AR Session Origin to the XR Origin, ensuring the main camera is enabled;</li>
@@ -61,7 +61,7 @@
 <li>Wrote C# scripts to control the welcome voiceover at startup and trigger quote playback via click events;</li>
 <li>Fine-tuned the model’s position, scaling, and anchoring logic for consistent performance across devices.</li>
 </ul>
-<p>Issues and Debugging</p>
+<h3>Issues and Debugging</h3>
 <p>During development, I encountered two key problems:</p>
 <ol>
 <li>Camera Failure to Open</li>
@@ -76,13 +76,13 @@
 <li>Solutions：<br/>◦ Confirmed audio files were properly imported into Project Assets and paths were correctly referenced in Audio Source.<br/>◦ Added delay mechanisms (using Invoke() or Coroutine) to the script to ensure audio triggered after scene initialization.<br/>◦ Debugged with Debug.Log() to track script flow, confirming click events and audio callbacks bound correctly. Now the model plays welcome voiceover on startup and quotes sequentially on click, with smooth audio and script operation.</li>
 </ul>
 <figure><img alt="" height="494" loading="lazy" src="../assets/archive/2025/05/image-57.png" width="856"/></figure>
-<p>What I gained</p>
+<h3>What I gained</h3>
 <ul>
 <li>Got familiar with the basic construction process of AR Foundation and the permission configuration of ARKit.</li>
 <li>Learned to control the voice interaction behavior of 3D models through scripts in Unity.</li>
 <li>Understood that the key to realizing emotional narrative in augmented reality environments lies in the design of detailed interactions and trigger logic. For example, characters introduce themselves first, then converse with users helps create a sense of presence.</li>
 </ul>
-    </article>
+</article>
     <nav class="post-nav"><a class="post-nav__item" href="week-11-reading.html"><span class="post-nav__label"><span class="t-en">← older</span><span class="t-zh">← 上一篇</span></span><span class="post-nav__title">Week 11 Reading</span></a><a class="post-nav__item post-nav__item--next" href="prototype-design.html"><span class="post-nav__label"><span class="t-en">newer →</span><span class="t-zh">下一篇 →</span></span><span class="post-nav__title">Prototype Design</span></a></nav>
   </main>
 

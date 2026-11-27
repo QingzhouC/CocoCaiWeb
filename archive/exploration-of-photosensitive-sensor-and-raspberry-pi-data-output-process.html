@@ -46,9 +46,9 @@
     <article class="prose">
 <p>In this phase of exploration, our goal is to connect a photosensitive sensor to read ambient light intensity in real time and output precise numerical data on a Raspberry Pi, which will be used to control the interaction logic in our project.</p>
 <figure><video controls="" playsinline="" preload="metadata" src="../assets/archive/2025/05/236_1748224889.mp4"></video></figure>
-<p>Initial Attempts and Issues</p>
+<h3>Initial Attempts and Issues</h3>
 <p>Initially, we directly connected the sensor to the Raspberry Pi’s GPIO interface, but quickly identified a critical problem: the Grove Light Sensor is an analog output device, while the Raspberry Pi’s GPIO pins do not support analog input. As a result, we could only use simple digital logic to judge states like “bright” or “dark,” failing to capture continuous light intensity values. This non-standard and imprecise judgment method couldn’t meet our requirements for interactive control.</p>
-<p>Solution Approach 1: Introducing STM32 as an ADC Module</p>
+<h3>Solution Approach 1: Introducing STM32 as an ADC Module</h3>
 <p>To address the analog signal reading issue, we attempted to introduce the STM32F030F4P6 chip as an external ADC (Analog-to-Digital Converter), converting the photosensitive sensor’s analog signals to digital signals and sending them to the Raspberry Pi via serial communication.</p>
 <figure><img alt="" height="358" loading="lazy" src="../assets/archive/2025/05/image-58.png" width="864"/></figure>
 <p>Although the STM32 offers the required ADC functionality, our practice revealed:</p>
@@ -58,7 +58,7 @@
 <li>The overall debugging process was complex, prone to unstable communication issues.</li>
 </ul>
 <p>After evaluation, we decided to abandon this approach.</p>
-<p>Solution Approach 2: Using Arduino + Grove Base Shield</p>
+<h3>Solution Approach 2: Using Arduino + Grove Base Shield</h3>
 <figure><video controls="" playsinline="" preload="metadata" src="../assets/archive/2025/05/237_1748224889.mp4"></video></figure>
 <figure><video controls="" playsinline="" preload="metadata" src="../assets/archive/2025/05/235_1748224889.mp4"></video></figure>
 <p>We shifted to a more reliable approach:</p>
@@ -71,14 +71,14 @@
 <figure><img alt="" height="379" loading="lazy" src="../assets/archive/2025/05/image-59-1024x379.png" width="1024"/></figure>
 <p>This solution avoids the technical barrier of STM32 programming while ensuring continuous and accurate sensor data.</p>
 <figure><img alt="" height="302" loading="lazy" src="../assets/archive/2025/05/image-60.png" width="540"/></figure>
-<p>What I gained</p>
+<h3>What I gained</h3>
 <ul>
 <li>Further understood the functional differences between Raspberry Pi and Arduino: Pi excels in computing and logical processing, while Arduino is suitable for analog signal reading and real-time control.</li>
 <li>Mastered the method of data transmission between the two via serial communication.</li>
 <li>Learned to evaluate multiple technical solutions and make trade-offs based on practical capabilities and project requirements.</li>
 <li>Realized that hardware system integration is not just about circuit connection, but also requires rational module division and data flow design.</li>
 </ul>
-    </article>
+</article>
     <nav class="post-nav"><a class="post-nav__item" href="reconstructing-the-past-with-ar.html"><span class="post-nav__label"><span class="t-en">← older</span><span class="t-zh">← 上一篇</span></span><span class="post-nav__title">Reconstructing the Past with AR</span></a><a class="post-nav__item post-nav__item--next" href="coding-with-copilot-generative-collaborative-creation-of-an-emoji-mini-game.html"><span class="post-nav__label"><span class="t-en">newer →</span><span class="t-zh">下一篇 →</span></span><span class="post-nav__title">Coding with Copilot: Generative Collaborative Creation of an Emoji Mini-Game</span></a></nav>
   </main>
 

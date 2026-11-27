@@ -44,66 +44,56 @@
       <p class="post__note t-zh">这篇文章写于在学校的课程期间，原文是英文。</p>
     </div>
     <article class="prose">
-<p>Overview</p>
+<h3>Overview</h3>
 <p>This document outlines the technical and creative processes involved in developing the Winchester Cathedral AR prototype, covering the production of four key modules: 3D modeling, AR interaction, sound integration, and interface testing.</p>
-<p>Stained Glass Window Fragmentation Interactive Module </p>
+<h3>Stained Glass Window Fragmentation Interactive Module</h3>
 <ul>
 <li>Hand-drew fragmentation animation sketches of the stained glass window in Procreate.</li>
 <li>Iteratively built multiple window model versions in Unity.</li>
 <li>The final model achieves realistic scale, structural three-dimensionality, and color reproduction, matching the actual proportions of the West Window.</li>
 </ul>
-<p><strong>Stage 1: Initial Modeling </strong></p>
+<h3>Stage 1: Initial Modeling</h3>
 <ul>
 <li>Image Description: The first window model had a solid-color structure with 2D painted textures, lacking visual depth.</li>
 </ul>
-
 <figure><img alt="" height="580" loading="lazy" src="../assets/archive/2025/05/image-65.png" width="268"/></figure>
 <figure><video controls="" playsinline="" preload="metadata" src="../assets/archive/2025/05/246_1748369993.mp4"></video></figure>
-
 <ul>
 <li>Issues: Flat window frames without three-dimensionality; overall size too small to accurately cover the real-world window area.</li>
 <li>Reflection: Feasible as a proof of concept, but requiring further modeling optimization.</li>
 </ul>
-<p><strong>Stage 2: Fragmentation Texture Testing</strong> </p>
+<h3>Stage 2: Fragmentation Texture Testing</h3>
 <ul>
 <li>Image Description: Replaced materials with cracked glass textures, visually depicting shattered (but not detached) glass while retaining the frame.</li>
 </ul>
-
 <figure><img alt="" height="580" loading="lazy" src="../assets/archive/2025/05/image-66.png" width="268"/></figure>
 <figure><video controls="" playsinline="" preload="metadata" src="../assets/archive/2025/05/249_1748369993.mp4"></video></figure>
-
 <ul>
 <li>Implementation: Achieved visual fragmentation by changing transparent texture maps.</li>
 <li>Significance: Served as a visual transition test between “before and after fragmentation,” initially meeting expectations.</li>
 </ul>
-<p><strong>Stage 3: Structural Upgrade and Size Adjustment </strong></p>
+<h3>Stage 3: Structural Upgrade and Size Adjustment</h3>
 <ul>
 <li>Image Description:</li>
 </ul>
 <p>◦The improved window features obvious thickness and frame structure, closer to real Gothic window shapes.</p>
-
 <figure><img alt="" height="944" loading="lazy" src="../assets/archive/2025/05/Picture-3.png" width="436"/></figure>
 <figure><video controls="" playsinline="" preload="metadata" src="../assets/archive/2025/05/252_1748370030.mp4"></video></figure>
-
 <p>◦After adjusting the aspect ratio, the size matches the West Window’s actual dimensions in the cathedral.</p>
-
 <figure><img alt="" height="580" loading="lazy" src="../assets/archive/2025/05/image-68.png" width="268"/></figure>
 <figure><video controls="" playsinline="" preload="metadata" src="../assets/archive/2025/05/253_1748370699-1.mp4"></video></figure>
-
 <ul>
 <li>Improvements:</li>
 </ul>
 <p>◦ Increased edge structure thickness.</p>
 <p>◦ Enhanced material reflection and texture clarity.</p>
 <p>◦ Fine-tuned window size for on-site space adaptation.</p>
-<p><strong>Stage 4: Final Model Calibration + Visual Overlay </strong></p>
+<h3>Stage 4: Final Model Calibration + Visual Overlay</h3>
 <ul>
 <li>Image Description: After optimizing model size and visual angles, the AR window fully covers the actual West Window, ensuring accurate projection.</li>
 </ul>
-
 <figure><img alt="" height="580" loading="lazy" src="../assets/archive/2025/05/image-69.png" width="268"/></figure>
 <figure><video controls="" playsinline="" preload="metadata" src="../assets/archive/2025/05/251_1748370011-3.mp4"></video></figure>
-
 <ul>
 <li>Visual Effect: Clear painted details and complete frames enhance the sense of reality.</li>
 </ul>
@@ -119,23 +109,23 @@
 <ul>
 <li>Emotional Effect: The symbolic shattering moment expresses the disintegration of architectural memory, enhancing user emotional immersion.</li>
 </ul>
-<p>Detailed Production Module: Jane Austen Digital Portrait AR Interaction</p>
+<h3>Detailed Production Module: Jane Austen Digital Portrait AR Interaction</h3>
 <p>This module aims to present Jane Austen’s virtual image through AR, combining voice narration and quote interaction. It enables audiences to not only see her memorial but also hear her voice, establishing a more emotionally warm connection between literature and history.</p>
-<p><strong>Design Concept</strong></p>
+<h3>Design Concept</h3>
 <ul>
 <li>Shape Jane Austen as a Digital Presence;</li>
 <li>The AR module triggers when audiences approach the memorial on-site;</li>
 <li>Simulate character dialogue to play content, enhancing participation and immersion.</li>
 </ul>
 <p>Production Stages and Image Descriptions</p>
-<p><strong>Stage 1: Conceptual Scene Design</strong></p>
+<h3>Stage 1: Conceptual Scene Design</h3>
 <figure><img alt="" height="576" loading="lazy" src="../assets/archive/2025/05/IMG_3520-1024x576.jpg" width="1024"/></figure>
 <ul>
 <li>Image Description: Static photo manipulation simulates AR effect—Jane Austen’s portrait overlays the real memorial background on the phone screen.</li>
 <li>Objective: Clarify final visual goals and spatial integration methods.</li>
 <li>Reflection: Static composition helps pre-consider proportions, poses, and lighting fusion in advance.</li>
 </ul>
-<p><strong>Stage 2: Implementation of Voice Quote Interaction</strong></p>
+<h3>Stage 2: Implementation of Voice Quote Interaction</h3>
 <figure><img alt="" height="154" loading="lazy" src="../assets/archive/2025/05/image-72.png" width="260"/></figure>
 <ul>
 <li>Interaction Logic:</li>
@@ -147,14 +137,14 @@
 <ul>
 <li>Script Function: Uses a logic list to play quotes in order or randomly, removing each quote from the pool after playback.</li>
 </ul>
-<p><strong>Stage 3: Sound Processing</strong></p>
+<h3>Stage 3: Sound Processing</h3>
 <ul>
 <li>Dubbing Style: Adopts a gentle female tone with British pronunciation, aligning with the aesthetic of 19th-century British literature and the character’s temperament.</li>
 <li>Sound Rhythm: Steady and unhurried intonation helps create a calm, elegant immersive atmosphere.</li>
 <li>Technical Implementation: Generates AI dubbing via TTSMaker website, featuring natural intonation and high speech recognition.</li>
 <li>Post-processing: Performs simple editing on the generated audio to ensure it matches interaction rhythms, preventing user waiting or accidental touches.</li>
 </ul>
-<p><strong>Technical Testing Status</strong></p>
+<h3>Technical Testing Status</h3>
 <figure class="gallery">
 <figure><img alt="" height="452" loading="lazy" src="../assets/archive/2025/05/image-73.png" width="614"/></figure>
 <figure><img alt="" height="542" loading="lazy" src="../assets/archive/2025/05/image-74.png" width="250"/></figure>
@@ -163,7 +153,7 @@
 <li>Issue: During iOS device testing, the camera failed to activate (speculated to be due to permission settings or ARKit initialization problems).</li>
 <li>Status: Although real-time AR display wasn’t completed, all voice logic and interactive functions were successfully implemented in Unity.</li>
 </ul>
-<p>Attempting Gothic Window Tracery Modeling in Blender</p>
+<h3>Attempting Gothic Window Tracery Modeling in Blender</h3>
 <p>Before turning to downloadable 3D models, I tried modeling Gothic stained glass window frames in Blender, referencing a tutorial video on traceries (window ornament structure) modeling. The goal was to deeply understand the structural complexity of medieval stained glass and assess the feasibility of creating custom models for this project.</p>
 <p>Following the tutorial, I used Bezier curves to draw typical Gothic pointed arches and rose window patterns, attempting to add thickness and three-dimensional structure with Curve Modifiers combined with custom cross-sectional objects.</p>
 <figure><img alt="" height="468" loading="lazy" src="../assets/archive/2025/05/image-75.png" width="904"/></figure>
@@ -177,9 +167,9 @@
 <li><strong>Broken Glass</strong>: Model: <em>Shatter Glass</em> <a href="https://sketchfab.com/3d-models/broken-glass-d85f9be8fd3e4a10a8dd2886dac074c5" rel="noopener" target="_blank">Sketchfab Link</a> This model represents the fractured state of the stained glass after the simulated breaking moment. It was used to convey a sense of fragility, memory, and loss, contributing to the emotional tone of the experience.</li>
 </ul>
 <p>By using these models, the project was able to quickly test and visualize key interactive ideas while maintaining a balance between realism and efficiency.</p>
-<p>Using Procreate for Interactive Prototype Development</p>
+<h3>Using Procreate for Interactive Prototype Development</h3>
 <p>To quickly visualize and test key interactive elements in my AR project, I created simple animated prototypes with Procreate. This low-tech yet intuitive approach helped me preview and optimize interaction logic before transitioning to formal development in Unity.</p>
-<p><strong>Sound Sculpture </strong></p>
+<h3>Sound Sculpture</h3>
 <p>To guide users to interact with the Sound Sculpture in the basement, I designed a subtle yet noticeable click prompt animation in Procreate.</p>
 <figure><img alt="" height="576" loading="lazy" src="../assets/archive/2025/05/IMG_3521-1024x576.jpg" width="1024"/></figure>
 <ul>
@@ -188,7 +178,7 @@
 <li>This prototype primarily simulates the click-triggered logic and response that will be implemented in Unity.</li>
 </ul>
 <p><strong>Interaction Expectation:<br/></strong>Clicking triggers deep choral singing, creating a multi-sensory immersive experience.</p>
-<p><strong>Navigation Guidance Arrows </strong></p>
+<h3>Navigation Guidance Arrows</h3>
 <p>For the AR navigation system, I drew arrow and endpoint prompt animations in Procreate for path guidance.</p>
 <figure><img alt="" height="576" loading="lazy" src="../assets/archive/2025/05/IMG_3522-1024x576.jpg" width="1024"/></figure>
 <ul>
@@ -197,7 +187,7 @@
 <li>These animations were composited into real-site photos to preview the visual effects in future AR implementation.</li>
 </ul>
 <p>Follow-up Development Plan:<br/>These guidance effects will integrate with Vuforia Area Targets technology, anchoring in the cathedral’s actual space to achieve precise and persistent AR tour paths.</p>
-<p>App Icon Design Explanation</p>
+<h3>App Icon Design Explanation</h3>
 <p>The Winchester Cathedral AR app icon fuses historical elegance with modern digital aesthetics, establishing a calm and profound visual tone for the entire project.</p>
 <figure><img alt="" height="1024" loading="lazy" src="../assets/archive/2025/05/未命名作品-1024x1024.jpg" width="1024"/></figure>
 <ul>
@@ -207,9 +197,9 @@
 <li>Overall Atmosphere:<br/>The black-and-white monochrome palette evokes a sense of historical weight, resembling a sketchbook drawing. The contrast between the silhouette of a withered tree and Gothic tracery details metaphorizes the overlay of past and present a visual analogy for the AR narrative in this project.</li>
 </ul>
 <p>This icon not only ensures clear visual recognition at small sizes but also serves as a condensed symbol, conveying the project’s core concepts of memory, space, and enhanced storytelling.</p>
-<p>List of Tools Used</p>
+<h3>List of Tools Used</h3>
 <figure><table><thead><tr><th><strong>Tool</strong></th><th><strong>Purpose</strong></th></tr></thead><tbody><tr><td>Unity</td><td>Main development platform (AR Foundation + ARKit)</td></tr><tr><td>Procreate</td><td>Hand-drawn animations and visual effects</td></tr><tr><td>Blender</td><td>3D modeling of window frame and sculpture</td></tr><tr><td>Audacity</td><td>Sound editing and layering</td></tr><tr><td>iPhone + ARKit</td><td>Device testing and screen capture</td></tr><tr><td>Vuforia (Planned)</td><td>Area Targets and spatial mapping</td></tr></tbody></table></figure>
-    </article>
+</article>
     <nav class="post-nav"><a class="post-nav__item" href="lesson-review-learning-journal.html"><span class="post-nav__label"><span class="t-en">← older</span><span class="t-zh">← 上一篇</span></span><span class="post-nav__title">Lesson review &amp; learning journal</span></a><a class="post-nav__item post-nav__item--next" href="coding-with-ai.html"><span class="post-nav__label"><span class="t-en">newer →</span><span class="t-zh">下一篇 →</span></span><span class="post-nav__title">Coding with AI</span></a></nav>
   </main>
 

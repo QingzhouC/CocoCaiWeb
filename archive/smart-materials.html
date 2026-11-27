@@ -44,40 +44,40 @@
       <p class="post__note t-zh">这篇文章写于在学校的课程期间，原文是英文。</p>
     </div>
     <article class="prose">
-<p><strong>Topic: </strong></p>
+<h3>Topic</h3>
 <p>Expanding the Four-Leaf Clover Circuit with Arduino Interactivity</p>
 <figure class="gallery">
 <figure><img alt="" height="576" loading="lazy" src="../assets/archive/2025/05/IMG_8152-min-1-1024x576.jpg" width="1024"/></figure>
 <figure><img alt="" height="576" loading="lazy" src="../assets/archive/2025/05/IMG_8153-min-1-1024x576.jpg" width="1024"/></figure>
 </figure>
-<p><strong>What I learned:</strong></p>
+<h3>What I learned</h3>
 <p>This week, we built on the workshop led by Sara on smart materials. In class, our group created a four-leaf clover pattern using copper tape, shaped by cutting out four heart pieces and assembling them together along with a long stem. We attached this to a thermochromic fabric, which changes color when heated. The circuit included a resistor at the center of the clover, soldered to copper tape using wires, and when powered, the resistor heated up, transferring heat to the copper tape and revealing the clover pattern.</p>
 <figure><video controls="" playsinline="" preload="metadata" src="../assets/archive/2025/05/211_1746460542.mp4"></video></figure>
 <p>To expand this, I wanted to integrat an Arduino UNO and programmed a simple interactive feature. I connected a temperature sensor (NTC thermistor) to monitor the surrounding temperature. In my code, I will set a condition: the resistor only heats up when the temperature is below 20°C. This makes the four-leaf clover appear only in cooler environments, adding an element of environmental interactivity. I will also added an LED indicator: when the system is actively heating, the LED turns on to show that the circuit is live.</p>
 <p>For the temperature sensing, I designed an interactive system that adds environmental responsiveness to the circuit. I will connect a 10K NTC thermistor to the Arduino as a temperature sensor. The idea was to make the heating circuit activate only when the surrounding temperature is below 20°C, adding a layer of context-aware behavior. I also going to integrat an LED indicator that lights up whenever the resistor is heating, giving clear feedback about the system’s status. I will also going to add a relay, if the current of the heater is relatively high, it is best to supply power to the heating circuit with an independent power source, and Arduino only controls the relay signal. This is because the heating resistor cannot be directly powered by Arduino, otherwise, it will be burned out, the relay is used to solve this problem.</p>
-<p><strong>Wiring Connections:</strong></p>
-<p><strong>Thermistor Section:</strong></p>
+<h3>Wiring Connections</h3>
+<h3>Thermistor Section</h3>
 <ul>
 <li>Connect one end of the thermistor to 5V.</li>
 <li>Connect the other end to A0 (analog input) and to a 10K resistor.</li>
 <li>Connect the other end of the 10K resistor to GND. </li>
 </ul>
-<p><strong>LED Indicator:</strong></p>
+<h3>LED Indicator</h3>
 <ul>
 <li>Connect the long leg of the LED to Arduino’s D3 (through a 220Ω resistor).</li>
 <li>Connect the short leg of the LED to GND.</li>
 </ul>
-<p><strong>Relay Module:</strong></p>
+<h3>Relay Module</h3>
 <ul>
 <li>Connect the IN pin to Arduino’s D7.</li>
 <li>Connect VCC and GND to Arduino’s 5V and GND.</li>
 </ul>
-<p><strong>On the relay’s output side:</strong></p>
+<h3>On the relay’s output side</h3>
 <ul>
 <li>Connect the Normally Open (NO) terminal to the positive side of the external heating element circuit.</li>
 <li>Connect the Common (COM) terminal to the positive side of the external power supply. </li>
 </ul>
-<p><strong>Arduino code</strong>：</p>
+<h3>Arduino code ：</h3>
 <pre><code>const int tempPin = A0;//thermistor connected to A0
 const int ledPin = 3; // LED connected D3
 const int relayPin = 7; // relay connected to D7
@@ -114,11 +114,11 @@ void loop() {
   
   delay(500); // update every 0.5 seconds
 }</code></pre>
-<p><strong>Critical reflection:</strong></p>
+<h3>Critical reflection</h3>
 <p>Through this task, I learned how to combine basic physical circuits with microcontroller-based interactivity. I found it interesting how a simple resistive heating circuit can be made more dynamic and responsive by adding just a few components and writing a bit of code. The main challenge I faced was ensuring that the Arduino could safely control the heating element, because the resistor’s power draw is higher than what an Arduino pin can handle directly, I needed to add a relay module to safely switch the power to the resistor. This introduced me to the concept of interfacing high-power circuits with low-power microcontrollers.</p>
-<p><strong>Next steps:</strong></p>
+<h3>Next steps</h3>
 <p>Next, I want to improve the interactivity by making the system touch-responsive, utilizing a capacitive touch sensor to ensure that the clover shows only when someone touches the fabric. I would also like to explore with PWM control to gradually modify the heating strength, allowing the pattern to fade in and out more smoothly.</p>
-    </article>
+</article>
     <nav class="post-nav"><a class="post-nav__item" href="sasha-luccionis-youtube-video-sasha-article.html"><span class="post-nav__label"><span class="t-en">← older</span><span class="t-zh">← 上一篇</span></span><span class="post-nav__title">Sasha Luccioni’s Youtube video &amp; Sasha’ article</span></a><a class="post-nav__item post-nav__item--next" href="raspberry-pi-and-temperature-sensor.html"><span class="post-nav__label"><span class="t-en">newer →</span><span class="t-zh">下一篇 →</span></span><span class="post-nav__title">Raspberry pi and Temperature sensor</span></a></nav>
   </main>
 

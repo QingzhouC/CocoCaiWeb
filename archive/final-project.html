@@ -246,7 +246,7 @@ void loop() {
 touch_value = 701;
 touch_value = 655;</code></pre>
 <p>Observation: When a user touches or approaches the sensor, the raw value changes (increases or decreases depending on configuration). These values can be sampled continuously at high frequency.</p>
-<p><strong>Why raw touch values are not stored directly</strong></p>
+<h3>Why raw touch values are not stored directly</h3>
 <p>Although it is technically possible to save raw readings like:</p>
 <pre><code>742, 701, 655, 688, 712, ...</code></pre>
 <p>this is not recommended because: </p>
@@ -254,9 +254,9 @@ touch_value = 655;</code></pre>
 <p>• It is difficult for humans to interpret the meaning of individual readings. </p>
 <p>• It obscures the underlying artistic and emotional concept.</p>
 <p>Instead, the raw touch input is translated into “rhythm features”, which are meaningful metrics for both TinyML and the interactive dream visualization.</p>
-<p><strong>Recommended touch rhythm features</strong></p>
+<h3>Recommended touch rhythm features</h3>
 <figure><table><thead><tr><th>Data Name</th><th>Meaning</th><th>Why Important</th></tr></thead><tbody><tr><td><code>touch_count</code></td><td>Number of touches in this dream</td><td>Indicates emotional intensity</td></tr><tr><td><code>avg_interval_ms</code></td><td>Average interval between touches</td><td>Measures rhythm steadiness</td></tr><tr><td><code>interval_variance</code></td><td>Variability of intervals</td><td>Differentiates anxiety or chaotic states</td></tr><tr><td><code>avg_touch_duration_ms</code></td><td>Average duration of single touch</td><td>Reflects pause or hesitation</td></tr><tr><td><code>session_length_ms</code></td><td>Total duration of the dream</td><td>Indicates the overall dream length</td></tr></tbody></table></figure>
-<p><strong>Example dream data structure</strong></p>
+<h3>Example dream data structure</h3>
 <p>Each “dream” is recorded as a single row in a CSV file on the ESP32-S3 SD card:</p>
 <pre><code>dream_id,timestamp,emotion,node_id,touch_count,avg_interval_ms,interval_variance,avg_touch_duration_ms,session_length_ms
 00012,2025-01-14 16:45:22,Anxiety,Node2,18,120,45,380,5200</code></pre>
@@ -265,7 +265,7 @@ touch_value = 655;</code></pre>
 •	emotion → predicted by TinyML based on the rhythm features
 •	node_id → the servo/LED node affected
 •	Remaining columns → touch rhythm features</code></pre>
-<p><strong>How ESP32-S3 collects these data</strong></p>
+<h3>How ESP32-S3 collects these data</h3>
 <ol>
 <li>Start of a dream session </li>
 </ol>
@@ -344,7 +344,6 @@ touch_value = 655;</code></pre>
 <p><a href="https://drive.google.com/file/d/1xPBlRbgAc23iwn1RdakhdJyYTjqfJhGt/view?usp=drive_link" rel="noopener" target="_blank">https://drive.google.com/file/d/1xPBlRbgAc23iwn1RdakhdJyYTjqfJhGt/view?usp=drive_link</a></p>
 <p><a href="https://drive.google.com/file/d/11F7hTNCiKIqlzujQFMoNenakD9ilnCXt/view?usp=drive_link" rel="noopener" target="_blank">https://drive.google.com/file/d/11F7hTNCiKIqlzujQFMoNenakD9ilnCXt/view?usp=drive_link</a></p>
 <p><a href="https://drive.google.com/file/d/1vdIGrmVSZPp8rVoOPhPuxxquIK4GeTnP/view?usp=drive_link" rel="noopener" target="_blank">https://drive.google.com/file/d/1vdIGrmVSZPp8rVoOPhPuxxquIK4GeTnP/view?usp=drive_link</a></p>
-
 <hr/>
 <h2>Reflection<a href="#reflection"></a></h2>
 <p>Working on this Dream Transmitter project has been an insightful journey into interactive electronics, physical computing, and experiential design. One of the key challenges was translating abstract concepts such as “dreams” and “emotion” into tangible, mechanical movements. Initially, I aimed to classify user touch patterns with TinyML to generate emotions, but limited data and high similarity between recordings made the classification unreliable. This led me to rethink the project’s focus, shifting towards rhythm-based interaction and feedback.</p>
@@ -408,7 +407,7 @@ touch_value = 655;</code></pre>
 •	[17] SparkFun. Continuous Rotation vs Standard Servo Motors. 2020.https://learn.sparkfun.com/tutorials/servo-motors￼
 •	[18]TensorFlow Lite for Microcontrollers. Getting Started with TinyML. 2023.https://www.tensorflow.org/lite/microcontrollers￼
 •	[19] Banbury, C. &amp; Sharma, P. Challenges in TinyML Training for Small Datasets. 2022.</code></pre>
-    </article>
+</article>
     <nav class="post-nav"><a class="post-nav__item" href="week-10-reflection.html"><span class="post-nav__label"><span class="t-en">← older</span><span class="t-zh">← 上一篇</span></span><span class="post-nav__title">Week 10 reflection</span></a></nav>
   </main>
 

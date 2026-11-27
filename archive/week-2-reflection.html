@@ -44,23 +44,23 @@
       <p class="post__note t-zh">这篇文章写于在学校的课程期间，原文是英文。</p>
     </div>
     <article class="prose">
-<p>Interactive Poetry Generator</p>
+<h3>Interactive Poetry Generator</h3>
 <p>In the second week, I transitioned from pure C++ console programming to embedded systems using an ESP32 and an I2C LCD screen. The core of this task was to create a poetry generator, which I further developed into an Interactive Storytelling System (Option C). This project pushed me to think about how software logic interacts with physical hardware components.</p>
 <p>The most rewarding part of this week was learning to manage multiple data structures and using a potentiometer to switch between them. Unlike Week 1’s simple variables, I had to organize three distinct string arrays (Cyberpunk, Nature, and Existential). The real challenge arose when implementing the analog-to-digital conversion (ADC). I initially struggled with the sensitivity of the potentiometer, the values (0-4095) fluctuated, causing the LCD to flicker between different themes.</p>
 <p>I overcame this challenge by implementing a range-based conditional logic. Instead of looking for exact numbers, I divided the 4095 range into three distinct “zones” using <code>if-else</code> statements. This created a stable “channel tuning” experience, similar to a radio. Additionally, I had to solve the layout issue on the 16×2 LCD, ensuring that the theme label appeared on the first line while the randomly generated poem occupied the second.</p>
 <p>This project taught me that in embedded systems, the “user interface” isn’t just a screen it’s the physical movement of a dial. By connecting a physical sensor to a creative output, I realised that programming can be a tool for artistic expression rather than just data processing. This shift from “solving math problems” to “designing an experience” has significantly deepened my interest in physical computing.</p>
-<p><strong>Link to outcome video:</strong></p>
+<h3>Link to outcome video</h3>
 <p><a href="https://drive.google.com/drive/folders/1WxIdyaUr2IPmELvh2Har3Tgf_q8xTgpk?usp=drive_link" rel="noopener" target="_blank">https://drive.google.com/drive/folders/1WxIdyaUr2IPmELvh2Har3Tgf_q8xTgpk?usp=drive_link</a></p>
-<p>Critical reflection questions</p>
-<p><strong>1. What stories do Embedded Systems currently tell?</strong></p>
+<h3>Critical reflection questions</h3>
+<h3>1. What stories do Embedded Systems currently tell?</h3>
 <p>Dominant narratives in embedded systems are primarily authored by industrial efficiency and capital accumulation. Currently, the ESP32 and similar microcontrollers are marketed as tools for the “Internet of Things” (IoT), where their purpose is to monitor, optimise, and extract data. The values literally embedded into these chips are often productivity and control serving the interests of corporations that seek to automate labor or surveil consumer behaviour for profit. When we learn embedded programming through these frameworks, we are taught to accept that a “successful” system is one that minimises waste and maximises data output, making surveillance feel like a “natural” byproduct of connectivity.</p>
-<p><strong>2. Dismantling the “Default Settings”</strong></p>
+<h3>2. Dismantling the “Default Settings”</h3>
 <p>The poetry generator is “useless” to industry because it produces no actionable data and optimizes no physical process, it is a “leak” of energy rather than a gain in efficiency. However, this uselessness is its greatest value. By creating a device that invites contemplation rather than consumption, we challenge the industrial assumption that technology must always be a tool for labor. While “smart” devices monitor our behavior to adjust our habits, this poetic device invites us to pause. Questioning the “default settings” means refusing to see the ESP32 only as a sensor for a factory, and instead seeing it as a medium for artistic intervention.</p>
-<p><strong>3. Re-storying Embedded Systems—Imagining Otherwise</strong></p>
+<h3>3. Re-storying Embedded Systems—Imagining Otherwise</h3>
 <p>If we step outside commercial frameworks, we can reimagine embedded systems as tools for Collective Memory and Ancestral Storytelling. Instead of a “Smart Home” system that monitors electricity to save money, imagine a “Memory Hearth” designed for a local community centre.</p>
 <p>This system would consist of an embedded network of low-power nodes hidden within physical community landmarks. When a community member nears a landmark with a specialised wearable or phone, the embedded system doesn’t track their location for marketing, instead, it triggers the playback of an oral history, a recording of an elder describing a historical event that happened at that exact spot, or a poem in a marginalised language.</p>
 <p>The values guiding this design are relationality and reciprocity. “Success” would not be measured by data throughput or uptime, but by the strengthening of intergenerational bonds and the preservation of cultural sovereignty. It honours the “sovereignty of the story” rather than the “efficiency of the signal.” In this model, the ESP32 stops being a tool of surveillance and starts being a digital witness, ensuring that a community’s identity is not optimised away by the digital age, but rather amplified and protected by it.</p>
-    </article>
+</article>
     <nav class="post-nav"><a class="post-nav__item" href="week-1-reflection.html"><span class="post-nav__label"><span class="t-en">← older</span><span class="t-zh">← 上一篇</span></span><span class="post-nav__title">Week 1 reflection</span></a><a class="post-nav__item post-nav__item--next" href="week-3-reflection.html"><span class="post-nav__label"><span class="t-en">newer →</span><span class="t-zh">下一篇 →</span></span><span class="post-nav__title">Week 3 reflection</span></a></nav>
   </main>
 
