@@ -1,38 +1,54 @@
-(()=>{const g=document.getElementById("arSide"),$=document.getElementById("arMain");if(!g||!$)return;const p=s=>String(s).replace(/[&<>"]/g,n=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[n]),r=(s,n)=>`<span class="t-en">${p(s)}</span><span class="t-zh">${p(n)}</span>`,z=[...ARCHIVE_ITEMS].sort((s,n)=>s.date<n.date?1:-1),f=s=>z.filter(n=>n.path===s||n.path.startsWith(s+"/")),E=s=>s.href||`archive/${s.slug}.html`,d={};(function s(n,t,a){n.forEach(c=>{const e=t?`${t}/${c.id}`:c.id;d[e]={...c,path:e,trail:[...a,c]},c.children&&s(c.children,e,[...a,c])})})(ARCHIVE_TREE,"",[]);const h=new Set;let i="";function v(s,n,t){return`<ul class="ar-tree ar-tree--${t}">`+s.map(a=>{const c=n?`${n}/${a.id}`:a.id,e=a.children&&a.children.length,l=f(c).length,o=h.has(c);return`<li class="${o?"is-open":""}">
-        <button type="button" class="ar-node${i===c?" is-current":""}${l?"":" is-empty"}" data-path="${c}" ${e?`aria-expanded="${o}"`:""}>
-          ${e?'<span class="ar-node__caret" aria-hidden="true">›</span>':""}
+(()=>{const f=document.getElementById("arSide"),m=document.getElementById("arMain");if(!f||!m)return;const i=s=>String(s).replace(/[&<>"]/g,n=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[n]),r=(s,n)=>`<span class="t-en">${i(s)}</span><span class="t-zh">${i(n)}</span>`,I=[...ARCHIVE_ITEMS].sort((s,n)=>s.date<n.date?1:-1),b=s=>I.filter(n=>n.path===s||n.path.startsWith(s+"/")),v=s=>s.href||`archive/${s.slug}.html`,_={};(function s(n,e,a){n.forEach(c=>{const l=e?`${e}/${c.id}`:c.id;_[l]={...c,path:l,trail:[...a,c]},c.children&&s(c.children,l,[...a,c])})})(ARCHIVE_TREE,"",[]);const u=new Set;let d="";function E(s,n,e){return`<ul class="ar-tree ar-tree--${e}">`+s.map(a=>{const c=n?`${n}/${a.id}`:a.id,l=a.children&&a.children.length,t=b(c).length,o=u.has(c);return`<li class="${o?"is-open":""}">
+        <button type="button" class="ar-node${d===c?" is-current":""}${t?"":" is-empty"}" data-path="${c}" ${l?`aria-expanded="${o}"`:""}>
+          ${l?'<span class="ar-node__caret" aria-hidden="true">›</span>':""}
           <span class="ar-node__label">${r(a.en,a.zh)}</span>
-          <span class="ar-node__count">${l||""}</span>
+          <span class="ar-node__count">${t||""}</span>
         </button>
-        ${e?v(a.children,c,t+1):""}
+        ${l?E(a.children,c,e+1):""}
       </li>`}).join("")+"</ul>"}const y=s=>'<ul class="posts ar-list">'+s.map(n=>`
-    <li><a href="${p(E(n))}"><span class="posts__date">${r(n.month.en,n.month.zh)}</span><span class="posts__title">${p(n.title)}</span><span class="posts__arrow">→</span></a></li>`).join("")+"</ul>",j=typeof ARCHIVE_SECTIONS!="undefined"?ARCHIVE_SECTIONS:{},b=s=>String(s).padStart(2,"0"),C=s=>`
-    <a class="bcard" href="${p(E(s))}">
-      <span class="bcard__img">${s.cover?`<img src="${p(s.cover)}" alt="" loading="lazy" />`:""}</span>
+    <li><a href="${i(v(n))}"><span class="posts__date">${r(n.month.en,n.month.zh)}</span><span class="posts__title">${i(n.title)}</span><span class="posts__arrow">→</span></a></li>`).join("")+"</ul>",z=typeof ARCHIVE_SECTIONS!="undefined"?ARCHIVE_SECTIONS:{},$=s=>String(s).padStart(2,"0"),S=s=>`
+    <a class="bcard" href="${i(v(s))}">
+      <span class="bcard__img">${s.cover?`<img src="${i(s.cover)}" alt="" loading="lazy" />`:""}</span>
       <span class="bcard__body">
         <span class="bcard__meta">${r(s.month.en,s.month.zh)}</span>
-        <span class="bcard__title">${p(s.title)}</span>
+        <span class="bcard__title">${i(s.title)}</span>
         ${s.excerpt?`<span class="bcard__excerpt">${r(s.excerpt.en,s.excerpt.zh||s.excerpt.en)}</span>`:""}
       </span>
       <span class="bcard__arrow" aria-hidden="true">↗</span>
-    </a>`,S=s=>`
+    </a>`,w=s=>`
     <div class="bcard bcard--slot" aria-hidden="true">
-      <span class="bcard__img"><span class="bcard__num">${b(s)}</span></span>
+      <span class="bcard__img"><span class="bcard__num">${$(s)}</span></span>
       <span class="bcard__body">
         <span class="bcard__meta">${r("coming soon","即将更新")}</span>
         <span class="slot-line"></span><span class="slot-line slot-line--desc slot-line--short"></span>
       </span>
-    </div>`;function w(s,n){const t=s.perSection||4,a=s.sections.map((e,l)=>`<a href="#sec-${e.id}" class="ar-toc__item" data-sec="${e.id}"><b class="ar-toc__n">${b(l+1)}</b>${r(e.en,e.zh)}</a>`).join(""),c=s.sections.map((e,l)=>{const o=n.filter(_=>_.section===e.id),u=o.map(C);for(let _=o.length;_<t;_++)u.push(S(_+1));return`<section class="ar-sec" id="sec-${e.id}">
+    </div>`,T=(s,n)=>`
+    <a class="ncard" href="${i(v(s))}">
+      <span class="ncard__num">${$(n)}</span>
+      <span class="ncard__body">
+        <span class="ncard__meta">${r(s.month.en,s.month.zh)}</span>
+        <span class="ncard__title">${i(s.title)}</span>
+        ${s.excerpt?`<span class="ncard__excerpt">${r(s.excerpt.en,s.excerpt.zh||s.excerpt.en)}</span>`:""}
+        <span class="ncard__more">${r("read","阅读")} <i aria-hidden="true">→</i></span>
+      </span>
+    </a>`,H=s=>`
+    <div class="ncard ncard--slot" aria-hidden="true">
+      <span class="ncard__num">${$(s)}</span>
+      <span class="ncard__body">
+        <span class="ncard__meta">${r("coming soon","即将更新")}</span>
+        <span class="slot-line"></span><span class="slot-line slot-line--desc"></span><span class="slot-line slot-line--desc slot-line--short"></span>
+      </span>
+    </div>`;function R(s,n){const e=s.style!=="cards",a=s.perSection||4,c=s.sections.map((t,o)=>`<a href="#sec-${t.id}" class="ar-toc__item" data-sec="${t.id}"><b class="ar-toc__n">${$(o+1)}</b>${r(t.en,t.zh)}</a>`).join(""),l=s.sections.map((t,o)=>{const h=n.filter(p=>p.section===t.id),C=h.map((p,k)=>e?T(p,k+1):S(p));for(let p=h.length;p<a;p++)C.push(e?H(p+1):w(p+1));return`<section class="ar-sec" id="sec-${t.id}">
         <header class="ar-sec__head">
-          <span class="ar-sec__num">${b(l+1)}</span>
-          <h3 class="ar-sec__title">${r(e.en,e.zh)}</h3>
-          <span class="ar-sec__count">${o.length} / ${t}</span>
-          ${e.note?`<p class="ar-sec__note">${r(e.note.en,e.note.zh||e.note.en)}</p>`:""}
+          <span class="ar-sec__num">${$(o+1)}</span>
+          <h3 class="ar-sec__title">${r(t.en,t.zh)}</h3>
+          <span class="ar-sec__count">${h.length} / ${a}</span>
+          ${t.note?`<p class="ar-sec__note">${r(t.note.en,t.note.zh||t.note.en)}</p>`:""}
         </header>
-        <div class="ar-sec__grid">${u.join("")}</div>
-      </section>`}).join("");return`<nav class="ar-toc" aria-label="sections">${a}</nav>${c}`}const T=()=>`<p class="pj-empty ar-empty">${r("nothing here yet — stay tuned.","这里暂时还空着，敬请期待")}</p>`;function H(){const s=d[i],n=s.trail.map((c,e)=>{const l=s.trail.slice(0,e+1).map(o=>o.id).join("/");return e===s.trail.length-1?`<span>${r(c.en,c.zh)}</span>`:`<a href="#${l}">${r(c.en,c.zh)}</a>`}).join("<span>/</span>"),t=f(i);let a="";return j[i]?a=w(j[i],t):t.length?!s.children||!s.children.length?a=y(t):a=Object.values(d).filter(e=>e.path.startsWith(i+"/")&&!(e.children&&e.children.length)).map(e=>{const l=f(e.path);if(!l.length)return"";const o=e.trail.slice(s.trail.length);return`<section class="ar-group">
-          <h3 class="ar-group__title"><a href="#${e.path}">${o.map(u=>r(u.en,u.zh)).join(" · ")}</a><span class="pj-group__count">${l.length}</span></h3>
-          ${y(l)}
-        </section>`}).join(""):a=T(),`<p class="ar-crumb">${n}</p>
-      <h2 class="ar-title">${r(s.en,s.zh)} <span class="pj-group__count">${t.length||""}</span></h2>
-      ${a}`}function I(){g.innerHTML=v(ARCHIVE_TREE,"",0),$.innerHTML=H()}function m(s,n){d[s]||(s="ug"),i=s;const t=s.split("/");for(let a=1;a<=t.length;a++)h.add(t.slice(0,a).join("/"));n&&location.hash.slice(1)!==s&&history.pushState(null,"","#"+s),I()}g.addEventListener("click",s=>{const n=s.target.closest(".ar-node");if(!n)return;const t=n.dataset.path,a=d[t];i===t&&a.children&&a.children.length?(h.has(t)?h.delete(t):h.add(t),I()):m(t,!0),window.innerWidth<=820&&$.scrollIntoView({behavior:"smooth",block:"start"})}),$.addEventListener("click",s=>{const n=s.target.closest(".ar-toc__item");if(n){s.preventDefault();const a=document.getElementById("sec-"+n.dataset.sec);a&&window.scrollTo({top:a.getBoundingClientRect().top+scrollY-96,behavior:"smooth"});return}const t=s.target.closest('a[href^="#"]');t&&(s.preventDefault(),m(t.getAttribute("href").slice(1),!0))}),window.addEventListener("popstate",()=>m(decodeURIComponent(location.hash.slice(1))||"ug",!1)),m(decodeURIComponent(location.hash.slice(1))||"ug",!1)})();
+        <div class="ar-sec__grid${e?" ar-sec__grid--notes":""}">${C.join("")}</div>
+      </section>`}).join("");return`<nav class="ar-toc" aria-label="sections">${c}</nav>${l}`}const x=()=>`<p class="pj-empty ar-empty">${r("nothing here yet — stay tuned.","这里暂时还空着，敬请期待")}</p>`;function L(){const s=_[d],n=s.trail.map((c,l)=>{const t=s.trail.slice(0,l+1).map(o=>o.id).join("/");return l===s.trail.length-1?`<span>${r(c.en,c.zh)}</span>`:`<a href="#${t}">${r(c.en,c.zh)}</a>`}).join("<span>/</span>"),e=b(d);let a="";return z[d]?a=R(z[d],e):e.length?!s.children||!s.children.length?a=y(e):a=Object.values(_).filter(l=>l.path.startsWith(d+"/")&&!(l.children&&l.children.length)).map(l=>{const t=b(l.path);if(!t.length)return"";const o=l.trail.slice(s.trail.length);return`<section class="ar-group">
+          <h3 class="ar-group__title"><a href="#${l.path}">${o.map(h=>r(h.en,h.zh)).join(" · ")}</a><span class="pj-group__count">${t.length}</span></h3>
+          ${y(t)}
+        </section>`}).join(""):a=x(),`<p class="ar-crumb">${n}</p>
+      <h2 class="ar-title">${r(s.en,s.zh)} <span class="pj-group__count">${e.length||""}</span></h2>
+      ${a}`}function j(){f.innerHTML=E(ARCHIVE_TREE,"",0),m.innerHTML=L()}function g(s,n){_[s]||(s="ug"),d=s;const e=s.split("/");for(let a=1;a<=e.length;a++)u.add(e.slice(0,a).join("/"));n&&location.hash.slice(1)!==s&&history.pushState(null,"","#"+s),j()}f.addEventListener("click",s=>{const n=s.target.closest(".ar-node");if(!n)return;const e=n.dataset.path,a=_[e];d===e&&a.children&&a.children.length?(u.has(e)?u.delete(e):u.add(e),j()):g(e,!0),window.innerWidth<=820&&m.scrollIntoView({behavior:"smooth",block:"start"})}),m.addEventListener("click",s=>{const n=s.target.closest(".ar-toc__item");if(n){s.preventDefault();const a=document.getElementById("sec-"+n.dataset.sec);a&&window.scrollTo({top:a.getBoundingClientRect().top+scrollY-96,behavior:"smooth"});return}const e=s.target.closest('a[href^="#"]');e&&(s.preventDefault(),g(e.getAttribute("href").slice(1),!0))}),window.addEventListener("popstate",()=>g(decodeURIComponent(location.hash.slice(1))||"ug",!1)),g(decodeURIComponent(location.hash.slice(1))||"ug",!1)})();
