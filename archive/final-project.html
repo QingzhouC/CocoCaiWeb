@@ -44,15 +44,15 @@
       <p class="post__note t-zh">这篇文章写于在学校的课程期间，原文是英文。</p>
     </div>
     <article class="prose">
-<h2>Project: Dream Transmitter<a href="#project-dream-transmitter"></a></h2>
-<h3>Inspired example: Single Node + Cloud / Database System<a href="#inspired-example-single-node--cloud--database-system"></a></h3>
+<h2>Project: Dream Transmitter</h2>
+<h3>Inspired example: Single Node + Cloud / Database System</h3>
 <p>In Week 3, we were introduced to a wide range of example systems exploring collective behaviour through different technical and conceptual approaches. These examples included simulated multi-node systems, participatory installations, environmental sensing sculptures, and hybrid data-driven installations. Each example demonstrated a different way of understanding how “collective systems” can be constructed through computation.</p>
 <p>After comparing these options, I chose the <strong>Single Node + Cloud / Database</strong> approach as the conceptual direction for my project.</p>
 <hr/>
-<h2>Concept Overview<a href="#concept-overview"></a></h2>
+<h2>Concept Overview</h2>
 <p>The central idea of Dream Transmitter is to create a physical system where dreams become a medium for emotional communication. Each ESP32-S3 node represents a “dreamer,” capable of expressing its current emotional state through light, touch, and motion. The goal was to explore how individual emotional inputs could be captured, interpreted, and collectively visualized, forming a networked system of shared experiences.</p>
 <hr/>
-<h3>Critical Questions<a href="#critical-questions"></a></h3>
+<h3>Critical Questions</h3>
 <ol>
 <li><strong>How does data aggregation shape collective understanding?</strong></li>
 </ol>
@@ -72,7 +72,7 @@
 <p>Building a Baseline: Public databases create the “norm.” If 1,000 people contribute to an “Anxious” database and their average interval is 100ms, that number becomes the shared knowledge of what “Anxiety” is. Anyone whose data falls outside that norm might be classified as “abnormal” by the system.</p>
 <p>Democratizing Emotion: Conversely, these databases allow for a shared vocabulary. By using open-source tools (like the FS.h and SD.h libraries), I am using a shared technical language to construct a new type of emotional knowledge that isn’t just felt, but is transmissible, verifiable, and programmable.By turning a physical touch into a labeled CSV file, I am participating in the translation of human “Dreams” into “Data,” a process that inherently involves choosing what to keep, what to label, and how to define collective human experience.</p>
 <hr/>
-<h3>Defining Emotional Inputs<a href="#defining-emotional-inputs"></a></h3>
+<h3>Defining Emotional Inputs</h3>
 <p>The first design decision was to choose the type of user input that would represent emotion. I considered:</p>
 <ul>
 <li><strong>Touch rhythm:</strong> Intuitive and easy for users to interact with.</li>
@@ -80,7 +80,7 @@
 </ul>
 <p>I decided to focus on touch input because it directly translates into a temporal signal that TinyML can classify. This allowed me to prototype the system without overcomplicating sensor integration.</p>
 <hr/>
-<h3>Mapping Touch to Emotional States<a href="#mapping-touch-to-emotional-states"></a></h3>
+<h3>Mapping Touch to Emotional States</h3>
 <p>To transform touch data into meaningful emotional information, I designed a TinyML model. The thought process was:</p>
 <ol>
 <li><strong>Capture rhythm patterns</strong> through temporal intervals between touch events.</li>
@@ -89,7 +89,7 @@
 </ol>
 <p>The key idea was to use tempo and intensity of touches as a proxy for emotional state. This step ensured that abstract feelings could be quantified and processed computationally.</p>
 <hr/>
-<h3>Physical Representation of Dreams<a href="#physical-representation-of-dreams"></a></h3>
+<h3>Physical Representation of Dreams</h3>
 <p>Once the emotional category is determined, I needed a physical manifestation of the dream. My design decisions included:</p>
 <ul>
 <li><strong>Servo motors:</strong> Each motor represents a “dream node” and produces movement corresponding to the detected emotion.</li>
@@ -98,7 +98,7 @@
 </ul>
 <p>By combining motion and light, I aimed to create an embodied experience where users can “see and feel” the dream state.</p>
 <hr/>
-<h3>System Architecture<a href="#system-architecture"></a></h3>
+<h3>System Architecture</h3>
 <p>The system architecture was carefully planned:</p>
 <ol>
 <li><strong>Single ESP32-S3 as central controller</strong> to simplify network management.</li>
@@ -110,12 +110,12 @@
 <p>This architecture allows the system to function as a <strong>single-node prototype</strong>, while leaving room for future expansion into a mesh network of multiple nodes.</p>
 <p><strong>Detailed documentationon Hardware and Wiring:</strong> <a href="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/blob/main/FinalProject/hardware/Readme.md?ref_type=heads" rel="noopener" target="_blank">Click this link for more information on detailed hardware explaination</a></p>
 <hr/>
-<h2>Design<a href="#design"></a></h2>
+<h2>Design</h2>
 <p>This diagram illustrates a touch-based interaction system in which a single capacitive touch sensor is connected to four origami-based output nodes.</p>
 <figure><a href="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/media/Design.jpg?ref_type=heads" rel="noopener" target="_blank"><img alt="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/media/Design.jpg?ref_type=heads" loading="lazy" src="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/media/Design.jpg?ref_type=heads"/></a></figure>
 <p>The user’s touch rhythm, such as single taps, sustained presses, or repeated gestures is interpreted as an expressive input rather than a simple trigger. Based on the temporal pattern of the touch interaction, different origami pieces are activated and set into motion via servo motors. Each origami element represents a distinct dream state, allowing abstract emotional rhythms to be translated into visible and physical movement.</p>
 <hr/>
-<h3>Circuit Design<a href="#circuit-design"></a></h3>
+<h3>Circuit Design</h3>
 <p><a href="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/media/Wiring2.jpg" rel="noopener" target="_blank"></a> The diagram shown above was designed using Wokwi, which allows me to visualise the physical connections for my Dream Transmitter system. In the diagram, a single XIAO-ESP32-S3 microcontroller acts as the central processing unit. It is connected to: </p>
 <p>• A capacitive touch sensor (TTP223) as the user input </p>
 <p>• Four servo motors, each driving a separate origami piece </p>
@@ -124,20 +124,20 @@
 <p>An important design consideration in this circuit is servo power supply. Standard servo motors are typically designed to operate at approximately 5 V and can draw relatively high current during movement or when under mechanical load. This current demand often exceeds what a microcontroller’s onboard 3.3 V regulator or GPIO power rail can safely provide. Therefore, servos should be powered using an external 5 V supply, while only the control signal is driven by the microcontroller. This approach prevents voltage drops, unstable behaviour, and potential damage to the ESP32 [1][2].</p>
 <p>To address this, I used an external 5V power supply (represented by an Arduino Uno power source in Wokwi) to provide stable current to the servo motors, while the servos still share a common ground with the XIAO-ESP32-S3. This configuration ensures that the servo motors perform reliably while the logic signals from the ESP32 remain valid and referenced correctly.</p>
 <hr/>
-<h3>Common ground<a href="#common-ground"></a></h3>
+<h3>Common ground</h3>
 <p>To ensure reliable signal communication, all components in the system—including the ESP32, external 5 V power supply, servo motors, and LED modules must share a common ground. Without a shared electrical reference, control signals may become unstable or unreadable, leading to erratic servo motion or communication failure. This is a standard requirement in mixed-voltage embedded systems [3].</p>
 <hr/>
-<h3>Touch sensor placeholder<a href="#touch-sensor-placeholder"></a></h3>
+<h3>Touch sensor placeholder</h3>
 <p>The circuit diagram uses a conceptual placeholder for the capacitive touch sensor because Wokwi does not provide a native TTP223 component. In the physical implementation, the TTP223 module is connected to a digital GPIO input on the ESP32, where it outputs a HIGH/LOW signal corresponding to touch detection. The placeholder is used purely for schematic clarity and does not affect the real-world wiring logic [4].</p>
 <p>This circuit layout supports the overall system design by separating power domains (logic vs. actuator power) while maintaining signal integrity and allowing the microcontroller to focus on real-time processing, classification, and actuator control.</p>
 <hr/>
-<h3>Origami Design<a href="#origami-design"></a></h3>
+<h3>Origami Design</h3>
 <p>In addition to touch rhythm and light-based feedback, I decided to introduce an origami-based visualisation driven by servo motors as a physical and embodied representation of emotional data. Origami was chosen because folding and unfolding inherently convey states such as tension, release, openness, and fragility, which closely align with emotional expression. Unlike screen-based visualisation, the moving paper structure offers a tactile and spatial presence that encourages slower, more contemplative engagement.</p>
 <p>The origami structure is controlled by servo motors, which respond to real-time data received from the touch sensor. Variations in touch intensity and rhythm are translated into different folding behaviours, such as gradual opening, rapid contraction, or subtle trembling movements. This mapping allows abstract emotional input to be perceived through material transformation, rather than symbolic representation alone.</p>
 <p>This design approach is informed by research in tangible and embodied interaction, which argues that physical manipulation and material feedback can deepen users’ emotional understanding and engagement with digital systems. Ishii and Ullmer’s concept of Tangible Bits highlights how coupling digital information with physical form can make data more intuitive and meaningful to users [5]. Similarly, prior work in kinetic art and interactive origami demonstrates how movement and material behaviour can communicate affective states without relying on explicit language or imagery [6].</p>
 <p>By integrating origami visualisation alongside light and touch interaction, the system shifts from a purely reactive interface toward a performative and expressive object. The moving paper does not “display” emotion in a literal sense, but instead enacts it, allowing users to interpret emotional states through motion, rhythm, and material response. This aligns with my broader aim of designing interaction that prioritises emotional resonance over efficiency or precision.</p>
 <hr/>
-<h3>Physical Output and Emotional Representation<a href="#physical-output-and-emotional-representation"></a></h3>
+<h3>Physical Output and Emotional Representation</h3>
 <p>The origami elements in this project function as tangible, kinetic outputs that translate classified emotional states into visible and embodied movement. Rather than designing abstract mechanical forms, I intentionally chose hand-folded origami structures as the physical medium, as origami carries associations with care, repetition, patience, and emotional regulation. These qualities align closely with the project’s exploration of internal emotional rhythms and dream-like states.</p>
 <p>To develop these forms, I studied and followed four online origami tutorials, each presenting a different type of transformable or interactive folding structure. Through this learning process, I focused not only on the final visual outcome, but also on how each origami object responds to pulling, tension, repetition, and continuous motion, which are critical when driven by servo motors.</p>
 <p>The first and second tutorials introduced a classic infinite flipper (also known as an “endless flip” origami), which repeatedly opens and collapses through a simple rotational motion. This structure strongly influenced the design for emotional states such as anxiety and confusion, as its rapid, looping transformation visually echoes repetitive thought patterns and restlessness. Its continuous reversibility also made it mechanically suitable for servo-driven oscillation.[7][8]</p>
@@ -146,29 +146,29 @@
 <figure><a href="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/media/Origami.JPG" rel="noopener" target="_blank"><img alt="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/media/Origami.JPG" loading="lazy" src="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/media/Origami.JPG"/></a></figure>
 <p>By learning from these four sources, I was able to compare multiple folding logics—looping, flipping, expanding, and contracting—and select forms that could be reliably integrated into a motor-driven interactive system. Each origami piece is physically attached to a servo motor, allowing classified emotional outputs from the TinyML model to be expressed as distinct kinetic behaviours rather than abstract numerical feedback. In this way, origami becomes both a material interface and an emotional metaphor, bridging digital classification and embodied experience.</p>
 <hr/>
-<h3>Assembly and Mechanical Design<a href="#assembly-and-mechanical-design"></a></h3>
+<h3>Assembly and Mechanical Design</h3>
 <p>To realise the motion of the four origami pieces in response to classified emotional states, I designed a compact and modular assembly method. All four origami structures are physically fixed onto a common support base, providing stability and consistent alignment during motor-driven movement. This arrangement ensures that each piece retains its intended orientation and motion range while remaining accessible for adjustments or replacement.</p>
 <figure><a href="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/media/Design2.jpg" rel="noopener" target="_blank"><img alt="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/media/Design2.jpg" loading="lazy" src="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/media/Design2.jpg"/></a></figure>
 <p>Each origami piece is then connected to its corresponding servo motor using thin, low-visibility thread or fishing line. The choice of fine thread serves multiple purposes: it minimally interferes with the visual aesthetics of the origami, preserves the delicate folding, and transmits the motion from the servo without significant slack or mechanical loss. By carefully adjusting the thread length and attachment points, each servo is able to pull, flip, or expand the origami in a controlled and predictable manner.</p>
 <p>This assembly design allows the system to convert the TinyML-classified emotional outputs into distinct kinetic behaviours, while keeping the mechanism lightweight, low-friction, and visually unobtrusive. The threads act as invisible linkages, creating the impression that the origami moves autonomously, while the underlying servo motors remain largely hidden from view.</p>
 <p>The modular nature of the setup also enables easy experimentation with different origami shapes, thread lengths, or motor speeds, supporting iterative refinement of the interaction between human touch rhythm, servo actuation, and physical emotional expression. This approach balances mechanical reliability, visual aesthetics, and interactivity, ensuring that the physical manifestation of emotion is both expressive and robust.</p>
 <hr/>
-<h2>Making and Prototype<a href="#making-and-prototype"></a></h2>
+<h2>Making and Prototype</h2>
 <p>Following the exploration and learning from the four online origami tutorials, I successfully folded all four origami pieces into their final forms. Each piece corresponds to a specific emotional state, designed to respond differently when actuated by its servo motor. The folding process allowed me to experiment with paper size, stiffness, and structural complexity, ensuring that each piece could reliably move without tearing or deforming under repeated motion. <a href="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/media/O1.JPG" rel="noopener" target="_blank"></a> <a href="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/media/O2.JPG" rel="noopener" target="_blank"></a> <a href="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/media/O3.JPG" rel="noopener" target="_blank"></a> <a href="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/media/O4.JPG" rel="noopener" target="_blank"></a></p>
 <p>After finalising the folding of all four origami pieces and determining their intended movements, I implemented a thread-based actuation system to translate the servo motor rotations into controlled origami motion. Each origami piece was first stitched around its perimeter with fine, low-visibility thread, forming a secure loop that could transmit pulling forces without damaging the paper.</p>
 <p>Next, the threads were routed through the base of each origami structure, allowing the servo motors to pull and release the pieces in a precise and repeatable manner. By carefully adjusting the thread lengths and attachment points, the system ensures that each origami moves according to the intended motion patterns—such as flipping, expanding, or rotating—while remaining visually unobtrusive.</p>
 <hr/>
-<h3>Base Making<a href="#base-making"></a></h3>
+<h3>Base Making</h3>
 <p>To allow each origami piece to move freely while remaining physically supported, I designed a modular compartmentalised base. Each origami is placed in its own small compartment, which both secures the piece and prevents lateral collisions during motion. Instead of fixing the origami directly to the bottom with glue, I implemented a thread-based actuation system that passes from the bottom of the compartment to the servo motor. Pulling the thread via servo rotation generates the desired flipping, expanding, or rotating motion, while the origami remains supported within its compartment. <a href="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/media/O5.JPG" rel="noopener" target="_blank"></a></p>
 <p>To accommodate the thread routing, each compartment has a small opening at its base, allowing the thread to exit unobstructed and connect to the servo. Additionally, I elevated the base using four legs—one at each corner—creating sufficient clearance under the compartments for the threads to run freely. This ensures the servo can transmit motion without interference from the base or the surface it is mounted on. <a href="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/media/O6.JPG" rel="noopener" target="_blank"></a></p>
 <p>A key consideration for this prototype was material reuse and sustainability. Instead of purchasing new fabrication materials, the compartments were constructed from recycled shoeboxes and paper bags, which provide both rigidity and lightweight support. The modular, elevated design allows easy assembly, thread routing, and maintenance, while keeping the system low-cost and environmentally friendly. <a href="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/media/RecycledMaterial.JPG" rel="noopener" target="_blank"></a> <a href="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/media/RecycledMaterial2.JPG" rel="noopener" target="_blank"></a> <a href="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/media/RecycledMaterial3.JPG" rel="noopener" target="_blank"></a></p>
 <p>This approach effectively balances structural stability, mechanical functionality, and sustainability, enabling each origami piece to move according to the TinyML-classified emotional input, while remaining visually and mechanically reliable.</p>
 <hr/>
-<h3>Aesthetic Design<a href="#aesthetic-design"></a></h3>
+<h3>Aesthetic Design</h3>
 <p>While the modular compartments effectively support the origami pieces mechanically, the raw shoebox and paper construction appeared visually plain and utilitarian. To enhance the aesthetic and better align the prototype with the dream-inspired theme, I repurposed stuffing from a discarded soft toy to decorate the compartments’ surroundings.</p>
 <p>The fluffy texture and irregular forms of the stuffing evoke cloud-like imagery, resonating with the conceptual focus on dreams and ephemeral mental states. This choice not only softens the visual appearance of the base but also creates a subtle, immersive metaphor, the origami pieces, representing different emotional states, appear to float within a “cloudy” dreamscape, enhancing the poetic and experiential quality of the prototype. <a href="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/media/O7.jpg" rel="noopener" target="_blank"></a></p>
 <hr/>
-<h2>Testing Touch Sensor Functionality<a href="#testing-touch-sensor-functionality"></a></h2>
+<h2>Testing Touch Sensor Functionality</h2>
 <p>After completing the wiring based on the Wokwi circuit diagram, I performed an initial test of the <strong>TTP223 capacitive touch sensor</strong> to verify correct connections and to familiarize myself with its digital output behaviour. Since this was my first time using a touch sensor with the ESP32-S3, I wrote a simple test sketch to monitor the sensor and control an LED indicator.[11][12]</p>
 <pre><code>const int touchPin = D1;  
 const int ledPin = D6;
@@ -197,7 +197,7 @@ void loop() {
 <p><strong>Link to Video:</strong> <a href="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/blob/main/FinalProject/media/SensorLED_test.MOV" rel="noopener" target="_blank">Click Here</a> (git)</p>
 <p><a href="https://drive.google.com/file/d/1cXsYbMrjJ-7vFbFKukU2q5IB57q6U-2I/view?usp=drive_link" rel="noopener" target="_blank">https://drive.google.com/file/d/1cXsYbMrjJ-7vFbFKukU2q5IB57q6U-2I/view?usp=drive_link</a></p>
 <hr/>
-<h3>Hardware Testing and Debugging<a href="#hardware-testing-and-debugging"></a></h3>
+<h3>Hardware Testing and Debugging</h3>
 <p>After writing the initial test code for the touch sensor, LEDs, and servo motors, I proceeded to create a more comprehensive test sketch to check that all components were wired correctly and could respond to touch input. The goal was to ensure that: • The TTP223 touch sensor could reliably detect touches. • All LEDs would light up according to touch input. • All servo motors would move as expected, simulating the origami actuation.</p>
 <p><strong>Link to code:</strong> <a href="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/blob/main/FinalProject/code/First_Prototype.ino" rel="noopener" target="_blank">Click Here</a></p>
 <p>During the first test run, I noticed that all servos were twitching immediately, even though the touch sensor had not been pressed. After careful troubleshooting, I discovered that the signal line from the touch sensor was loose, causing false readings and erratic servo behaviour. Once I properly secured the connection, the system behaved correctly: touching the sensor lights up all LEDs and moves the servos to 180°, while releasing the touch turns LEDs off and returns servos to 0°.</p>
@@ -224,7 +224,7 @@ void loop() {
 <p><strong>Link to video:</strong> <a href="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/blob/main/FinalProject/media/Firts_Prototype.MOV" rel="noopener" target="_blank">Click Here</a> (git)</p>
 <p><a href="https://drive.google.com/file/d/1ipHGy67jfXTBqfPmbKxBdwRIjtspbANi/view?usp=drive_link" rel="noopener" target="_blank">https://drive.google.com/file/d/1ipHGy67jfXTBqfPmbKxBdwRIjtspbANi/view?usp=drive_link</a></p>
 <hr/>
-<h3>Hardware Finalization<a href="#hardware-finalization"></a></h3>
+<h3>Hardware Finalization</h3>
 <p>After resolving the issues with the touch sensor connection and distinguishing between the 180° and 360° servos, I focused on fine-tuning the actuation limits and ensuring reliable performance across all hardware components.</p>
 <p>For each servo, I tested and adjusted the motion boundaries to match the desired range for the origami movement. This step was crucial, as over-rotating could damage the origami pieces or entangle the threads, while under-rotation would not produce the intended motion. Using incremental tests and careful observation, I set precise motion limits for all four servos.[16][17]</p>
 <p><strong>Link to video:</strong> <a href="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/blob/main/FinalProject/media/Prototype2.MOV" rel="noopener" target="_blank">Click Here</a> (git)</p>
@@ -240,7 +240,7 @@ void loop() {
 <p><strong>Link to code:</strong> <a href="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/blob/main/FinalProject/code/Second_Prototype.ino" rel="noopener" target="_blank">Click Here</a> (git)</p>
 <p><a href="https://drive.google.com/file/d/1whrO-zXq4EBpDteXXoRt3PuiTgVnTEdp/view?usp=drive_link" rel="noopener" target="_blank">https://drive.google.com/file/d/1whrO-zXq4EBpDteXXoRt3PuiTgVnTEdp/view?usp=drive_link</a></p>
 <hr/>
-<h3>Dream Data Collection on ESP32-S3<a href="#dream-data-collection-on-esp32-s3"></a></h3>
+<h3>Dream Data Collection on ESP32-S3</h3>
 <p>The ESP32-S3 touch sensor does <strong>not output “emotions” directly</strong>, but rather <strong>raw capacitive readings</strong>. These are integer values representing the sensor’s electrical response to proximity or touch:</p>
 <pre><code>touch_value = 742;
 touch_value = 701;
@@ -286,7 +286,7 @@ touch_value = 655;</code></pre>
 <ol></ol>
 <p><strong>Link to csv dataset:</strong> <a href="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/tree/main/FinalProject/Datasets" rel="noopener" target="_blank">Click Here</a></p>
 <hr/>
-<h3>TinyML Training Attempt<a href="#tinyml-training-attempt"></a></h3>
+<h3>TinyML Training Attempt</h3>
 <p>After collecting rhythm feature data from the ESP32-S3 touch sensor, I attempted to train a TinyML model to classify emotions based on touch patterns. The collected features included: </p>
 <p>• touch_count </p>
 <p>• avg_interval_ms </p>
@@ -303,7 +303,7 @@ touch_value = 655;</code></pre>
 <figure><a href="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/media/Screenshot%202026-01-07%20at%2023.11.42.png" rel="noopener" target="_blank"><img alt="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/media/Screenshot%202026-01-07%20at%2023.11.42.png" loading="lazy" src="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/media/Screenshot%202026-01-07%20at%2023.11.42.png"/></a></figure>
 <figure><a href="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/media/Screenshot%202026-01-07%20at%2023.11.56.png" rel="noopener" target="_blank"><img alt="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/media/Screenshot%202026-01-07%20at%2023.11.56.png" loading="lazy" src="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/media/Screenshot%202026-01-07%20at%2023.11.56.png"/></a></figure>
 <p>These limitations highlight the importance of collecting more diverse and larger datasets before the TinyML model can reliably predict emotional states from touch rhythm features. Future iterations will focus on increasing sample size and introducing more variation in user interactions to improve model accuracy.[18][19]</p>
-<h2>Final Outcome – Assembly<a href="#final-outcome--assembly"></a></h2>
+<h2>Final Outcome – Assembly</h2>
 <p>After completing the individual origami pieces and testing their movement mechanisms, I proceeded to assemble the final interactive setup. Each of the four origami pieces was carefully arranged in its own compartment within the upcycled boxes. Subtle, unobtrusive threads were used to connect the base of each origami to the corresponding servo motor.</p>
 <figure><a href="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/FinalOutcome_Video/VisualPart.JPG" rel="noopener" target="_blank"><img alt="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/FinalOutcome_Video/VisualPart.JPG" loading="lazy" src="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/FinalOutcome_Video/VisualPart.JPG"/></a></figure>
 <figure><a href="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/FinalOutcome_Video/VisualPart2.JPG" rel="noopener" target="_blank"><img alt="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/FinalOutcome_Video/VisualPart2.JPG" loading="lazy" src="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/FinalOutcome_Video/VisualPart2.JPG"/></a></figure>
@@ -311,7 +311,7 @@ touch_value = 655;</code></pre>
 <figure><a href="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/FinalOutcome_Video/IMG_7477.JPG" rel="noopener" target="_blank"><img alt="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/FinalOutcome_Video/IMG_7477.JPG" loading="lazy" src="https://git.soton.ac.uk/qc3g24/appliedprogramming/-/raw/main/FinalProject/FinalOutcome_Video/IMG_7477.JPG"/></a></figure>
 <p>Finally, all four origami pieces were integrated into a single cohesive arrangement. Each thread was connected to its corresponding servo motor, forming the complete assembly. The setup provides a visually unified structure, where all elements are physically connected to the motors while remaining aesthetically arranged within the upcycled boxes.</p>
 <hr/>
-<h2>Final System Behavior<a href="#final-system-behavior"></a></h2>
+<h2>Final System Behavior</h2>
 <p>Due to the limited amount of collected data, the TinyML-based emotion classification was not successful. Therefore, the final system focuses on <strong>recording user touch behaviour</strong> and providing <strong>visual feedback through LEDs and servo motors</strong>.</p>
 <p>The ESP32-S3 monitors a TTP223 touch sensor (connected to D1). When the user touches the sensor:</p>
 <ul>
@@ -345,13 +345,13 @@ touch_value = 655;</code></pre>
 <p><a href="https://drive.google.com/file/d/11F7hTNCiKIqlzujQFMoNenakD9ilnCXt/view?usp=drive_link" rel="noopener" target="_blank">https://drive.google.com/file/d/11F7hTNCiKIqlzujQFMoNenakD9ilnCXt/view?usp=drive_link</a></p>
 <p><a href="https://drive.google.com/file/d/1vdIGrmVSZPp8rVoOPhPuxxquIK4GeTnP/view?usp=drive_link" rel="noopener" target="_blank">https://drive.google.com/file/d/1vdIGrmVSZPp8rVoOPhPuxxquIK4GeTnP/view?usp=drive_link</a></p>
 <hr/>
-<h2>Reflection<a href="#reflection"></a></h2>
+<h2>Reflection</h2>
 <p>Working on this Dream Transmitter project has been an insightful journey into interactive electronics, physical computing, and experiential design. One of the key challenges was translating abstract concepts such as “dreams” and “emotion” into tangible, mechanical movements. Initially, I aimed to classify user touch patterns with TinyML to generate emotions, but limited data and high similarity between recordings made the classification unreliable. This led me to rethink the project’s focus, shifting towards rhythm-based interaction and feedback.</p>
 <p>Through hands-on experimentation with the ESP32-S3, servos, LEDs, and the TTP223 touch sensor, I learned the importance of power management, signal stability, and the subtle differences between 180° and 360° servos. Wiring multiple servos, debugging the erratic movements, and ensuring proper thread control of the origami pieces reinforced my understanding of both electronics and mechanical design.</p>
 <p>The iterative prototyping process—making origami, connecting them with threads to the servos, building compartments with recycled materials, and decorating with cotton to evoke clouds—allowed me to merge technical precision with aesthetic considerations. I discovered that thoughtful physical design is just as important as functional electronics when creating immersive experiences.</p>
 <p>Finally, the project emphasized the value of flexibility and adaptation. Although the TinyML classification did not succeed, the revised system still provides meaningful interaction: users can physically express their touch rhythms, see visual and mechanical responses, and generate a tangible record of their “dream session.” This outcome demonstrates that learning often comes not just from achieving the original plan, but from responding creatively to challenges and embracing unexpected solutions.</p>
 <hr/>
-<h2>Future Work<a href="#future-work"></a></h2>
+<h2>Future Work</h2>
 <p>In the future, I plan to enhance the Dream Transmitter system in several ways:</p>
 <ol>
 <li><strong>Improved Touch Analysis and TinyML Integration</strong>
@@ -387,7 +387,7 @@ touch_value = 655;</code></pre>
 </ol>
 <p>By pursuing these directions, I hope to make the Dream Transmitter not only a technical project, but also a platform for exploring emotion, rhythm, and human-machine empathy in a tangible, playful way.</p>
 <hr/>
-<h2>References<a href="#references"></a></h2>
+<h2>References</h2>
 <pre><code>•	[1] Arduino Documentation. Servo Motor Basics and Power Requirements.https://docs.arduino.cc/learn/electronics/servo-motors
 •	[2] TowerPro. SG90 Micro Servo Datasheet.https://components101.com/sites/default/files/component_datasheet/SG90%20Servo%20Motor%20Datasheet.pdf
 •	[3] Monk, S. (2016). Programming Arduino: Getting Started with Sketches (2nd ed.). McGraw-Hill Education.
